@@ -20,7 +20,7 @@ class ClassificationRequest(BaseModel):
 def load_classifier():
     global classifier
     adapter = os.getenv("EDGESLM_ADAPTER", str(DEFAULT_ADAPTER))
-    classifier = DocumentClassifier(adapter_path=Path(adapter))
+    classifier = DocumentClassifier(adapter_path=adapter)
 
 
 @app.get("/health")
