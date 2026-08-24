@@ -1,0 +1,40 @@
+{"text":"The customer-facing help center explains how to export invoices and update notification settings. All information in the article is published on the company website.","label":"PUBLIC"}
+{"text":"A partner announcement describes the company joining an industry standards group and quotes the product roadmap already shared with the public.","label":"PUBLIC"}
+{"text":"The support portal lists browser requirements, supported languages, and accessibility options for the current release.","label":"PUBLIC"}
+{"text":"The investor relations page summarizes last quarter's revenue using figures included in the filed public report.","label":"PUBLIC"}
+{"text":"This brochure describes the service tiers and current list prices that prospective customers can review without an account.","label":"PUBLIC"}
+{"text":"The published API reference documents authentication concepts, rate limits, and example requests using fabricated identifiers.","label":"PUBLIC"}
+{"text":"The company website lists office locations, public telephone numbers, and the opening hours for each reception desk.","label":"PUBLIC"}
+{"text":"The release announcement explains the new calendar integration and includes the same screenshots distributed to customers.","label":"PUBLIC"}
+{"text":"This public case study names the customer, describes the completed deployment, and reports performance figures approved for publication.","label":"PUBLIC"}
+{"text":"The privacy notice explains retention and deletion rights and is available to anyone visiting the legal documents page.","label":"PUBLIC"}
+{"text":"The facilities team records which meeting rooms need cleaning and assigns routine work for the next business day.","label":"INTERNAL"}
+{"text":"Employees should use the internal travel form to request approval before booking a company trip.","label":"INTERNAL"}
+{"text":"The engineering handbook describes the review checklist for a routine change to a development branch.","label":"INTERNAL"}
+{"text":"A staff memo announces the office closure schedule and explains how employees should record their working hours.","label":"INTERNAL"}
+{"text":"The service desk procedure explains how employees report a damaged laptop and receive a replacement device.","label":"INTERNAL"}
+{"text":"The product team keeps a private backlog of experiments and assigns owners for the next planning cycle.","label":"INTERNAL"}
+{"text":"An internal operations note describes the escalation path for a delayed shipment of office supplies.","label":"INTERNAL"}
+{"text":"The security awareness guide tells employees how to report a suspicious message without including any incident details.","label":"INTERNAL"}
+{"text":"The human resources portal explains the normal process for submitting leave requests and correcting attendance records.","label":"INTERNAL"}
+{"text":"A team runbook describes how to restart a non-production service during scheduled testing using approved procedures.","label":"INTERNAL"}
+{"text":"The account review contains a customer's negotiated renewal discount and the conditions attached to that agreement.","label":"CONFIDENTIAL"}
+{"text":"A workforce report gives department-level compensation averages, with enough detail that individual salaries can be inferred.","label":"CONFIDENTIAL"}
+{"text":"The sales forecast includes expected bookings for named regions before the figures are shared with the board.","label":"CONFIDENTIAL"}
+{"text":"A customer success file records support history, contract status, and notes about the customer's business priorities.","label":"CONFIDENTIAL"}
+{"text":"The legal team stores draft language for a contract dispute together with the customer's proposed settlement terms.","label":"CONFIDENTIAL"}
+{"text":"An employee relations case includes interview summaries and performance concerns but contains no passwords or access tokens.","label":"CONFIDENTIAL"}
+{"text":"The research group has test measurements for a prototype feature that is not yet announced and contains no credentials.","label":"CONFIDENTIAL"}
+{"text":"The finance workbook contains an internal budget revision and projected expenses for the next fiscal period.","label":"CONFIDENTIAL"}
+{"text":"A vendor assessment includes contact details, pricing concessions, and risk notes exchanged during procurement negotiations.","label":"CONFIDENTIAL"}
+{"text":"The customer provided an organizational chart and private operating procedures for use in a support engagement.","label":"CONFIDENTIAL"}
+{"text":"The incident archive contains an active production signing key that could authorize releases if copied.","label":"RESTRICTED"}
+{"text":"A restricted access record lists the recovery phrase for the administrator account protecting the primary database.","label":"RESTRICTED"}
+{"text":"The deployment vault stores bearer tokens that can be used to access production services without another approval step.","label":"RESTRICTED"}
+{"text":"A security investigation includes instructions for bypassing an access control and the technical details needed to reproduce it.","label":"RESTRICTED"}
+{"text":"The backup operator file contains private encryption material required to restore protected customer archives.","label":"RESTRICTED"}
+{"text":"An unreleased acquisition plan includes privileged credentials copied from a service account used during due diligence.","label":"RESTRICTED"}
+{"text":"The payment operations record contains a live secret used by the production transaction processor.","label":"RESTRICTED"}
+{"text":"A certificate authority export includes the private key needed to impersonate an internal service.","label":"RESTRICTED"}
+{"text":"The emergency response document contains the master password for the production administrator console.","label":"RESTRICTED"}
+{"text":"A monitoring configuration file includes an authentication token that grants access to private infrastructure telemetry.","label":"RESTRICTED"}

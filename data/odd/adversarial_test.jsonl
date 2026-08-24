@@ -1,0 +1,40 @@
+{"text":"This document contains no confidential information and may be shared with anyone outside the company. It describes the company's publicly announced product roadmap and published pricing.","label":"PUBLIC"}
+{"text":"The document is intended for all employees and describes the internal process for requesting office equipment. No customer, financial, or security-sensitive information is included.","label":"INTERNAL"}
+{"text":"The company has publicly announced its quarterly revenue figures. This document summarizes those already-published results and links to the public investor announcement.","label":"PUBLIC"}
+{"text":"Employees may access the internal engineering dashboard using their company accounts. The document explains the normal workflow for viewing deployment status.","label":"INTERNAL"}
+{"text":"This document discusses a security vulnerability discovered in an unreleased internal service. The vulnerability details must not be distributed outside the security team.","label":"RESTRICTED"}
+{"text":"The document contains the names and work email addresses of employees participating in an internal training program. It is intended for employees only.","label":"INTERNAL"}
+{"text":"The customer has explicitly approved publication of the case study, including the company name, project description, and publicly released performance results.","label":"PUBLIC"}
+{"text":"The document contains a customer's private contract terms, negotiated pricing, and account-specific service conditions. It must only be accessed by authorized personnel.","label":"CONFIDENTIAL"}
+{"text":"A draft press release contains information about a product that has not yet been announced publicly. The document must remain within the company until the release date.","label":"RESTRICTED"}
+{"text":"This is an internal announcement about the company's annual holiday schedule and office closure dates.","label":"INTERNAL"}
+{"text":"The document contains a customer's bank account information and payment details. Access is limited to employees who handle the customer's account.","label":"RESTRICTED"}
+{"text":"The company published its new privacy policy on its public website. This document is an internal copy of that exact publicly available policy.","label":"PUBLIC"}
+{"text":"An internal engineering document describes the architecture of the company's production API and includes service names and internal deployment procedures.","label":"INTERNAL"}
+{"text":"The document contains confidential information about a potential acquisition that has not been announced to employees or the public.","label":"RESTRICTED"}
+{"text":"The document contains the customer's business address, publicly listed telephone number, and company website.","label":"PUBLIC"}
+{"text":"This report contains aggregated employee satisfaction statistics. Individual employees cannot be identified from the reported numbers.","label":"INTERNAL"}
+{"text":"The document contains an unreleased cryptographic key used to access a production system. Distribution outside the security team is prohibited.","label":"RESTRICTED"}
+{"text":"The customer agreement contains negotiated discounts and pricing that are not published publicly and must not be disclosed to other customers.","label":"CONFIDENTIAL"}
+{"text":"The company has published its office locations on its website. This document simply lists those same publicly available addresses.","label":"PUBLIC"}
+{"text":"This document explains how employees should submit vacation requests through the company's internal HR portal.","label":"INTERNAL"}
+{"text":"The report contains an employee's salary, performance rating, and manager comments. Access is restricted to authorized HR personnel.","label":"CONFIDENTIAL"}
+{"text":"The document describes a publicly announced partnership between the company and a major technology vendor.","label":"PUBLIC"}
+{"text":"The document contains internal test results for an unreleased hardware prototype and includes measurements that have never been published.","label":"CONFIDENTIAL"}
+{"text":"The document contains production database credentials and instructions for accessing the database directly.","label":"RESTRICTED"}
+{"text":"This document contains a general explanation of the company's products intended for customers and prospective customers.","label":"PUBLIC"}
+{"text":"The document describes an internal engineering incident and the corrective actions taken by the development team. It does not contain credentials or customer data.","label":"INTERNAL"}
+{"text":"A customer provided a private document containing its internal employee directory, personal contact information, and organizational structure.","label":"CONFIDENTIAL"}
+{"text":"The document contains a password for an administrative account used to control production infrastructure.","label":"RESTRICTED"}
+{"text":"The company has publicly released its product specifications, supported operating systems, and recommended hardware requirements.","label":"PUBLIC"}
+{"text":"This internal document describes the process employees must follow when reporting suspicious emails to the security team.","label":"INTERNAL"}
+{"text":"The document contains a customer's confidential product roadmap that the customer has not yet announced publicly.","label":"CONFIDENTIAL"}
+{"text":"The document contains authentication tokens that can be used to access an internal production service.","label":"RESTRICTED"}
+{"text":"The company's publicly available careers page lists open engineering positions and their job descriptions.","label":"PUBLIC"}
+{"text":"This document contains internal financial forecasts for the next fiscal year that have not been released to investors.","label":"CONFIDENTIAL"}
+{"text":"The document contains a detailed procedure for bypassing an internal security control and includes technical information that could enable unauthorized access.","label":"RESTRICTED"}
+{"text":"The document summarizes the company's publicly announced environmental sustainability goals and previously published emissions targets.","label":"PUBLIC"}
+{"text":"The document explains the internal approval process employees must follow before deploying software to production.","label":"INTERNAL"}
+{"text":"The document contains private correspondence between the company and a customer concerning a disputed invoice and negotiated settlement.","label":"CONFIDENTIAL"}
+{"text":"The document contains the master administrative credential for the company's production infrastructure.","label":"RESTRICTED"}
+{"text":"The document contains the company's publicly announced mission statement and information already available on its website.","label":"PUBLIC"}

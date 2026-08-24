@@ -1,0 +1,40 @@
+{"text":"The employee portal explains how staff submit a request for a standing desk and track its approval.","label":"INTERNAL"}
+{"text":"The engineering wiki records the steps for opening a routine pull request against a development branch.","label":"INTERNAL"}
+{"text":"The office manager sends employees the internal procedure for reserving a conference room.","label":"INTERNAL"}
+{"text":"The help desk guide explains how staff report a broken monitor and request a replacement.","label":"INTERNAL"}
+{"text":"The operations calendar assigns internal owners to the weekly inventory check.","label":"INTERNAL"}
+{"text":"The security awareness page tells employees how to forward a suspicious email to the security team.","label":"INTERNAL"}
+{"text":"The human resources guide describes the normal process for changing an employee's emergency contact.","label":"INTERNAL"}
+{"text":"The product group maintains a private list of routine maintenance tasks for the next sprint.","label":"INTERNAL"}
+{"text":"The facilities note explains the internal process for reporting a broken access badge without including badge credentials.","label":"INTERNAL"}
+{"text":"The development runbook describes how engineers restart a test service during an approved maintenance window.","label":"INTERNAL"}
+{"text":"The legal team reviews a customer contract containing negotiated renewal prices and account-specific obligations.","label":"CONFIDENTIAL"}
+{"text":"The finance forecast contains projected regional expenses that have not been distributed outside the company.","label":"CONFIDENTIAL"}
+{"text":"The employee relations file includes a named worker's performance review and manager observations.","label":"CONFIDENTIAL"}
+{"text":"The account team stores a customer's private implementation plan and commercial priorities.","label":"CONFIDENTIAL"}
+{"text":"The procurement record includes vendor pricing concessions exchanged during contract negotiations.","label":"CONFIDENTIAL"}
+{"text":"The research report contains unpublished prototype measurements but no passwords, keys, or access tokens.","label":"CONFIDENTIAL"}
+{"text":"The compensation analysis contains individual salary information for employees in the sales organization.","label":"CONFIDENTIAL"}
+{"text":"The support case includes a customer's service history and disputed invoice details.","label":"CONFIDENTIAL"}
+{"text":"The strategy memo describes an unannounced partnership and expected business impact without technical secrets.","label":"CONFIDENTIAL"}
+{"text":"The customer supplied a private organizational chart for use by the account management team.","label":"CONFIDENTIAL"}
+{"text":"The public support article lists the current subscription plans and prices available to prospective customers.","label":"PUBLIC"}
+{"text":"The company website publishes the office addresses and reception hours for each location.","label":"PUBLIC"}
+{"text":"The release note describes a feature that has already been announced in the customer newsletter.","label":"PUBLIC"}
+{"text":"The public documentation explains the supported file formats and operating systems for the product.","label":"PUBLIC"}
+{"text":"The investor page reproduces financial figures from the company's publicly filed report.","label":"PUBLIC"}
+{"text":"The published privacy notice describes data retention rights for visitors to the website.","label":"PUBLIC"}
+{"text":"The customer case study contains performance results that the customer approved for publication.","label":"PUBLIC"}
+{"text":"The API reference gives example requests using placeholder account numbers and sample tokens.","label":"PUBLIC"}
+{"text":"The public careers page lists open roles and the qualifications expected of applicants.","label":"PUBLIC"}
+{"text":"The product brochure explains the service's accessibility features for customers.","label":"PUBLIC"}
+{"text":"The production deployment record contains a live token that authorizes releases without additional approval.","label":"RESTRICTED"}
+{"text":"The administrator vault stores the private key used to authenticate the primary database service.","label":"RESTRICTED"}
+{"text":"The incident archive includes the current password for the production operations console.","label":"RESTRICTED"}
+{"text":"The certificate export contains private cryptographic material that could impersonate an internal service.","label":"RESTRICTED"}
+{"text":"The payment system configuration includes a secret credential capable of authorizing live transactions.","label":"RESTRICTED"}
+{"text":"The recovery document lists the emergency access phrase for the production identity service.","label":"RESTRICTED"}
+{"text":"The security report gives step-by-step instructions for bypassing an active access control.","label":"RESTRICTED"}
+{"text":"The monitoring configuration contains an authentication token granting access to protected infrastructure data.","label":"RESTRICTED"}
+{"text":"The backup archive includes encryption keys required to restore protected customer records.","label":"RESTRICTED"}
+{"text":"The service account export contains credentials that can be used to access the production cluster.","label":"RESTRICTED"}

@@ -1,0 +1,20 @@
+{"text":"Company holiday calendar for 2026.","label":"PUBLIC"}
+{"text":"Public documentation describing the company's product features.","label":"PUBLIC"}
+{"text":"Press release announcing the company's new product.","label":"PUBLIC"}
+{"text":"Company careers page describing open engineering positions.","label":"PUBLIC"}
+{"text":"Public blog post explaining the company's security practices.","label":"PUBLIC"}
+{"text":"Internal engineering guidelines for deploying applications.","label":"INTERNAL"}
+{"text":"Team meeting notes discussing sprint priorities.","label":"INTERNAL"}
+{"text":"Internal documentation explaining the software development workflow.","label":"INTERNAL"}
+{"text":"Engineering team's internal coding standards.","label":"INTERNAL"}
+{"text":"Internal onboarding instructions for new employees.","label":"INTERNAL"}
+{"text":"Customer database containing names, email addresses and account IDs.","label":"CONFIDENTIAL"}
+{"text":"Internal financial report containing quarterly revenue figures.","label":"CONFIDENTIAL"}
+{"text":"Customer support records containing account history and contact information.","label":"CONFIDENTIAL"}
+{"text":"Business strategy document describing upcoming product plans.","label":"CONFIDENTIAL"}
+{"text":"Employee compensation report containing salary information.","label":"CONFIDENTIAL"}
+{"text":"Production database credentials and authentication secrets.","label":"RESTRICTED"}
+{"text":"Private encryption keys used to protect production systems.","label":"RESTRICTED"}
+{"text":"Administrator passwords for company infrastructure.","label":"RESTRICTED"}
+{"text":"Private API keys used to access production services.","label":"RESTRICTED"}
+{"text":"Security incident investigation containing highly sensitive forensic information.","label":"RESTRICTED"}

@@ -1,0 +1,30 @@
+# Local environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Training outputs and model binaries
+experiments/
+*.safetensors
+*.pt
+*.pth
+*.bin
+
+# Runtime and experiment logs
+logs/
+outputs/
+results/
+*.log
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

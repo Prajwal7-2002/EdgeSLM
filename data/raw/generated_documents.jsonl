@@ -1,0 +1,1000 @@
+{"text": "The security document contains privileged credentials used to access the container registry.", "label": "RESTRICTED"}
+{"text": "The security record contains private encryption keys used by the production configuration service.", "label": "RESTRICTED"}
+{"text": "Employees in the human resources department should follow the internal workflow for managing internal documentation.", "label": "INTERNAL"}
+{"text": "The incident report contains private authentication material associated with the internal secrets vault.", "label": "RESTRICTED"}
+{"text": "The company announced account management features as part of its public product update.", "label": "PUBLIC"}
+{"text": "The restricted security report contains highly sensitive access information for the backup system.", "label": "RESTRICTED"}
+{"text": "The sales report contains customer information including account identifiers and contact details related to employee compensation.", "label": "CONFIDENTIAL"}
+{"text": "The product documentation explains how customers can use new customer-facing integrations.", "label": "PUBLIC"}
+{"text": "The company published documentation explaining browser compatibility information.", "label": "PUBLIC"}
+{"text": "The restricted security report contains highly sensitive access information for the internal authentication service.", "label": "RESTRICTED"}
+{"text": "The sales document contains confidential business information concerning customer acquisition.", "label": "CONFIDENTIAL"}
+{"text": "The product documentation explains how customers can use terms of service.", "label": "PUBLIC"}
+{"text": "The security document contains privileged credentials used to access the payment processing service.", "label": "RESTRICTED"}
+{"text": "The incident report contains private authentication material associated with the cloud infrastructure.", "label": "RESTRICTED"}
+{"text": "The operations document contains confidential business information concerning business performance.", "label": "CONFIDENTIAL"}
+{"text": "The engineering report contains customer information including account identifiers and contact details related to customer retention.", "label": "CONFIDENTIAL"}
+{"text": "A public announcement describes the company's work on feature documentation.", "label": "PUBLIC"}
+{"text": "Employees in the operations department should follow the internal workflow for conducting internal testing.", "label": "INTERNAL"}
+{"text": "The finance document contains confidential business information concerning business performance.", "label": "CONFIDENTIAL"}
+{"text": "The company's website provides customers with information about data export capabilities.", "label": "PUBLIC"}
+{"text": "The security document contains privileged credentials used to access the CI/CD infrastructure.", "label": "RESTRICTED"}
+{"text": "The document contains production administrator credentials for the customer database.", "label": "RESTRICTED"}
+{"text": "The operations customer analysis includes account history, contact information, and business metrics related to sales pipeline.", "label": "CONFIDENTIAL"}
+{"text": "The incident report contains private authentication material associated with the internal certificate service.", "label": "RESTRICTED"}
+{"text": "The operations team documented its internal procedure for deploying applications to the staging environment.", "label": "INTERNAL"}
+{"text": "This internal document describes how the finance team handles handling development incidents.", "label": "INTERNAL"}
+{"text": "The security record contains private encryption keys used by the infrastructure management system.", "label": "RESTRICTED"}
+{"text": "The product documentation explains how customers can use cloud deployment documentation.", "label": "PUBLIC"}
+{"text": "The customer support internal business report contains confidential information about employee compensation.", "label": "CONFIDENTIAL"}
+{"text": "The company published documentation explaining developer documentation.", "label": "PUBLIC"}
+{"text": "The document contains production administrator credentials for the deployment platform.", "label": "RESTRICTED"}
+{"text": "The sales document contains confidential business information concerning account activity.", "label": "CONFIDENTIAL"}
+{"text": "The restricted security report contains highly sensitive access information for the identity management platform.", "label": "RESTRICTED"}
+{"text": "The restricted security report contains highly sensitive access information for the production database.", "label": "RESTRICTED"}
+{"text": "The security report contains customer information including account identifiers and contact details related to account growth.", "label": "CONFIDENTIAL"}
+{"text": "The security record contains private encryption keys used by the backup system.", "label": "RESTRICTED"}
+{"text": "The incident report contains private authentication material associated with the internal authentication service.", "label": "RESTRICTED"}
+{"text": "The security team documented its internal procedure for maintaining internal dashboards.", "label": "INTERNAL"}
+{"text": "The operations report contains customer information including account identifiers and contact details related to customer churn.", "label": "CONFIDENTIAL"}
+{"text": "Employees in the security department should follow the internal workflow for approving software changes.", "label": "INTERNAL"}
+{"text": "The company announced software installation instructions as part of its public product update.", "label": "PUBLIC"}
+{"text": "A public announcement describes the company's work on API documentation.", "label": "PUBLIC"}
+{"text": "The restricted security report contains highly sensitive access information for the internal certificate service.", "label": "RESTRICTED"}
+{"text": "The operations report contains customer information including account identifiers and contact details related to product adoption.", "label": "CONFIDENTIAL"}
+{"text": "Employees in the engineering department should follow the internal workflow for processing internal requests.", "label": "INTERNAL"}
+{"text": "The operations quarterly report contains non-public financial information about enterprise accounts.", "label": "CONFIDENTIAL"}
+{"text": "The product team documented its internal procedure for conducting internal testing.", "label": "INTERNAL"}
+{"text": "This internal document describes how the product team handles conducting internal testing.", "label": "INTERNAL"}
+{"text": "The security document contains privileged credentials used to access the identity service.", "label": "RESTRICTED"}
+{"text": "The restricted security report contains highly sensitive access information for the infrastructure credential system.", "label": "RESTRICTED"}
+{"text": "The company published documentation explaining public support resources.", "label": "PUBLIC"}
+{"text": "The product documentation explains how customers can use customer notification settings.", "label": "PUBLIC"}
+{"text": "The operations team documented its internal procedure for reviewing deployment requests.", "label": "INTERNAL"}
+{"text": "The company's website provides customers with information about cloud deployment documentation.", "label": "PUBLIC"}
+{"text": "The sales team documented its internal procedure for approving software changes.", "label": "INTERNAL"}
+{"text": "The security customer analysis includes account history, contact information, and business metrics related to customer retention.", "label": "CONFIDENTIAL"}
+{"text": "The company's website provides customers with information about customer account configuration.", "label": "PUBLIC"}
+{"text": "This internal document describes how the product team handles managing internal repositories.", "label": "INTERNAL"}
+{"text": "The customer support internal business report contains confidential information about subscription revenue.", "label": "CONFIDENTIAL"}
+{"text": "Employees in the product department should follow the internal workflow for reviewing internal operational procedures.", "label": "INTERNAL"}
+{"text": "The finance team documented its internal procedure for approving software changes.", "label": "INTERNAL"}
+{"text": "The product documentation explains how customers can use account recovery options.", "label": "PUBLIC"}
+{"text": "This internal document describes how the security team handles reviewing deployment requests.", "label": "INTERNAL"}
+{"text": "The sales customer analysis includes account history, contact information, and business metrics related to account activity.", "label": "CONFIDENTIAL"}
+{"text": "This internal document describes how the security team handles reviewing pull requests.", "label": "INTERNAL"}
+{"text": "The security document contains privileged credentials used to access the service account infrastructure.", "label": "RESTRICTED"}
+{"text": "The product team documented its internal procedure for managing development environments.", "label": "INTERNAL"}
+{"text": "The company published documentation explaining the company's sustainability initiative.", "label": "PUBLIC"}
+{"text": "Employees in the human resources department should follow the internal workflow for managing internal repositories.", "label": "INTERNAL"}
+{"text": "The customer support team documented its internal procedure for managing internal repositories.", "label": "INTERNAL"}
+{"text": "The sales team documented its internal procedure for reviewing pull requests.", "label": "INTERNAL"}
+{"text": "The product documentation explains how customers can use supported integrations.", "label": "PUBLIC"}
+{"text": "The security record contains private encryption keys used by the production storage system.", "label": "RESTRICTED"}
+{"text": "The security document contains privileged credentials used to access the authentication database.", "label": "RESTRICTED"}
+{"text": "The human resources quarterly report contains non-public financial information about customer support activity.", "label": "CONFIDENTIAL"}
+{"text": "A public announcement describes the company's work on customer account configuration.", "label": "PUBLIC"}
+{"text": "The restricted security report contains highly sensitive access information for the internal authorization service.", "label": "RESTRICTED"}
+{"text": "A public announcement describes the company's work on service availability information.", "label": "PUBLIC"}
+{"text": "The product customer analysis includes account history, contact information, and business metrics related to enterprise accounts.", "label": "CONFIDENTIAL"}
+{"text": "The restricted security report contains highly sensitive access information for the internal network gateway.", "label": "RESTRICTED"}
+{"text": "The incident report contains private authentication material associated with the privileged administrator portal.", "label": "RESTRICTED"}
+{"text": "The product documentation explains how customers can use supported file formats.", "label": "PUBLIC"}
+{"text": "A public announcement describes the company's work on public product roadmap.", "label": "PUBLIC"}
+{"text": "The document contains production administrator credentials for the production administration portal.", "label": "RESTRICTED"}
+{"text": "The company announced browser compatibility information as part of its public product update.", "label": "PUBLIC"}
+{"text": "The company published documentation explaining software installation instructions.", "label": "PUBLIC"}
+{"text": "The security record contains private encryption keys used by the internal authorization service.", "label": "RESTRICTED"}
+{"text": "The document contains production administrator credentials for the production message queue.", "label": "RESTRICTED"}
+{"text": "The product report contains customer information including account identifiers and contact details related to customer acquisition.", "label": "CONFIDENTIAL"}
+{"text": "This internal document describes how the operations team handles tracking engineering work.", "label": "INTERNAL"}
+{"text": "The human resources quarterly report contains non-public financial information about subscription revenue.", "label": "CONFIDENTIAL"}
+{"text": "This internal document describes how the security team handles tracking engineering work.", "label": "INTERNAL"}
+{"text": "This internal document describes how the human resources team handles handling development incidents.", "label": "INTERNAL"}
+{"text": "A public announcement describes the company's work on customer service information.", "label": "PUBLIC"}
+{"text": "The finance document contains confidential business information concerning sales performance.", "label": "CONFIDENTIAL"}
+{"text": "The company published documentation explaining notification preferences.", "label": "PUBLIC"}
+{"text": "The security record contains private encryption keys used by the authentication gateway.", "label": "RESTRICTED"}
+{"text": "The restricted security report contains highly sensitive access information for the customer database.", "label": "RESTRICTED"}
+{"text": "A public announcement describes the company's work on billing configuration.", "label": "PUBLIC"}
+{"text": "The product documentation explains how customers can use customer onboarding resources.", "label": "PUBLIC"}
+{"text": "The engineering report contains customer information including account identifiers and contact details related to business forecasts.", "label": "CONFIDENTIAL"}
+{"text": "The human resources report contains customer information including account identifiers and contact details related to employee compensation.", "label": "CONFIDENTIAL"}
+{"text": "This internal document describes how the operations team handles coordinating engineering tasks.", "label": "INTERNAL"}
+{"text": "This internal document describes how the finance team handles coordinating engineering tasks.", "label": "INTERNAL"}
+{"text": "The security record contains private encryption keys used by the monitoring infrastructure.", "label": "RESTRICTED"}
+{"text": "A public announcement describes the company's work on authentication documentation.", "label": "PUBLIC"}
+{"text": "The restricted security report contains highly sensitive access information for the production cluster.", "label": "RESTRICTED"}
+{"text": "The company published documentation explaining application accessibility features.", "label": "PUBLIC"}
+{"text": "The restricted security report contains highly sensitive access information for the production API.", "label": "RESTRICTED"}
+{"text": "Employees in the finance department should follow the internal workflow for planning the next sprint.", "label": "INTERNAL"}
+{"text": "The document contains production administrator credentials for the internal secrets vault.", "label": "RESTRICTED"}
+{"text": "Employees in the sales department should follow the internal workflow for onboarding new employees.", "label": "INTERNAL"}
+{"text": "The operations document contains confidential business information concerning sales pipeline.", "label": "CONFIDENTIAL"}
+{"text": "The company's website provides customers with information about new customer-facing integrations.", "label": "PUBLIC"}
+{"text": "The product documentation explains how customers can use a new cloud storage feature.", "label": "PUBLIC"}
+{"text": "The operations team documented its internal procedure for coordinating engineering tasks.", "label": "INTERNAL"}
+{"text": "The company's website provides customers with information about account recovery options.", "label": "PUBLIC"}
+{"text": "A public announcement describes the company's work on public status information.", "label": "PUBLIC"}
+{"text": "The security quarterly report contains non-public financial information about customer demographics.", "label": "CONFIDENTIAL"}
+{"text": "The restricted security report contains highly sensitive access information for the production administration portal.", "label": "RESTRICTED"}
+{"text": "The product documentation explains how customers can use security best practices.", "label": "PUBLIC"}
+{"text": "The security record contains private encryption keys used by the production message queue.", "label": "RESTRICTED"}
+{"text": "The human resources customer analysis includes account history, contact information, and business metrics related to customer usage patterns.", "label": "CONFIDENTIAL"}
+{"text": "The document contains production administrator credentials for the infrastructure provisioning system.", "label": "RESTRICTED"}
+{"text": "The engineering organization uses an internal process for onboarding new employees.", "label": "INTERNAL"}
+{"text": "The operations internal business report contains confidential information about business forecasts.", "label": "CONFIDENTIAL"}
+{"text": "The restricted security report contains highly sensitive access information for the production backup service.", "label": "RESTRICTED"}
+{"text": "The sales report contains customer information including account identifiers and contact details related to customer churn.", "label": "CONFIDENTIAL"}
+{"text": "The sales internal business report contains confidential information about customer demographics.", "label": "CONFIDENTIAL"}
+{"text": "The human resources report contains customer information including account identifiers and contact details related to customer usage patterns.", "label": "CONFIDENTIAL"}
+{"text": "A public announcement describes the company's work on product comparison information.", "label": "PUBLIC"}
+{"text": "The operations report contains customer information including account identifiers and contact details related to customer usage patterns.", "label": "CONFIDENTIAL"}
+{"text": "The team prepared internal guidance covering maintaining internal dashboards.", "label": "INTERNAL"}
+{"text": "The restricted security report contains highly sensitive access information for the secrets management service.", "label": "RESTRICTED"}
+{"text": "The security document contains privileged credentials used to access the internal messaging system.", "label": "RESTRICTED"}
+{"text": "The company published documentation explaining billing configuration.", "label": "PUBLIC"}
+{"text": "The restricted security report contains highly sensitive access information for the internal access gateway.", "label": "RESTRICTED"}
+{"text": "This internal document describes how the security team handles maintaining internal dashboards.", "label": "INTERNAL"}
+{"text": "The engineering organization uses an internal process for tracking engineering work.", "label": "INTERNAL"}
+{"text": "A public announcement describes the company's work on product configuration options.", "label": "PUBLIC"}
+{"text": "The product documentation explains how customers can use customer account configuration.", "label": "PUBLIC"}
+{"text": "The company published documentation explaining available API features.", "label": "PUBLIC"}
+{"text": "The restricted security report contains highly sensitive access information for the privileged access system.", "label": "RESTRICTED"}
+{"text": "The company's website provides customers with information about billing configuration.", "label": "PUBLIC"}
+{"text": "The security quarterly report contains non-public financial information about financial projections.", "label": "CONFIDENTIAL"}
+{"text": "The finance team documented its internal procedure for managing development environments.", "label": "INTERNAL"}
+{"text": "The incident report contains private authentication material associated with the internal authorization service.", "label": "RESTRICTED"}
+{"text": "The sales internal business report contains confidential information about account growth.", "label": "CONFIDENTIAL"}
+{"text": "The sales quarterly report contains non-public financial information about customer support activity.", "label": "CONFIDENTIAL"}
+{"text": "This internal document describes how the human resources team handles managing development environments.", "label": "INTERNAL"}
+{"text": "Employees in the finance department should follow the internal workflow for reviewing internal operational procedures.", "label": "INTERNAL"}
+{"text": "The security record contains private encryption keys used by the secrets management service.", "label": "RESTRICTED"}
+{"text": "The engineering report contains customer information including account identifiers and contact details related to financial projections.", "label": "CONFIDENTIAL"}
+{"text": "The company published documentation explaining product pricing.", "label": "PUBLIC"}
+{"text": "The engineering internal business report contains confidential information about contract negotiations.", "label": "CONFIDENTIAL"}
+{"text": "The security internal business report contains confidential information about business forecasts.", "label": "CONFIDENTIAL"}
+{"text": "The company's website provides customers with information about data import functionality.", "label": "PUBLIC"}
+{"text": "The finance document contains confidential business information concerning financial projections.", "label": "CONFIDENTIAL"}
+{"text": "The company's website provides customers with information about subscription management.", "label": "PUBLIC"}
+{"text": "The document contains production administrator credentials for the production Kubernetes cluster.", "label": "RESTRICTED"}
+{"text": "The security document contains confidential business information concerning employee compensation.", "label": "CONFIDENTIAL"}
+{"text": "The product documentation explains how customers can use public status information.", "label": "PUBLIC"}
+{"text": "The company announced platform documentation as part of its public product update.", "label": "PUBLIC"}
+{"text": "The security internal business report contains confidential information about financial projections.", "label": "CONFIDENTIAL"}
+{"text": "The company published documentation explaining public compliance documentation.", "label": "PUBLIC"}
+{"text": "The product documentation explains how customers can use browser compatibility information.", "label": "PUBLIC"}
+{"text": "This internal document describes how the human resources team handles coordinating engineering tasks.", "label": "INTERNAL"}
+{"text": "The company announced data import functionality as part of its public product update.", "label": "PUBLIC"}
+{"text": "The incident report contains private authentication material associated with the identity management platform.", "label": "RESTRICTED"}
+{"text": "The document contains production administrator credentials for the monitoring infrastructure.", "label": "RESTRICTED"}
+{"text": "Employees in the engineering department should follow the internal workflow for coordinating engineering tasks.", "label": "INTERNAL"}
+{"text": "Employees in the human resources department should follow the internal workflow for handling internal support tickets.", "label": "INTERNAL"}
+{"text": "The document contains production administrator credentials for the production backup service.", "label": "RESTRICTED"}
+{"text": "The security record contains private encryption keys used by the service credential store.", "label": "RESTRICTED"}
+{"text": "The restricted security report contains highly sensitive access information for the monitoring infrastructure.", "label": "RESTRICTED"}
+{"text": "A public announcement describes the company's work on a new cloud storage feature.", "label": "PUBLIC"}
+{"text": "The incident report contains private authentication material associated with the customer database.", "label": "RESTRICTED"}
+{"text": "The operations document contains confidential business information concerning enterprise accounts.", "label": "CONFIDENTIAL"}
+{"text": "Employees in the human resources department should follow the internal workflow for conducting internal testing.", "label": "INTERNAL"}
+{"text": "The product document contains confidential business information concerning subscription revenue.", "label": "CONFIDENTIAL"}
+{"text": "The company announced billing configuration as part of its public product update.", "label": "PUBLIC"}
+{"text": "The product documentation explains how customers can use system requirements.", "label": "PUBLIC"}
+{"text": "The restricted security report contains highly sensitive access information for the employee directory.", "label": "RESTRICTED"}
+{"text": "The operations team documented its internal procedure for coordinating release schedules.", "label": "INTERNAL"}
+{"text": "The company published documentation explaining product configuration options.", "label": "PUBLIC"}
+{"text": "The security team documented its internal procedure for reviewing internal operational procedures.", "label": "INTERNAL"}
+{"text": "The company announced terms of service as part of its public product update.", "label": "PUBLIC"}
+{"text": "This internal document describes how the customer support team handles tracking engineering work.", "label": "INTERNAL"}
+{"text": "The team prepared internal guidance covering coordinating engineering tasks.", "label": "INTERNAL"}
+{"text": "A public announcement describes the company's work on account recovery options.", "label": "PUBLIC"}
+{"text": "Employees in the finance department should follow the internal workflow for conducting internal testing.", "label": "INTERNAL"}
+{"text": "A public announcement describes the company's work on customer onboarding resources.", "label": "PUBLIC"}
+{"text": "The customer support customer analysis includes account history, contact information, and business metrics related to enterprise accounts.", "label": "CONFIDENTIAL"}
+{"text": "The company's website provides customers with information about application usage instructions.", "label": "PUBLIC"}
+{"text": "The human resources customer analysis includes account history, contact information, and business metrics related to customer churn.", "label": "CONFIDENTIAL"}
+{"text": "The security document contains confidential business information concerning customer demographics.", "label": "CONFIDENTIAL"}
+{"text": "The engineering document contains confidential business information concerning financial projections.", "label": "CONFIDENTIAL"}
+{"text": "The restricted security report contains highly sensitive access information for the database administration system.", "label": "RESTRICTED"}
+{"text": "The security document contains privileged credentials used to access the privileged administrator portal.", "label": "RESTRICTED"}
+{"text": "The security document contains privileged credentials used to access the monitoring infrastructure.", "label": "RESTRICTED"}
+{"text": "This internal document describes how the customer support team handles planning the next sprint.", "label": "INTERNAL"}
+{"text": "The security record contains private encryption keys used by the deployment controller.", "label": "RESTRICTED"}
+{"text": "A public announcement describes the company's work on notification preferences.", "label": "PUBLIC"}
+{"text": "The document contains production administrator credentials for the database replication system.", "label": "RESTRICTED"}
+{"text": "The sales team documented its internal procedure for managing development environments.", "label": "INTERNAL"}
+{"text": "A public announcement describes the company's work on software installation instructions.", "label": "PUBLIC"}
+{"text": "The sales internal business report contains confidential information about account activity.", "label": "CONFIDENTIAL"}
+{"text": "The incident report contains private authentication material associated with the CI/CD infrastructure.", "label": "RESTRICTED"}
+{"text": "The human resources report contains customer information including account identifiers and contact details related to enterprise accounts.", "label": "CONFIDENTIAL"}
+{"text": "The security internal business report contains confidential information about customer acquisition.", "label": "CONFIDENTIAL"}
+{"text": "The product documentation explains how customers can use the latest product release.", "label": "PUBLIC"}
+{"text": "The company announced system requirements as part of its public product update.", "label": "PUBLIC"}
+{"text": "The finance quarterly report contains non-public financial information about financial projections.", "label": "CONFIDENTIAL"}
+{"text": "This internal document describes how the customer support team handles handling development incidents.", "label": "INTERNAL"}
+{"text": "The company's website provides customers with information about customer onboarding resources.", "label": "PUBLIC"}
+{"text": "The product document contains confidential business information concerning account growth.", "label": "CONFIDENTIAL"}
+{"text": "The incident report contains private authentication material associated with the production cache.", "label": "RESTRICTED"}
+{"text": "This internal document describes how the finance team handles deploying applications to the staging environment.", "label": "INTERNAL"}
+{"text": "The engineering customer analysis includes account history, contact information, and business metrics related to enterprise accounts.", "label": "CONFIDENTIAL"}
+{"text": "This internal document describes how the product team handles reviewing pull requests.", "label": "INTERNAL"}
+{"text": "The company announced the company's sustainability initiative as part of its public product update.", "label": "PUBLIC"}
+{"text": "The human resources customer analysis includes account history, contact information, and business metrics related to account activity.", "label": "CONFIDENTIAL"}
+{"text": "This internal document describes how the customer support team handles coordinating engineering tasks.", "label": "INTERNAL"}
+{"text": "The document contains production administrator credentials for the infrastructure credential system.", "label": "RESTRICTED"}
+{"text": "The security customer analysis includes account history, contact information, and business metrics related to regional sales.", "label": "CONFIDENTIAL"}
+{"text": "The incident report contains private authentication material associated with the internal audit system.", "label": "RESTRICTED"}
+{"text": "The document contains production administrator credentials for the employee directory.", "label": "RESTRICTED"}
+{"text": "The operations report contains customer information including account identifiers and contact details related to sales performance.", "label": "CONFIDENTIAL"}
+{"text": "The operations customer analysis includes account history, contact information, and business metrics related to customer demographics.", "label": "CONFIDENTIAL"}
+{"text": "Employees in the security department should follow the internal workflow for maintaining internal dashboards.", "label": "INTERNAL"}
+{"text": "The incident report contains private authentication material associated with the container registry.", "label": "RESTRICTED"}
+{"text": "The company announced new customer-facing integrations as part of its public product update.", "label": "PUBLIC"}
+{"text": "The restricted security report contains highly sensitive access information for the production storage system.", "label": "RESTRICTED"}
+{"text": "The security team documented its internal procedure for coordinating engineering tasks.", "label": "INTERNAL"}
+{"text": "The restricted security report contains highly sensitive access information for the infrastructure management system.", "label": "RESTRICTED"}
+{"text": "The customer support team documented its internal procedure for processing internal requests.", "label": "INTERNAL"}
+{"text": "Employees in the human resources department should follow the internal workflow for tracking engineering work.", "label": "INTERNAL"}
+{"text": "The security record contains private encryption keys used by the privileged access system.", "label": "RESTRICTED"}
+{"text": "The engineering organization uses an internal process for managing internal repositories.", "label": "INTERNAL"}
+{"text": "The security document contains privileged credentials used to access the production job scheduler.", "label": "RESTRICTED"}
+{"text": "The incident report contains private authentication material associated with the service credential store.", "label": "RESTRICTED"}
+{"text": "The customer support team documented its internal procedure for reviewing deployment requests.", "label": "INTERNAL"}
+{"text": "A public announcement describes the company's work on public support resources.", "label": "PUBLIC"}
+{"text": "The company published documentation explaining technical documentation.", "label": "PUBLIC"}
+{"text": "The human resources quarterly report contains non-public financial information about enterprise accounts.", "label": "CONFIDENTIAL"}
+{"text": "The incident report contains private authentication material associated with the infrastructure credential system.", "label": "RESTRICTED"}
+{"text": "The human resources team documented its internal procedure for requesting access to development systems.", "label": "INTERNAL"}
+{"text": "Employees in the finance department should follow the internal workflow for processing internal requests.", "label": "INTERNAL"}
+{"text": "The customer support quarterly report contains non-public financial information about subscription revenue.", "label": "CONFIDENTIAL"}
+{"text": "The document contains production administrator credentials for the authentication gateway.", "label": "RESTRICTED"}
+{"text": "The finance document contains confidential business information concerning customer support activity.", "label": "CONFIDENTIAL"}
+{"text": "The sales internal business report contains confidential information about customer retention.", "label": "CONFIDENTIAL"}
+{"text": "The incident report contains private authentication material associated with the internal API gateway.", "label": "RESTRICTED"}
+{"text": "The company's website provides customers with information about two-factor authentication setup.", "label": "PUBLIC"}
+{"text": "The security record contains private encryption keys used by the internal service registry.", "label": "RESTRICTED"}
+{"text": "The incident report contains private authentication material associated with the production load balancer.", "label": "RESTRICTED"}
+{"text": "The security record contains private encryption keys used by the service account infrastructure.", "label": "RESTRICTED"}
+{"text": "This internal document describes how the finance team handles approving software changes.", "label": "INTERNAL"}
+{"text": "The company published documentation explaining integration documentation.", "label": "PUBLIC"}
+{"text": "The product quarterly report contains non-public financial information about regional sales.", "label": "CONFIDENTIAL"}
+{"text": "The company announced developer documentation as part of its public product update.", "label": "PUBLIC"}
+{"text": "The company published documentation explaining new customer-facing integrations.", "label": "PUBLIC"}
+{"text": "The security record contains private encryption keys used by the infrastructure provisioning system.", "label": "RESTRICTED"}
+{"text": "The incident report contains private authentication material associated with the backup system.", "label": "RESTRICTED"}
+{"text": "The security customer analysis includes account history, contact information, and business metrics related to customer acquisition.", "label": "CONFIDENTIAL"}
+{"text": "The document contains production administrator credentials for the production monitoring service.", "label": "RESTRICTED"}
+{"text": "The customer support internal business report contains confidential information about sales pipeline.", "label": "CONFIDENTIAL"}
+{"text": "The product customer analysis includes account history, contact information, and business metrics related to customer acquisition.", "label": "CONFIDENTIAL"}
+{"text": "The security report contains customer information including account identifiers and contact details related to product adoption.", "label": "CONFIDENTIAL"}
+{"text": "The engineering organization uses an internal process for coordinating engineering tasks.", "label": "INTERNAL"}
+{"text": "The finance report contains customer information including account identifiers and contact details related to customer usage patterns.", "label": "CONFIDENTIAL"}
+{"text": "The security record contains private encryption keys used by the identity management platform.", "label": "RESTRICTED"}
+{"text": "The company published documentation explaining customer service information.", "label": "PUBLIC"}
+{"text": "The customer support internal business report contains confidential information about account activity.", "label": "CONFIDENTIAL"}
+{"text": "The company's website provides customers with information about customer service information.", "label": "PUBLIC"}
+{"text": "This internal document describes how the engineering team handles maintaining internal dashboards.", "label": "INTERNAL"}
+{"text": "This internal document describes how the human resources team handles reviewing internal operational procedures.", "label": "INTERNAL"}
+{"text": "This internal document describes how the customer support team handles reviewing pull requests.", "label": "INTERNAL"}
+{"text": "The sales report contains customer information including account identifiers and contact details related to financial projections.", "label": "CONFIDENTIAL"}
+{"text": "The product internal business report contains confidential information about sales pipeline.", "label": "CONFIDENTIAL"}
+{"text": "The security document contains privileged credentials used to access the internal authorization service.", "label": "RESTRICTED"}
+{"text": "This internal document describes how the engineering team handles reviewing pull requests.", "label": "INTERNAL"}
+{"text": "The security document contains privileged credentials used to access the production message queue.", "label": "RESTRICTED"}
+{"text": "The company published documentation explaining product comparison information.", "label": "PUBLIC"}
+{"text": "The security record contains private encryption keys used by the internal secrets vault.", "label": "RESTRICTED"}
+{"text": "The company announced technical documentation as part of its public product update.", "label": "PUBLIC"}
+{"text": "The restricted security report contains highly sensitive access information for the database replication system.", "label": "RESTRICTED"}
+{"text": "Employees in the human resources department should follow the internal workflow for coordinating release schedules.", "label": "INTERNAL"}
+{"text": "The company published documentation explaining two-factor authentication setup.", "label": "PUBLIC"}
+{"text": "Employees in the human resources department should follow the internal workflow for maintaining internal dashboards.", "label": "INTERNAL"}
+{"text": "The company's website provides customers with information about system requirements.", "label": "PUBLIC"}
+{"text": "The product report contains customer information including account identifiers and contact details related to customer churn.", "label": "CONFIDENTIAL"}
+{"text": "Employees in the customer support department should follow the internal workflow for tracking engineering work.", "label": "INTERNAL"}
+{"text": "This internal document describes how the finance team handles maintaining internal dashboards.", "label": "INTERNAL"}
+{"text": "The company published documentation explaining security best practices.", "label": "PUBLIC"}
+{"text": "The company published documentation explaining application usage instructions.", "label": "PUBLIC"}
+{"text": "The human resources quarterly report contains non-public financial information about sales pipeline.", "label": "CONFIDENTIAL"}
+{"text": "Employees in the security department should follow the internal workflow for tracking engineering work.", "label": "INTERNAL"}
+{"text": "The engineering quarterly report contains non-public financial information about product adoption.", "label": "CONFIDENTIAL"}
+{"text": "The restricted security report contains highly sensitive access information for the security monitoring platform.", "label": "RESTRICTED"}
+{"text": "The product documentation explains how customers can use available API features.", "label": "PUBLIC"}
+{"text": "The product report contains customer information including account identifiers and contact details related to sales pipeline.", "label": "CONFIDENTIAL"}
+{"text": "The customer support internal business report contains confidential information about financial projections.", "label": "CONFIDENTIAL"}
+{"text": "The company published documentation explaining product compatibility information.", "label": "PUBLIC"}
+{"text": "The finance quarterly report contains non-public financial information about sales pipeline.", "label": "CONFIDENTIAL"}
+{"text": "The restricted security report contains highly sensitive access information for the production configuration service.", "label": "RESTRICTED"}
+{"text": "The security document contains privileged credentials used to access the internal service registry.", "label": "RESTRICTED"}
+{"text": "The engineering customer analysis includes account history, contact information, and business metrics related to sales performance.", "label": "CONFIDENTIAL"}
+{"text": "The product document contains confidential business information concerning sales pipeline.", "label": "CONFIDENTIAL"}
+{"text": "The product customer analysis includes account history, contact information, and business metrics related to customer demographics.", "label": "CONFIDENTIAL"}
+{"text": "The operations report contains customer information including account identifiers and contact details related to sales pipeline.", "label": "CONFIDENTIAL"}
+{"text": "The customer support team documented its internal procedure for tracking engineering work.", "label": "INTERNAL"}
+{"text": "The engineering quarterly report contains non-public financial information about customer demographics.", "label": "CONFIDENTIAL"}
+{"text": "The sales team documented its internal procedure for conducting internal testing.", "label": "INTERNAL"}
+{"text": "The company announced integration documentation as part of its public product update.", "label": "PUBLIC"}
+{"text": "Employees in the product department should follow the internal workflow for onboarding new employees.", "label": "INTERNAL"}
+{"text": "This internal document describes how the finance team handles handling internal support tickets.", "label": "INTERNAL"}
+{"text": "The sales team documented its internal procedure for processing internal requests.", "label": "INTERNAL"}
+{"text": "The security document contains privileged credentials used to access the internal access gateway.", "label": "RESTRICTED"}
+{"text": "The company's website provides customers with information about the company's sustainability initiative.", "label": "PUBLIC"}
+{"text": "The finance internal business report contains confidential information about financial projections.", "label": "CONFIDENTIAL"}
+{"text": "The operations document contains confidential business information concerning customer retention.", "label": "CONFIDENTIAL"}
+{"text": "The security record contains private encryption keys used by the production backup service.", "label": "RESTRICTED"}
+{"text": "The human resources team documented its internal procedure for processing internal requests.", "label": "INTERNAL"}
+{"text": "The company published documentation explaining supported integrations.", "label": "PUBLIC"}
+{"text": "The company published documentation explaining authentication documentation.", "label": "PUBLIC"}
+{"text": "This internal document describes how the human resources team handles onboarding new employees.", "label": "INTERNAL"}
+{"text": "The company's website provides customers with information about API documentation.", "label": "PUBLIC"}
+{"text": "The finance internal business report contains confidential information about subscription revenue.", "label": "CONFIDENTIAL"}
+{"text": "A public announcement describes the company's work on release notes.", "label": "PUBLIC"}
+{"text": "The incident report contains private authentication material associated with the internal service registry.", "label": "RESTRICTED"}
+{"text": "The company's website provides customers with information about supported file formats.", "label": "PUBLIC"}
+{"text": "The security document contains privileged credentials used to access the internal authentication service.", "label": "RESTRICTED"}
+{"text": "The team prepared internal guidance covering managing internal repositories.", "label": "INTERNAL"}
+{"text": "The product quarterly report contains non-public financial information about regional revenue.", "label": "CONFIDENTIAL"}
+{"text": "Employees in the customer support department should follow the internal workflow for conducting internal testing.", "label": "INTERNAL"}
+{"text": "The product documentation explains how customers can use privacy documentation.", "label": "PUBLIC"}
+{"text": "The company published documentation explaining service availability information.", "label": "PUBLIC"}
+{"text": "This internal document describes how the operations team handles managing internal documentation.", "label": "INTERNAL"}
+{"text": "A public announcement describes the company's work on available API features.", "label": "PUBLIC"}
+{"text": "The security customer analysis includes account history, contact information, and business metrics related to regional revenue.", "label": "CONFIDENTIAL"}
+{"text": "The engineering organization uses an internal process for managing internal documentation.", "label": "INTERNAL"}
+{"text": "The document contains production administrator credentials for the infrastructure management system.", "label": "RESTRICTED"}
+{"text": "The security quarterly report contains non-public financial information about business forecasts.", "label": "CONFIDENTIAL"}
+{"text": "The product internal business report contains confidential information about regional sales.", "label": "CONFIDENTIAL"}
+{"text": "The finance team documented its internal procedure for maintaining internal dashboards.", "label": "INTERNAL"}
+{"text": "The team prepared internal guidance covering processing internal requests.", "label": "INTERNAL"}
+{"text": "The company published documentation explaining customer notification settings.", "label": "PUBLIC"}
+{"text": "The document contains production administrator credentials for the privileged administrator portal.", "label": "RESTRICTED"}
+{"text": "The team prepared internal guidance covering handling development incidents.", "label": "INTERNAL"}
+{"text": "The restricted security report contains highly sensitive access information for the infrastructure provisioning system.", "label": "RESTRICTED"}
+{"text": "Employees in the operations department should follow the internal workflow for coordinating release schedules.", "label": "INTERNAL"}
+{"text": "The security document contains privileged credentials used to access the production load balancer.", "label": "RESTRICTED"}
+{"text": "The operations quarterly report contains non-public financial information about customer churn.", "label": "CONFIDENTIAL"}
+{"text": "The product document contains confidential business information concerning business forecasts.", "label": "CONFIDENTIAL"}
+{"text": "The operations document contains confidential business information concerning customer churn.", "label": "CONFIDENTIAL"}
+{"text": "Employees in the operations department should follow the internal workflow for reviewing internal operational procedures.", "label": "INTERNAL"}
+{"text": "The engineering organization uses an internal process for conducting internal testing.", "label": "INTERNAL"}
+{"text": "The operations internal business report contains confidential information about enterprise accounts.", "label": "CONFIDENTIAL"}
+{"text": "This internal document describes how the finance team handles reviewing pull requests.", "label": "INTERNAL"}
+{"text": "The security team documented its internal procedure for managing internal repositories.", "label": "INTERNAL"}
+{"text": "The team prepared internal guidance covering conducting internal testing.", "label": "INTERNAL"}
+{"text": "The customer support customer analysis includes account history, contact information, and business metrics related to account activity.", "label": "CONFIDENTIAL"}
+{"text": "The customer support quarterly report contains non-public financial information about customer demographics.", "label": "CONFIDENTIAL"}
+{"text": "The company published documentation explaining mobile application settings.", "label": "PUBLIC"}
+{"text": "The security record contains private encryption keys used by the internal API gateway.", "label": "RESTRICTED"}
+{"text": "The finance document contains confidential business information concerning employee compensation.", "label": "CONFIDENTIAL"}
+{"text": "The security document contains privileged credentials used to access the production cache.", "label": "RESTRICTED"}
+{"text": "The company's website provides customers with information about product configuration options.", "label": "PUBLIC"}
+{"text": "The security document contains privileged credentials used to access the production cluster.", "label": "RESTRICTED"}
+{"text": "The customer support report contains customer information including account identifiers and contact details related to employee compensation.", "label": "CONFIDENTIAL"}
+{"text": "The human resources customer analysis includes account history, contact information, and business metrics related to customer support activity.", "label": "CONFIDENTIAL"}
+{"text": "The engineering organization uses an internal process for approving software changes.", "label": "INTERNAL"}
+{"text": "The human resources document contains confidential business information concerning account activity.", "label": "CONFIDENTIAL"}
+{"text": "This internal document describes how the product team handles managing internal documentation.", "label": "INTERNAL"}
+{"text": "The company's website provides customers with information about software installation instructions.", "label": "PUBLIC"}
+{"text": "The company published documentation explaining subscription management.", "label": "PUBLIC"}
+{"text": "The security document contains privileged credentials used to access the database administration system.", "label": "RESTRICTED"}
+{"text": "This internal document describes how the customer support team handles conducting internal testing.", "label": "INTERNAL"}
+{"text": "The document contains production administrator credentials for the CI/CD infrastructure.", "label": "RESTRICTED"}
+{"text": "The company's website provides customers with information about developer documentation.", "label": "PUBLIC"}
+{"text": "The human resources team documented its internal procedure for approving software changes.", "label": "INTERNAL"}
+{"text": "The company's website provides customers with information about technical documentation.", "label": "PUBLIC"}
+{"text": "The incident report contains private authentication material associated with the employee directory.", "label": "RESTRICTED"}
+{"text": "The security record contains private encryption keys used by the internal certificate service.", "label": "RESTRICTED"}
+{"text": "The operations internal business report contains confidential information about account growth.", "label": "CONFIDENTIAL"}
+{"text": "The security document contains confidential business information concerning sales performance.", "label": "CONFIDENTIAL"}
+{"text": "The incident report contains private authentication material associated with the production message queue.", "label": "RESTRICTED"}
+{"text": "The finance quarterly report contains non-public financial information about customer retention.", "label": "CONFIDENTIAL"}
+{"text": "The security document contains privileged credentials used to access the internal API gateway.", "label": "RESTRICTED"}
+{"text": "The product documentation explains how customers can use developer documentation.", "label": "PUBLIC"}
+{"text": "Employees in the operations department should follow the internal workflow for approving software changes.", "label": "INTERNAL"}
+{"text": "The sales team documented its internal procedure for coordinating release schedules.", "label": "INTERNAL"}
+{"text": "The security record contains private encryption keys used by the production database.", "label": "RESTRICTED"}
+{"text": "A public announcement describes the company's work on technical documentation.", "label": "PUBLIC"}
+{"text": "Employees in the sales department should follow the internal workflow for conducting internal testing.", "label": "INTERNAL"}
+{"text": "The security record contains private encryption keys used by the production job scheduler.", "label": "RESTRICTED"}
+{"text": "Employees in the security department should follow the internal workflow for deploying applications to the staging environment.", "label": "INTERNAL"}
+{"text": "The restricted security report contains highly sensitive access information for the privileged administrator portal.", "label": "RESTRICTED"}
+{"text": "The document contains production administrator credentials for the logging infrastructure.", "label": "RESTRICTED"}
+{"text": "The document contains production administrator credentials for the cloud infrastructure.", "label": "RESTRICTED"}
+{"text": "The sales quarterly report contains non-public financial information about employee compensation.", "label": "CONFIDENTIAL"}
+{"text": "A public announcement describes the company's work on supported file formats.", "label": "PUBLIC"}
+{"text": "The company's website provides customers with information about browser compatibility information.", "label": "PUBLIC"}
+{"text": "The incident report contains private authentication material associated with the production cluster.", "label": "RESTRICTED"}
+{"text": "The company's website provides customers with information about product compatibility information.", "label": "PUBLIC"}
+{"text": "The sales document contains confidential business information concerning business performance.", "label": "CONFIDENTIAL"}
+{"text": "The incident report contains private authentication material associated with the database administration system.", "label": "RESTRICTED"}
+{"text": "A public announcement describes the company's work on account management features.", "label": "PUBLIC"}
+{"text": "Employees in the engineering department should follow the internal workflow for managing internal documentation.", "label": "INTERNAL"}
+{"text": "The security record contains private encryption keys used by the deployment platform.", "label": "RESTRICTED"}
+{"text": "The document contains production administrator credentials for the production cluster.", "label": "RESTRICTED"}
+{"text": "The company announced user profile settings as part of its public product update.", "label": "PUBLIC"}
+{"text": "The sales internal business report contains confidential information about business forecasts.", "label": "CONFIDENTIAL"}
+{"text": "The security record contains private encryption keys used by the privileged administrator portal.", "label": "RESTRICTED"}
+{"text": "The company's website provides customers with information about customer notification settings.", "label": "PUBLIC"}
+{"text": "The company published documentation explaining supported file formats.", "label": "PUBLIC"}
+{"text": "This internal document describes how the engineering team handles onboarding new employees.", "label": "INTERNAL"}
+{"text": "The security record contains private encryption keys used by the authentication database.", "label": "RESTRICTED"}
+{"text": "The sales customer analysis includes account history, contact information, and business metrics related to regional sales.", "label": "CONFIDENTIAL"}
+{"text": "The company announced customer account configuration as part of its public product update.", "label": "PUBLIC"}
+{"text": "The company's website provides customers with information about integration documentation.", "label": "PUBLIC"}
+{"text": "This internal document describes how the operations team handles handling internal support tickets.", "label": "INTERNAL"}
+{"text": "The security record contains private encryption keys used by the production cache.", "label": "RESTRICTED"}
+{"text": "The sales report contains customer information including account identifiers and contact details related to regional sales.", "label": "CONFIDENTIAL"}
+{"text": "Employees in the human resources department should follow the internal workflow for approving software changes.", "label": "INTERNAL"}
+{"text": "The company's website provides customers with information about application accessibility features.", "label": "PUBLIC"}
+{"text": "The engineering team documented its internal procedure for onboarding new employees.", "label": "INTERNAL"}
+{"text": "The sales team documented its internal procedure for reviewing deployment requests.", "label": "INTERNAL"}
+{"text": "The product documentation explains how customers can use subscription management.", "label": "PUBLIC"}
+{"text": "The security record contains private encryption keys used by the logging infrastructure.", "label": "RESTRICTED"}
+{"text": "The operations document contains confidential business information concerning sales performance.", "label": "CONFIDENTIAL"}
+{"text": "The customer support team documented its internal procedure for deploying applications to the staging environment.", "label": "INTERNAL"}
+{"text": "The incident report contains private authentication material associated with the production database.", "label": "RESTRICTED"}
+{"text": "The product team documented its internal procedure for reviewing pull requests.", "label": "INTERNAL"}
+{"text": "The team prepared internal guidance covering deploying applications to the staging environment.", "label": "INTERNAL"}
+{"text": "The security document contains privileged credentials used to access the internal audit system.", "label": "RESTRICTED"}
+{"text": "The product documentation explains how customers can use user profile settings.", "label": "PUBLIC"}
+{"text": "The incident report contains private authentication material associated with the production backup service.", "label": "RESTRICTED"}
+{"text": "The company's website provides customers with information about mobile application settings.", "label": "PUBLIC"}
+{"text": "This internal document describes how the customer support team handles conducting team planning.", "label": "INTERNAL"}
+{"text": "The company announced product pricing as part of its public product update.", "label": "PUBLIC"}
+{"text": "The team prepared internal guidance covering requesting access to development systems.", "label": "INTERNAL"}
+{"text": "This internal document describes how the sales team handles handling internal support tickets.", "label": "INTERNAL"}
+{"text": "The product documentation explains how customers can use customer service information.", "label": "PUBLIC"}
+{"text": "The sales customer analysis includes account history, contact information, and business metrics related to business forecasts.", "label": "CONFIDENTIAL"}
+{"text": "The finance report contains customer information including account identifiers and contact details related to regional sales.", "label": "CONFIDENTIAL"}
+{"text": "The company published documentation explaining public product roadmap.", "label": "PUBLIC"}
+{"text": "The product document contains confidential business information concerning customer retention.", "label": "CONFIDENTIAL"}
+{"text": "The product quarterly report contains non-public financial information about account growth.", "label": "CONFIDENTIAL"}
+{"text": "The engineering customer analysis includes account history, contact information, and business metrics related to financial projections.", "label": "CONFIDENTIAL"}
+{"text": "The incident report contains private authentication material associated with the identity service.", "label": "RESTRICTED"}
+{"text": "This internal document describes how the engineering team handles managing development environments.", "label": "INTERNAL"}
+{"text": "The company announced feature documentation as part of its public product update.", "label": "PUBLIC"}
+{"text": "The product documentation explains how customers can use integration documentation.", "label": "PUBLIC"}
+{"text": "A public announcement describes the company's work on customer notification settings.", "label": "PUBLIC"}
+{"text": "The document contains production administrator credentials for the internal certificate service.", "label": "RESTRICTED"}
+{"text": "The security quarterly report contains non-public financial information about customer retention.", "label": "CONFIDENTIAL"}
+{"text": "The company published documentation explaining privacy documentation.", "label": "PUBLIC"}
+{"text": "The company's website provides customers with information about authentication documentation.", "label": "PUBLIC"}
+{"text": "The company published documentation explaining user profile settings.", "label": "PUBLIC"}
+{"text": "The engineering customer analysis includes account history, contact information, and business metrics related to sales pipeline.", "label": "CONFIDENTIAL"}
+{"text": "The security record contains private encryption keys used by the production administration portal.", "label": "RESTRICTED"}
+{"text": "The company announced mobile application settings as part of its public product update.", "label": "PUBLIC"}
+{"text": "Employees in the sales department should follow the internal workflow for reviewing deployment requests.", "label": "INTERNAL"}
+{"text": "The security document contains privileged credentials used to access the internal certificate service.", "label": "RESTRICTED"}
+{"text": "The company announced public status information as part of its public product update.", "label": "PUBLIC"}
+{"text": "The company announced notification preferences as part of its public product update.", "label": "PUBLIC"}
+{"text": "The security document contains privileged credentials used to access the infrastructure provisioning system.", "label": "RESTRICTED"}
+{"text": "The security customer analysis includes account history, contact information, and business metrics related to business performance.", "label": "CONFIDENTIAL"}
+{"text": "The customer support customer analysis includes account history, contact information, and business metrics related to customer churn.", "label": "CONFIDENTIAL"}
+{"text": "Employees in the customer support department should follow the internal workflow for deploying applications to the staging environment.", "label": "INTERNAL"}
+{"text": "The restricted security report contains highly sensitive access information for the cloud infrastructure.", "label": "RESTRICTED"}
+{"text": "This internal document describes how the product team handles onboarding new employees.", "label": "INTERNAL"}
+{"text": "The security team documented its internal procedure for onboarding new employees.", "label": "INTERNAL"}
+{"text": "The product customer analysis includes account history, contact information, and business metrics related to customer churn.", "label": "CONFIDENTIAL"}
+{"text": "The product quarterly report contains non-public financial information about employee compensation.", "label": "CONFIDENTIAL"}
+{"text": "The security document contains privileged credentials used to access the internal network gateway.", "label": "RESTRICTED"}
+{"text": "Employees in the security department should follow the internal workflow for conducting team planning.", "label": "INTERNAL"}
+{"text": "The product customer analysis includes account history, contact information, and business metrics related to employee compensation.", "label": "CONFIDENTIAL"}
+{"text": "The restricted security report contains highly sensitive access information for the service account infrastructure.", "label": "RESTRICTED"}
+{"text": "The company's website provides customers with information about user profile settings.", "label": "PUBLIC"}
+{"text": "The finance team documented its internal procedure for deploying applications to the staging environment.", "label": "INTERNAL"}
+{"text": "The human resources report contains customer information including account identifiers and contact details related to regional sales.", "label": "CONFIDENTIAL"}
+{"text": "The security document contains privileged credentials used to access the production configuration service.", "label": "RESTRICTED"}
+{"text": "The product documentation explains how customers can use data export capabilities.", "label": "PUBLIC"}
+{"text": "The document contains production administrator credentials for the internal access gateway.", "label": "RESTRICTED"}
+{"text": "The incident report contains private authentication material associated with the production administration portal.", "label": "RESTRICTED"}
+{"text": "The security record contains private encryption keys used by the production monitoring service.", "label": "RESTRICTED"}
+{"text": "The product documentation explains how customers can use customer help documentation.", "label": "PUBLIC"}
+{"text": "The sales internal business report contains confidential information about customer support activity.", "label": "CONFIDENTIAL"}
+{"text": "The document contains production administrator credentials for the internal API gateway.", "label": "RESTRICTED"}
+{"text": "The document contains production administrator credentials for the production cache.", "label": "RESTRICTED"}
+{"text": "The company announced data export capabilities as part of its public product update.", "label": "PUBLIC"}
+{"text": "The document contains production administrator credentials for the database administration system.", "label": "RESTRICTED"}
+{"text": "Employees in the sales department should follow the internal workflow for managing internal repositories.", "label": "INTERNAL"}
+{"text": "The operations team documented its internal procedure for reviewing pull requests.", "label": "INTERNAL"}
+{"text": "The security document contains privileged credentials used to access the production API.", "label": "RESTRICTED"}
+{"text": "This internal document describes how the engineering team handles managing internal repositories.", "label": "INTERNAL"}
+{"text": "The operations internal business report contains confidential information about employee compensation.", "label": "CONFIDENTIAL"}
+{"text": "The customer support quarterly report contains non-public financial information about customer churn.", "label": "CONFIDENTIAL"}
+{"text": "The engineering document contains confidential business information concerning product adoption.", "label": "CONFIDENTIAL"}
+{"text": "The restricted security report contains highly sensitive access information for the service credential store.", "label": "RESTRICTED"}
+{"text": "The finance customer analysis includes account history, contact information, and business metrics related to business forecasts.", "label": "CONFIDENTIAL"}
+{"text": "The restricted security report contains highly sensitive access information for the CI/CD infrastructure.", "label": "RESTRICTED"}
+{"text": "The document contains production administrator credentials for the production database.", "label": "RESTRICTED"}
+{"text": "The product team documented its internal procedure for conducting team planning.", "label": "INTERNAL"}
+{"text": "The security document contains privileged credentials used to access the production monitoring service.", "label": "RESTRICTED"}
+{"text": "The company published documentation explaining account recovery options.", "label": "PUBLIC"}
+{"text": "The security document contains privileged credentials used to access the cloud infrastructure.", "label": "RESTRICTED"}
+{"text": "Employees in the operations department should follow the internal workflow for tracking engineering work.", "label": "INTERNAL"}
+{"text": "The human resources customer analysis includes account history, contact information, and business metrics related to enterprise accounts.", "label": "CONFIDENTIAL"}
+{"text": "The restricted security report contains highly sensitive access information for the authentication database.", "label": "RESTRICTED"}
+{"text": "The finance team documented its internal procedure for handling internal support tickets.", "label": "INTERNAL"}
+{"text": "This internal document describes how the human resources team handles managing internal documentation.", "label": "INTERNAL"}
+{"text": "The product team documented its internal procedure for managing internal repositories.", "label": "INTERNAL"}
+{"text": "The product quarterly report contains non-public financial information about contract negotiations.", "label": "CONFIDENTIAL"}
+{"text": "A public announcement describes the company's work on the company's sustainability initiative.", "label": "PUBLIC"}
+{"text": "This internal document describes how the operations team handles coordinating release schedules.", "label": "INTERNAL"}
+{"text": "The finance team documented its internal procedure for managing internal documentation.", "label": "INTERNAL"}
+{"text": "The document contains production administrator credentials for the internal network gateway.", "label": "RESTRICTED"}
+{"text": "The engineering customer analysis includes account history, contact information, and business metrics related to business forecasts.", "label": "CONFIDENTIAL"}
+{"text": "The operations customer analysis includes account history, contact information, and business metrics related to customer churn.", "label": "CONFIDENTIAL"}
+{"text": "This internal document describes how the sales team handles managing internal documentation.", "label": "INTERNAL"}
+{"text": "A public announcement describes the company's work on customer help documentation.", "label": "PUBLIC"}
+{"text": "The security customer analysis includes account history, contact information, and business metrics related to customer churn.", "label": "CONFIDENTIAL"}
+{"text": "The incident report contains private authentication material associated with the security monitoring platform.", "label": "RESTRICTED"}
+{"text": "The finance team documented its internal procedure for reviewing pull requests.", "label": "INTERNAL"}
+{"text": "The security team documented its internal procedure for handling internal support tickets.", "label": "INTERNAL"}
+{"text": "The company published documentation explaining feature documentation.", "label": "PUBLIC"}
+{"text": "The security record contains private encryption keys used by the internal messaging system.", "label": "RESTRICTED"}
+{"text": "The finance team documented its internal procedure for conducting internal testing.", "label": "INTERNAL"}
+{"text": "The security document contains privileged credentials used to access the employee directory.", "label": "RESTRICTED"}
+{"text": "The company published documentation explaining platform documentation.", "label": "PUBLIC"}
+{"text": "The security record contains private encryption keys used by the identity service.", "label": "RESTRICTED"}
+{"text": "The engineering document contains confidential business information concerning customer demographics.", "label": "CONFIDENTIAL"}
+{"text": "A public announcement describes the company's work on new customer-facing integrations.", "label": "PUBLIC"}
+{"text": "The security record contains private encryption keys used by the internal authentication service.", "label": "RESTRICTED"}
+{"text": "The company announced the public security documentation as part of its public product update.", "label": "PUBLIC"}
+{"text": "Employees in the security department should follow the internal workflow for requesting access to development systems.", "label": "INTERNAL"}
+{"text": "The incident report contains private authentication material associated with the production Kubernetes cluster.", "label": "RESTRICTED"}
+{"text": "The incident report contains private authentication material associated with the production monitoring service.", "label": "RESTRICTED"}
+{"text": "The restricted security report contains highly sensitive access information for the production message queue.", "label": "RESTRICTED"}
+{"text": "A public announcement describes the company's work on the latest product release.", "label": "PUBLIC"}
+{"text": "The company's website provides customers with information about the public security documentation.", "label": "PUBLIC"}
+{"text": "The engineering document contains confidential business information concerning customer usage patterns.", "label": "CONFIDENTIAL"}
+{"text": "The product documentation explains how customers can use technical documentation.", "label": "PUBLIC"}
+{"text": "The document contains production administrator credentials for the security incident platform.", "label": "RESTRICTED"}
+{"text": "This internal document describes how the operations team handles handling development incidents.", "label": "INTERNAL"}
+{"text": "The document contains production administrator credentials for the service credential store.", "label": "RESTRICTED"}
+{"text": "The product documentation explains how customers can use release notes.", "label": "PUBLIC"}
+{"text": "The security document contains privileged credentials used to access the authentication gateway.", "label": "RESTRICTED"}
+{"text": "The company published documentation explaining the latest product release.", "label": "PUBLIC"}
+{"text": "The company's website provides customers with information about release notes.", "label": "PUBLIC"}
+{"text": "The company published documentation explaining password management guidance.", "label": "PUBLIC"}
+{"text": "The security record contains private encryption keys used by the internal audit system.", "label": "RESTRICTED"}
+{"text": "The company's website provides customers with information about terms of service.", "label": "PUBLIC"}
+{"text": "The product documentation explains how customers can use feature documentation.", "label": "PUBLIC"}
+{"text": "The security document contains privileged credentials used to access the infrastructure credential system.", "label": "RESTRICTED"}
+{"text": "The security document contains privileged credentials used to access the customer database.", "label": "RESTRICTED"}
+{"text": "The company published documentation explaining public status information.", "label": "PUBLIC"}
+{"text": "The document contains production administrator credentials for the backup system.", "label": "RESTRICTED"}
+{"text": "The company published documentation explaining API documentation.", "label": "PUBLIC"}
+{"text": "The security record contains private encryption keys used by the infrastructure credential system.", "label": "RESTRICTED"}
+{"text": "The product report contains customer information including account identifiers and contact details related to regional sales.", "label": "CONFIDENTIAL"}
+{"text": "A public announcement describes the company's work on supported integrations.", "label": "PUBLIC"}
+{"text": "The customer support report contains customer information including account identifiers and contact details related to regional revenue.", "label": "CONFIDENTIAL"}
+{"text": "The document contains production administrator credentials for the production storage system.", "label": "RESTRICTED"}
+{"text": "The document contains production administrator credentials for the identity service.", "label": "RESTRICTED"}
+{"text": "The company published documentation explaining terms of service.", "label": "PUBLIC"}
+{"text": "The finance report contains customer information including account identifiers and contact details related to customer retention.", "label": "CONFIDENTIAL"}
+{"text": "The sales internal business report contains confidential information about business performance.", "label": "CONFIDENTIAL"}
+{"text": "The sales team documented its internal procedure for requesting access to development systems.", "label": "INTERNAL"}
+{"text": "The human resources internal business report contains confidential information about regional sales.", "label": "CONFIDENTIAL"}
+{"text": "This internal document describes how the finance team handles conducting internal testing.", "label": "INTERNAL"}
+{"text": "The company's website provides customers with information about public status information.", "label": "PUBLIC"}
+{"text": "The engineering organization uses an internal process for managing development environments.", "label": "INTERNAL"}
+{"text": "The restricted security report contains highly sensitive access information for the logging infrastructure.", "label": "RESTRICTED"}
+{"text": "The company announced privacy documentation as part of its public product update.", "label": "PUBLIC"}
+{"text": "The restricted security report contains highly sensitive access information for the internal audit system.", "label": "RESTRICTED"}
+{"text": "A public announcement describes the company's work on application accessibility features.", "label": "PUBLIC"}
+{"text": "This internal document describes how the sales team handles coordinating engineering tasks.", "label": "INTERNAL"}
+{"text": "The restricted security report contains highly sensitive access information for the payment processing service.", "label": "RESTRICTED"}
+{"text": "The incident report contains private authentication material associated with the authentication database.", "label": "RESTRICTED"}
+{"text": "The company announced application accessibility features as part of its public product update.", "label": "PUBLIC"}
+{"text": "The document contains production administrator credentials for the security monitoring platform.", "label": "RESTRICTED"}
+{"text": "The security record contains private encryption keys used by the employee directory.", "label": "RESTRICTED"}
+{"text": "Employees in the customer support department should follow the internal workflow for managing internal documentation.", "label": "INTERNAL"}
+{"text": "The human resources internal business report contains confidential information about regional revenue.", "label": "CONFIDENTIAL"}
+{"text": "The product team documented its internal procedure for coordinating engineering tasks.", "label": "INTERNAL"}
+{"text": "This internal document describes how the engineering team handles conducting internal testing.", "label": "INTERNAL"}
+{"text": "The operations team documented its internal procedure for managing development environments.", "label": "INTERNAL"}
+{"text": "A public announcement describes the company's work on terms of service.", "label": "PUBLIC"}
+{"text": "The product quarterly report contains non-public financial information about customer usage patterns.", "label": "CONFIDENTIAL"}
+{"text": "The restricted security report contains highly sensitive access information for the production monitoring service.", "label": "RESTRICTED"}
+{"text": "The sales internal business report contains confidential information about enterprise accounts.", "label": "CONFIDENTIAL"}
+{"text": "The restricted security report contains highly sensitive access information for the deployment controller.", "label": "RESTRICTED"}
+{"text": "The human resources internal business report contains confidential information about subscription revenue.", "label": "CONFIDENTIAL"}
+{"text": "The incident report contains private authentication material associated with the production storage system.", "label": "RESTRICTED"}
+{"text": "The company's website provides customers with information about public compliance documentation.", "label": "PUBLIC"}
+{"text": "The product documentation explains how customers can use password management guidance.", "label": "PUBLIC"}
+{"text": "A public announcement describes the company's work on application usage instructions.", "label": "PUBLIC"}
+{"text": "A public announcement describes the company's work on the public security documentation.", "label": "PUBLIC"}
+{"text": "The incident report contains private authentication material associated with the database replication system.", "label": "RESTRICTED"}
+{"text": "The security document contains confidential business information concerning product adoption.", "label": "CONFIDENTIAL"}
+{"text": "The engineering team documented its internal procedure for handling development incidents.", "label": "INTERNAL"}
+{"text": "A public announcement describes the company's work on platform documentation.", "label": "PUBLIC"}
+{"text": "The company announced password management guidance as part of its public product update.", "label": "PUBLIC"}
+{"text": "This internal document describes how the human resources team handles handling internal support tickets.", "label": "INTERNAL"}
+{"text": "The operations quarterly report contains non-public financial information about business performance.", "label": "CONFIDENTIAL"}
+{"text": "A public announcement describes the company's work on browser compatibility information.", "label": "PUBLIC"}
+{"text": "This internal document describes how the product team handles processing internal requests.", "label": "INTERNAL"}
+{"text": "The incident report contains private authentication material associated with the security incident platform.", "label": "RESTRICTED"}
+{"text": "The company's website provides customers with information about account management features.", "label": "PUBLIC"}
+{"text": "Employees in the sales department should follow the internal workflow for maintaining internal dashboards.", "label": "INTERNAL"}
+{"text": "The sales document contains confidential business information concerning product adoption.", "label": "CONFIDENTIAL"}
+{"text": "The customer support quarterly report contains non-public financial information about customer retention.", "label": "CONFIDENTIAL"}
+{"text": "This internal document describes how the sales team handles reviewing internal operational procedures.", "label": "INTERNAL"}
+{"text": "This internal document describes how the engineering team handles planning the next sprint.", "label": "INTERNAL"}
+{"text": "The document contains production administrator credentials for the deployment controller.", "label": "RESTRICTED"}
+{"text": "The company's website provides customers with information about customer help documentation.", "label": "PUBLIC"}
+{"text": "The customer support internal business report contains confidential information about account growth.", "label": "CONFIDENTIAL"}
+{"text": "The team prepared internal guidance covering approving software changes.", "label": "INTERNAL"}
+{"text": "The incident report contains private authentication material associated with the production job scheduler.", "label": "RESTRICTED"}
+{"text": "The product team documented its internal procedure for maintaining internal dashboards.", "label": "INTERNAL"}
+{"text": "The incident report contains private authentication material associated with the secrets management service.", "label": "RESTRICTED"}
+{"text": "The operations quarterly report contains non-public financial information about account activity.", "label": "CONFIDENTIAL"}
+{"text": "The customer support document contains confidential business information concerning subscription revenue.", "label": "CONFIDENTIAL"}
+{"text": "The team prepared internal guidance covering reviewing internal operational procedures.", "label": "INTERNAL"}
+{"text": "A public announcement describes the company's work on two-factor authentication setup.", "label": "PUBLIC"}
+{"text": "The company announced supported integrations as part of its public product update.", "label": "PUBLIC"}
+{"text": "The product documentation explains how customers can use public product roadmap.", "label": "PUBLIC"}
+{"text": "The restricted security report contains highly sensitive access information for the internal secrets vault.", "label": "RESTRICTED"}
+{"text": "The company published documentation explaining data export capabilities.", "label": "PUBLIC"}
+{"text": "The security document contains privileged credentials used to access the production Kubernetes cluster.", "label": "RESTRICTED"}
+{"text": "The customer support quarterly report contains non-public financial information about business performance.", "label": "CONFIDENTIAL"}
+{"text": "Employees in the operations department should follow the internal workflow for maintaining internal dashboards.", "label": "INTERNAL"}
+{"text": "The human resources team documented its internal procedure for managing internal documentation.", "label": "INTERNAL"}
+{"text": "The company announced product comparison information as part of its public product update.", "label": "PUBLIC"}
+{"text": "The restricted security report contains highly sensitive access information for the production Kubernetes cluster.", "label": "RESTRICTED"}
+{"text": "The finance report contains customer information including account identifiers and contact details related to financial projections.", "label": "CONFIDENTIAL"}
+{"text": "The customer support report contains customer information including account identifiers and contact details related to customer support activity.", "label": "CONFIDENTIAL"}
+{"text": "This internal document describes how the security team handles managing internal repositories.", "label": "INTERNAL"}
+{"text": "The security record contains private encryption keys used by the payment processing service.", "label": "RESTRICTED"}
+{"text": "The product documentation explains how customers can use mobile application settings.", "label": "PUBLIC"}
+{"text": "The product documentation explains how customers can use data import functionality.", "label": "PUBLIC"}
+{"text": "The security internal business report contains confidential information about sales performance.", "label": "CONFIDENTIAL"}
+{"text": "The security document contains privileged credentials used to access the privileged access system.", "label": "RESTRICTED"}
+{"text": "The team prepared internal guidance covering managing development environments.", "label": "INTERNAL"}
+{"text": "The security internal business report contains confidential information about customer churn.", "label": "CONFIDENTIAL"}
+{"text": "The security quarterly report contains non-public financial information about regional revenue.", "label": "CONFIDENTIAL"}
+{"text": "The security document contains privileged credentials used to access the logging infrastructure.", "label": "RESTRICTED"}
+{"text": "The operations team documented its internal procedure for handling internal support tickets.", "label": "INTERNAL"}
+{"text": "The security document contains privileged credentials used to access the identity management platform.", "label": "RESTRICTED"}
+{"text": "The company's website provides customers with information about a new cloud storage feature.", "label": "PUBLIC"}
+{"text": "Employees in the security department should follow the internal workflow for processing internal requests.", "label": "INTERNAL"}
+{"text": "Employees in the sales department should follow the internal workflow for handling development incidents.", "label": "INTERNAL"}
+{"text": "The incident report contains private authentication material associated with the deployment platform.", "label": "RESTRICTED"}
+{"text": "The security document contains confidential business information concerning sales pipeline.", "label": "CONFIDENTIAL"}
+{"text": "The product documentation explains how customers can use service availability information.", "label": "PUBLIC"}
+{"text": "The customer support internal business report contains confidential information about contract negotiations.", "label": "CONFIDENTIAL"}
+{"text": "The company announced customer notification settings as part of its public product update.", "label": "PUBLIC"}
+{"text": "The customer support document contains confidential business information concerning customer acquisition.", "label": "CONFIDENTIAL"}
+{"text": "The sales customer analysis includes account history, contact information, and business metrics related to customer support activity.", "label": "CONFIDENTIAL"}
+{"text": "The company published documentation explaining customer account configuration.", "label": "PUBLIC"}
+{"text": "The human resources customer analysis includes account history, contact information, and business metrics related to business performance.", "label": "CONFIDENTIAL"}
+{"text": "The product documentation explains how customers can use product compatibility information.", "label": "PUBLIC"}
+{"text": "Employees in the product department should follow the internal workflow for conducting team planning.", "label": "INTERNAL"}
+{"text": "The engineering report contains customer information including account identifiers and contact details related to employee compensation.", "label": "CONFIDENTIAL"}
+{"text": "The product documentation explains how customers can use the public security documentation.", "label": "PUBLIC"}
+{"text": "Employees in the security department should follow the internal workflow for managing internal repositories.", "label": "INTERNAL"}
+{"text": "The security report contains customer information including account identifiers and contact details related to customer demographics.", "label": "CONFIDENTIAL"}
+{"text": "The finance internal business report contains confidential information about regional sales.", "label": "CONFIDENTIAL"}
+{"text": "The product documentation explains how customers can use authentication documentation.", "label": "PUBLIC"}
+{"text": "The security document contains confidential business information concerning regional sales.", "label": "CONFIDENTIAL"}
+{"text": "The company's website provides customers with information about product comparison information.", "label": "PUBLIC"}
+{"text": "This internal document describes how the product team handles tracking engineering work.", "label": "INTERNAL"}
+{"text": "Employees in the product department should follow the internal workflow for coordinating engineering tasks.", "label": "INTERNAL"}
+{"text": "The security internal business report contains confidential information about subscription revenue.", "label": "CONFIDENTIAL"}
+{"text": "A public announcement describes the company's work on password management guidance.", "label": "PUBLIC"}
+{"text": "The sales document contains confidential business information concerning customer demographics.", "label": "CONFIDENTIAL"}
+{"text": "Employees in the customer support department should follow the internal workflow for coordinating release schedules.", "label": "INTERNAL"}
+{"text": "The engineering quarterly report contains non-public financial information about business performance.", "label": "CONFIDENTIAL"}
+{"text": "The finance document contains confidential business information concerning customer demographics.", "label": "CONFIDENTIAL"}
+{"text": "The document contains production administrator credentials for the container registry.", "label": "RESTRICTED"}
+{"text": "The document contains production administrator credentials for the internal service registry.", "label": "RESTRICTED"}
+{"text": "The company's website provides customers with information about public support resources.", "label": "PUBLIC"}
+{"text": "A public announcement describes the company's work on privacy documentation.", "label": "PUBLIC"}
+{"text": "The incident report contains private authentication material associated with the authentication gateway.", "label": "RESTRICTED"}
+{"text": "This internal document describes how the human resources team handles reviewing deployment requests.", "label": "INTERNAL"}
+{"text": "A public announcement describes the company's work on cloud deployment documentation.", "label": "PUBLIC"}
+{"text": "The customer support team documented its internal procedure for onboarding new employees.", "label": "INTERNAL"}
+{"text": "The restricted security report contains highly sensitive access information for the container registry.", "label": "RESTRICTED"}
+{"text": "The incident report contains private authentication material associated with the monitoring infrastructure.", "label": "RESTRICTED"}
+{"text": "This internal document describes how the security team handles approving software changes.", "label": "INTERNAL"}
+{"text": "The customer support quarterly report contains non-public financial information about sales performance.", "label": "CONFIDENTIAL"}
+{"text": "The human resources quarterly report contains non-public financial information about sales performance.", "label": "CONFIDENTIAL"}
+{"text": "The incident report contains private authentication material associated with the internal messaging system.", "label": "RESTRICTED"}
+{"text": "The restricted security report contains highly sensitive access information for the security incident platform.", "label": "RESTRICTED"}
+{"text": "The security document contains privileged credentials used to access the deployment controller.", "label": "RESTRICTED"}
+{"text": "The company published documentation explaining release notes.", "label": "PUBLIC"}
+{"text": "The company announced a new cloud storage feature as part of its public product update.", "label": "PUBLIC"}
+{"text": "The customer support customer analysis includes account history, contact information, and business metrics related to customer usage patterns.", "label": "CONFIDENTIAL"}
+{"text": "The sales customer analysis includes account history, contact information, and business metrics related to financial projections.", "label": "CONFIDENTIAL"}
+{"text": "The incident report contains private authentication material associated with the internal access gateway.", "label": "RESTRICTED"}
+{"text": "The customer support team documented its internal procedure for approving software changes.", "label": "INTERNAL"}
+{"text": "The company announced public support resources as part of its public product update.", "label": "PUBLIC"}
+{"text": "The security customer analysis includes account history, contact information, and business metrics related to customer demographics.", "label": "CONFIDENTIAL"}
+{"text": "The team prepared internal guidance covering planning the next sprint.", "label": "INTERNAL"}
+{"text": "This internal document describes how the engineering team handles managing internal documentation.", "label": "INTERNAL"}
+{"text": "The engineering organization uses an internal process for maintaining internal dashboards.", "label": "INTERNAL"}
+{"text": "The engineering internal business report contains confidential information about enterprise accounts.", "label": "CONFIDENTIAL"}
+{"text": "The document contains production administrator credentials for the production API.", "label": "RESTRICTED"}
+{"text": "The company announced customer onboarding resources as part of its public product update.", "label": "PUBLIC"}
+{"text": "The product documentation explains how customers can use notification preferences.", "label": "PUBLIC"}
+{"text": "The customer support report contains customer information including account identifiers and contact details related to subscription revenue.", "label": "CONFIDENTIAL"}
+{"text": "The security quarterly report contains non-public financial information about customer usage patterns.", "label": "CONFIDENTIAL"}
+{"text": "A public announcement describes the company's work on system requirements.", "label": "PUBLIC"}
+{"text": "The engineering customer analysis includes account history, contact information, and business metrics related to account growth.", "label": "CONFIDENTIAL"}
+{"text": "The finance internal business report contains confidential information about account activity.", "label": "CONFIDENTIAL"}
+{"text": "This internal document describes how the operations team handles managing development environments.", "label": "INTERNAL"}
+{"text": "The sales quarterly report contains non-public financial information about sales performance.", "label": "CONFIDENTIAL"}
+{"text": "The product documentation explains how customers can use product pricing.", "label": "PUBLIC"}
+{"text": "The restricted security report contains highly sensitive access information for the deployment platform.", "label": "RESTRICTED"}
+{"text": "The product documentation explains how customers can use product configuration options.", "label": "PUBLIC"}
+{"text": "The company announced authentication documentation as part of its public product update.", "label": "PUBLIC"}
+{"text": "The operations internal business report contains confidential information about product adoption.", "label": "CONFIDENTIAL"}
+{"text": "The finance internal business report contains confidential information about customer churn.", "label": "CONFIDENTIAL"}
+{"text": "The document contains production administrator credentials for the internal audit system.", "label": "RESTRICTED"}
+{"text": "The human resources internal business report contains confidential information about customer retention.", "label": "CONFIDENTIAL"}
+{"text": "Employees in the finance department should follow the internal workflow for maintaining internal dashboards.", "label": "INTERNAL"}
+{"text": "A public announcement describes the company's work on developer documentation.", "label": "PUBLIC"}
+{"text": "The operations team documented its internal procedure for maintaining internal dashboards.", "label": "INTERNAL"}
+{"text": "The finance team documented its internal procedure for conducting team planning.", "label": "INTERNAL"}
+{"text": "Employees in the engineering department should follow the internal workflow for reviewing pull requests.", "label": "INTERNAL"}
+{"text": "The customer support team documented its internal procedure for managing development environments.", "label": "INTERNAL"}
+{"text": "The company announced account recovery options as part of its public product update.", "label": "PUBLIC"}
+{"text": "This internal document describes how the finance team handles managing internal repositories.", "label": "INTERNAL"}
+{"text": "The company's website provides customers with information about privacy documentation.", "label": "PUBLIC"}
+{"text": "The security document contains privileged credentials used to access the production storage system.", "label": "RESTRICTED"}
+{"text": "Employees in the human resources department should follow the internal workflow for managing development environments.", "label": "INTERNAL"}
+{"text": "The document contains production administrator credentials for the secrets management service.", "label": "RESTRICTED"}
+{"text": "The company published documentation explaining customer help documentation.", "label": "PUBLIC"}
+{"text": "This internal document describes how the sales team handles managing development environments.", "label": "INTERNAL"}
+{"text": "The security record contains private encryption keys used by the production API.", "label": "RESTRICTED"}
+{"text": "The engineering document contains confidential business information concerning subscription revenue.", "label": "CONFIDENTIAL"}
+{"text": "The security quarterly report contains non-public financial information about employee compensation.", "label": "CONFIDENTIAL"}
+{"text": "The company published documentation explaining cloud deployment documentation.", "label": "PUBLIC"}
+{"text": "Employees in the operations department should follow the internal workflow for handling internal support tickets.", "label": "INTERNAL"}
+{"text": "A public announcement describes the company's work on user profile settings.", "label": "PUBLIC"}
+{"text": "The company announced subscription management as part of its public product update.", "label": "PUBLIC"}
+{"text": "The security record contains private encryption keys used by the container registry.", "label": "RESTRICTED"}
+{"text": "The finance report contains customer information including account identifiers and contact details related to product adoption.", "label": "CONFIDENTIAL"}
+{"text": "The human resources internal business report contains confidential information about account activity.", "label": "CONFIDENTIAL"}
+{"text": "A public announcement describes the company's work on data export capabilities.", "label": "PUBLIC"}
+{"text": "The company announced product configuration options as part of its public product update.", "label": "PUBLIC"}
+{"text": "The product document contains confidential business information concerning customer usage patterns.", "label": "CONFIDENTIAL"}
+{"text": "The product documentation explains how customers can use the company's sustainability initiative.", "label": "PUBLIC"}
+{"text": "The customer support document contains confidential business information concerning customer demographics.", "label": "CONFIDENTIAL"}
+{"text": "Employees in the security department should follow the internal workflow for handling development incidents.", "label": "INTERNAL"}
+{"text": "The sales quarterly report contains non-public financial information about product adoption.", "label": "CONFIDENTIAL"}
+{"text": "The finance customer analysis includes account history, contact information, and business metrics related to sales pipeline.", "label": "CONFIDENTIAL"}
+{"text": "This internal document describes how the finance team handles requesting access to development systems.", "label": "INTERNAL"}
+{"text": "This internal document describes how the human resources team handles conducting internal testing.", "label": "INTERNAL"}
+{"text": "The product internal business report contains confidential information about customer retention.", "label": "CONFIDENTIAL"}
+{"text": "The security document contains privileged credentials used to access the production administration portal.", "label": "RESTRICTED"}
+{"text": "Employees in the engineering department should follow the internal workflow for deploying applications to the staging environment.", "label": "INTERNAL"}
+{"text": "The restricted security report contains highly sensitive access information for the production load balancer.", "label": "RESTRICTED"}
+{"text": "The product report contains customer information including account identifiers and contact details related to enterprise accounts.", "label": "CONFIDENTIAL"}
+{"text": "Employees in the security department should follow the internal workflow for managing internal documentation.", "label": "INTERNAL"}
+{"text": "The customer support document contains confidential business information concerning customer support activity.", "label": "CONFIDENTIAL"}
+{"text": "The engineering document contains confidential business information concerning sales performance.", "label": "CONFIDENTIAL"}
+{"text": "The human resources team documented its internal procedure for reviewing pull requests.", "label": "INTERNAL"}
+{"text": "The operations team documented its internal procedure for requesting access to development systems.", "label": "INTERNAL"}
+{"text": "The operations team documented its internal procedure for managing internal repositories.", "label": "INTERNAL"}
+{"text": "The company's website provides customers with information about platform documentation.", "label": "PUBLIC"}
+{"text": "The product documentation explains how customers can use two-factor authentication setup.", "label": "PUBLIC"}
+{"text": "The human resources quarterly report contains non-public financial information about financial projections.", "label": "CONFIDENTIAL"}
+{"text": "This internal document describes how the security team handles planning the next sprint.", "label": "INTERNAL"}
+{"text": "The product documentation explains how customers can use API documentation.", "label": "PUBLIC"}
+{"text": "The engineering internal business report contains confidential information about customer churn.", "label": "CONFIDENTIAL"}
+{"text": "The company's website provides customers with information about the latest product release.", "label": "PUBLIC"}
+{"text": "The document contains production administrator credentials for the authentication database.", "label": "RESTRICTED"}
+{"text": "The human resources internal business report contains confidential information about business forecasts.", "label": "CONFIDENTIAL"}
+{"text": "The security document contains privileged credentials used to access the database replication system.", "label": "RESTRICTED"}
+{"text": "The sales team documented its internal procedure for managing internal repositories.", "label": "INTERNAL"}
+{"text": "The company's website provides customers with information about feature documentation.", "label": "PUBLIC"}
+{"text": "Employees in the operations department should follow the internal workflow for processing internal requests.", "label": "INTERNAL"}
+{"text": "The finance report contains customer information including account identifiers and contact details related to employee compensation.", "label": "CONFIDENTIAL"}
+{"text": "The security report contains customer information including account identifiers and contact details related to regional sales.", "label": "CONFIDENTIAL"}
+{"text": "A public announcement describes the company's work on mobile application settings.", "label": "PUBLIC"}
+{"text": "The security document contains privileged credentials used to access the secrets management service.", "label": "RESTRICTED"}
+{"text": "The security document contains privileged credentials used to access the production backup service.", "label": "RESTRICTED"}
+{"text": "The company's website provides customers with information about supported integrations.", "label": "PUBLIC"}
+{"text": "The security record contains private encryption keys used by the security incident platform.", "label": "RESTRICTED"}
+{"text": "The human resources quarterly report contains non-public financial information about regional sales.", "label": "CONFIDENTIAL"}
+{"text": "Employees in the engineering department should follow the internal workflow for tracking engineering work.", "label": "INTERNAL"}
+{"text": "Employees in the security department should follow the internal workflow for reviewing deployment requests.", "label": "INTERNAL"}
+{"text": "The restricted security report contains highly sensitive access information for the internal API gateway.", "label": "RESTRICTED"}
+{"text": "The engineering team documented its internal procedure for processing internal requests.", "label": "INTERNAL"}
+{"text": "The security document contains privileged credentials used to access the infrastructure management system.", "label": "RESTRICTED"}
+{"text": "Employees in the customer support department should follow the internal workflow for reviewing internal operational procedures.", "label": "INTERNAL"}
+{"text": "The product documentation explains how customers can use application accessibility features.", "label": "PUBLIC"}
+{"text": "The operations team documented its internal procedure for processing internal requests.", "label": "INTERNAL"}
+{"text": "The security record contains private encryption keys used by the production Kubernetes cluster.", "label": "RESTRICTED"}
+{"text": "The company announced two-factor authentication setup as part of its public product update.", "label": "PUBLIC"}
+{"text": "The incident report contains private authentication material associated with the service account infrastructure.", "label": "RESTRICTED"}
+{"text": "The human resources quarterly report contains non-public financial information about customer demographics.", "label": "CONFIDENTIAL"}
+{"text": "The company's website provides customers with information about service availability information.", "label": "PUBLIC"}
+{"text": "The operations report contains customer information including account identifiers and contact details related to customer demographics.", "label": "CONFIDENTIAL"}
+{"text": "The product documentation explains how customers can use platform documentation.", "label": "PUBLIC"}
+{"text": "The security team documented its internal procedure for approving software changes.", "label": "INTERNAL"}
+{"text": "The human resources team documented its internal procedure for handling development incidents.", "label": "INTERNAL"}
+{"text": "Employees in the product department should follow the internal workflow for tracking engineering work.", "label": "INTERNAL"}
+{"text": "The customer support document contains confidential business information concerning account activity.", "label": "CONFIDENTIAL"}
+{"text": "The security document contains privileged credentials used to access the internal secrets vault.", "label": "RESTRICTED"}
+{"text": "The document contains production administrator credentials for the payment processing service.", "label": "RESTRICTED"}
+{"text": "Employees in the customer support department should follow the internal workflow for onboarding new employees.", "label": "INTERNAL"}
+{"text": "The team prepared internal guidance covering onboarding new employees.", "label": "INTERNAL"}
+{"text": "Employees in the human resources department should follow the internal workflow for onboarding new employees.", "label": "INTERNAL"}
+{"text": "The finance customer analysis includes account history, contact information, and business metrics related to financial projections.", "label": "CONFIDENTIAL"}
+{"text": "Employees in the sales department should follow the internal workflow for deploying applications to the staging environment.", "label": "INTERNAL"}
+{"text": "A public announcement describes the company's work on product compatibility information.", "label": "PUBLIC"}
+{"text": "The engineering internal business report contains confidential information about sales pipeline.", "label": "CONFIDENTIAL"}
+{"text": "The sales customer analysis includes account history, contact information, and business metrics related to subscription revenue.", "label": "CONFIDENTIAL"}
+{"text": "The security internal business report contains confidential information about account activity.", "label": "CONFIDENTIAL"}
+{"text": "The security record contains private encryption keys used by the CI/CD infrastructure.", "label": "RESTRICTED"}
+{"text": "This internal document describes how the security team handles handling internal support tickets.", "label": "INTERNAL"}
+{"text": "The engineering internal business report contains confidential information about employee compensation.", "label": "CONFIDENTIAL"}
+{"text": "Employees in the operations department should follow the internal workflow for reviewing pull requests.", "label": "INTERNAL"}
+{"text": "The company announced available API features as part of its public product update.", "label": "PUBLIC"}
+{"text": "The document contains production administrator credentials for the service account infrastructure.", "label": "RESTRICTED"}
+{"text": "The engineering document contains confidential business information concerning enterprise accounts.", "label": "CONFIDENTIAL"}
+{"text": "The security record contains private encryption keys used by the production cluster.", "label": "RESTRICTED"}
+{"text": "The finance team documented its internal procedure for reviewing deployment requests.", "label": "INTERNAL"}
+{"text": "Employees in the engineering department should follow the internal workflow for reviewing deployment requests.", "label": "INTERNAL"}
+{"text": "The security record contains private encryption keys used by the production load balancer.", "label": "RESTRICTED"}
+{"text": "The security document contains privileged credentials used to access the production database.", "label": "RESTRICTED"}
+{"text": "This internal document describes how the security team handles requesting access to development systems.", "label": "INTERNAL"}
+{"text": "The company announced service availability information as part of its public product update.", "label": "PUBLIC"}
+{"text": "The product documentation explains how customers can use billing configuration.", "label": "PUBLIC"}
+{"text": "The security document contains privileged credentials used to access the backup system.", "label": "RESTRICTED"}
+{"text": "The operations document contains confidential business information concerning business forecasts.", "label": "CONFIDENTIAL"}
+{"text": "The security customer analysis includes account history, contact information, and business metrics related to product adoption.", "label": "CONFIDENTIAL"}
+{"text": "The company announced supported file formats as part of its public product update.", "label": "PUBLIC"}
+{"text": "Employees in the customer support department should follow the internal workflow for processing internal requests.", "label": "INTERNAL"}
+{"text": "A public announcement describes the company's work on security best practices.", "label": "PUBLIC"}
+{"text": "The security record contains private encryption keys used by the customer database.", "label": "RESTRICTED"}
+{"text": "Employees in the finance department should follow the internal workflow for reviewing pull requests.", "label": "INTERNAL"}
+{"text": "The company announced public compliance documentation as part of its public product update.", "label": "PUBLIC"}
+{"text": "Employees in the finance department should follow the internal workflow for reviewing deployment requests.", "label": "INTERNAL"}
+{"text": "This internal document describes how the product team handles conducting team planning.", "label": "INTERNAL"}
+{"text": "This internal document describes how the sales team handles deploying applications to the staging environment.", "label": "INTERNAL"}
+{"text": "The product team documented its internal procedure for handling internal support tickets.", "label": "INTERNAL"}
+{"text": "The product document contains confidential business information concerning employee compensation.", "label": "CONFIDENTIAL"}
+{"text": "The product customer analysis includes account history, contact information, and business metrics related to customer retention.", "label": "CONFIDENTIAL"}
+{"text": "This internal document describes how the customer support team handles maintaining internal dashboards.", "label": "INTERNAL"}
+{"text": "The human resources report contains customer information including account identifiers and contact details related to business performance.", "label": "CONFIDENTIAL"}
+{"text": "The document contains production administrator credentials for the production configuration service.", "label": "RESTRICTED"}
+{"text": "The company announced public product roadmap as part of its public product update.", "label": "PUBLIC"}
+{"text": "The document contains production administrator credentials for the internal authentication service.", "label": "RESTRICTED"}
+{"text": "The sales customer analysis includes account history, contact information, and business metrics related to business performance.", "label": "CONFIDENTIAL"}
+{"text": "A public announcement describes the company's work on public compliance documentation.", "label": "PUBLIC"}
+{"text": "The customer support team documented its internal procedure for planning the next sprint.", "label": "INTERNAL"}
+{"text": "The product documentation explains how customers can use software installation instructions.", "label": "PUBLIC"}
+{"text": "The incident report contains private authentication material associated with the internal network gateway.", "label": "RESTRICTED"}
+{"text": "A public announcement describes the company's work on product pricing.", "label": "PUBLIC"}
+{"text": "A public announcement describes the company's work on integration documentation.", "label": "PUBLIC"}
+{"text": "The human resources team documented its internal procedure for maintaining internal dashboards.", "label": "INTERNAL"}
+{"text": "The human resources internal business report contains confidential information about business performance.", "label": "CONFIDENTIAL"}
+{"text": "The company announced product compatibility information as part of its public product update.", "label": "PUBLIC"}
+{"text": "The sales document contains confidential business information concerning contract negotiations.", "label": "CONFIDENTIAL"}
+{"text": "This internal document describes how the product team handles handling development incidents.", "label": "INTERNAL"}
+{"text": "The company announced cloud deployment documentation as part of its public product update.", "label": "PUBLIC"}
+{"text": "The operations quarterly report contains non-public financial information about sales performance.", "label": "CONFIDENTIAL"}
+{"text": "A public announcement describes the company's work on subscription management.", "label": "PUBLIC"}
+{"text": "The document contains production administrator credentials for the privileged access system.", "label": "RESTRICTED"}
+{"text": "The security document contains confidential business information concerning subscription revenue.", "label": "CONFIDENTIAL"}
+{"text": "The engineering quarterly report contains non-public financial information about regional revenue.", "label": "CONFIDENTIAL"}
+{"text": "The company's website provides customers with information about password management guidance.", "label": "PUBLIC"}
+{"text": "The company published documentation explaining customer onboarding resources.", "label": "PUBLIC"}
+{"text": "Employees in the engineering department should follow the internal workflow for coordinating release schedules.", "label": "INTERNAL"}
+{"text": "The product document contains confidential business information concerning account activity.", "label": "CONFIDENTIAL"}
+{"text": "The security record contains private encryption keys used by the database replication system.", "label": "RESTRICTED"}
+{"text": "This internal document describes how the customer support team handles coordinating release schedules.", "label": "INTERNAL"}
+{"text": "The product documentation explains how customers can use product comparison information.", "label": "PUBLIC"}
+{"text": "The security document contains confidential business information concerning customer churn.", "label": "CONFIDENTIAL"}
+{"text": "The customer support team documented its internal procedure for conducting team planning.", "label": "INTERNAL"}
+{"text": "The company announced customer help documentation as part of its public product update.", "label": "PUBLIC"}
+{"text": "The company announced release notes as part of its public product update.", "label": "PUBLIC"}
+{"text": "The incident report contains private authentication material associated with the privileged access system.", "label": "RESTRICTED"}
+{"text": "The restricted security report contains highly sensitive access information for the internal messaging system.", "label": "RESTRICTED"}
+{"text": "The product customer analysis includes account history, contact information, and business metrics related to customer usage patterns.", "label": "CONFIDENTIAL"}
+{"text": "The finance quarterly report contains non-public financial information about regional revenue.", "label": "CONFIDENTIAL"}
+{"text": "The restricted security report contains highly sensitive access information for the internal service registry.", "label": "RESTRICTED"}
+{"text": "The operations customer analysis includes account history, contact information, and business metrics related to product adoption.", "label": "CONFIDENTIAL"}
+{"text": "This internal document describes how the engineering team handles handling internal support tickets.", "label": "INTERNAL"}
+{"text": "The operations internal business report contains confidential information about financial projections.", "label": "CONFIDENTIAL"}
+{"text": "The company published documentation explaining system requirements.", "label": "PUBLIC"}
+{"text": "The product documentation explains how customers can use public support resources.", "label": "PUBLIC"}
+{"text": "The security team documented its internal procedure for requesting access to development systems.", "label": "INTERNAL"}
+{"text": "The customer support team documented its internal procedure for managing internal documentation.", "label": "INTERNAL"}
+{"text": "The engineering document contains confidential business information concerning customer acquisition.", "label": "CONFIDENTIAL"}
+{"text": "The restricted security report contains highly sensitive access information for the authentication gateway.", "label": "RESTRICTED"}
+{"text": "The customer support document contains confidential business information concerning account growth.", "label": "CONFIDENTIAL"}
+{"text": "The company announced security best practices as part of its public product update.", "label": "PUBLIC"}
+{"text": "The incident report contains private authentication material associated with the production API.", "label": "RESTRICTED"}
+{"text": "The finance quarterly report contains non-public financial information about customer acquisition.", "label": "CONFIDENTIAL"}
+{"text": "The document contains production administrator credentials for the production load balancer.", "label": "RESTRICTED"}
+{"text": "The human resources team documented its internal procedure for coordinating engineering tasks.", "label": "INTERNAL"}
+{"text": "The incident report contains private authentication material associated with the production configuration service.", "label": "RESTRICTED"}
+{"text": "A public announcement describes the company's work on data import functionality.", "label": "PUBLIC"}
+{"text": "Employees in the operations department should follow the internal workflow for managing internal repositories.", "label": "INTERNAL"}
+{"text": "The human resources team documented its internal procedure for reviewing deployment requests.", "label": "INTERNAL"}
+{"text": "Employees in the operations department should follow the internal workflow for onboarding new employees.", "label": "INTERNAL"}
+{"text": "The company's website provides customers with information about product pricing.", "label": "PUBLIC"}
+{"text": "This internal document describes how the product team handles coordinating release schedules.", "label": "INTERNAL"}
+{"text": "The company announced the latest product release as part of its public product update.", "label": "PUBLIC"}
+{"text": "The security internal business report contains confidential information about sales pipeline.", "label": "CONFIDENTIAL"}
+{"text": "The security document contains privileged credentials used to access the security monitoring platform.", "label": "RESTRICTED"}
+{"text": "The document contains production administrator credentials for the production job scheduler.", "label": "RESTRICTED"}
+{"text": "Employees in the operations department should follow the internal workflow for planning the next sprint.", "label": "INTERNAL"}
+{"text": "The sales report contains customer information including account identifiers and contact details related to customer support activity.", "label": "CONFIDENTIAL"}
+{"text": "The security record contains private encryption keys used by the database administration system.", "label": "RESTRICTED"}
+{"text": "The finance report contains customer information including account identifiers and contact details related to contract negotiations.", "label": "CONFIDENTIAL"}
+{"text": "The customer support customer analysis includes account history, contact information, and business metrics related to account growth.", "label": "CONFIDENTIAL"}
+{"text": "The product team documented its internal procedure for onboarding new employees.", "label": "INTERNAL"}
+{"text": "This internal document describes how the customer support team handles processing internal requests.", "label": "INTERNAL"}
+{"text": "The product documentation explains how customers can use account management features.", "label": "PUBLIC"}
+{"text": "The security record contains private encryption keys used by the internal access gateway.", "label": "RESTRICTED"}
+{"text": "The company announced API documentation as part of its public product update.", "label": "PUBLIC"}
+{"text": "The engineering customer analysis includes account history, contact information, and business metrics related to contract negotiations.", "label": "CONFIDENTIAL"}
+{"text": "The product team documented its internal procedure for approving software changes.", "label": "INTERNAL"}
+{"text": "Employees in the customer support department should follow the internal workflow for conducting team planning.", "label": "INTERNAL"}
+{"text": "This internal document describes how the engineering team handles processing internal requests.", "label": "INTERNAL"}
+{"text": "The operations team documented its internal procedure for conducting internal testing.", "label": "INTERNAL"}
+{"text": "The restricted security report contains highly sensitive access information for the production cache.", "label": "RESTRICTED"}
+{"text": "The incident report contains private authentication material associated with the payment processing service.", "label": "RESTRICTED"}
+{"text": "The customer support document contains confidential business information concerning product adoption.", "label": "CONFIDENTIAL"}
+{"text": "The incident report contains private authentication material associated with the infrastructure provisioning system.", "label": "RESTRICTED"}
+{"text": "The operations quarterly report contains non-public financial information about customer support activity.", "label": "CONFIDENTIAL"}
+{"text": "Employees in the operations department should follow the internal workflow for requesting access to development systems.", "label": "INTERNAL"}
+{"text": "The human resources internal business report contains confidential information about contract negotiations.", "label": "CONFIDENTIAL"}
+{"text": "The product documentation explains how customers can use application usage instructions.", "label": "PUBLIC"}
+{"text": "The finance team documented its internal procedure for tracking engineering work.", "label": "INTERNAL"}
+{"text": "The restricted security report contains highly sensitive access information for the production job scheduler.", "label": "RESTRICTED"}
+{"text": "The engineering team documented its internal procedure for tracking engineering work.", "label": "INTERNAL"}
+{"text": "The sales quarterly report contains non-public financial information about sales pipeline.", "label": "CONFIDENTIAL"}
+{"text": "The engineering report contains customer information including account identifiers and contact details related to enterprise accounts.", "label": "CONFIDENTIAL"}
+{"text": "The customer support team documented its internal procedure for reviewing pull requests.", "label": "INTERNAL"}
+{"text": "The company's website provides customers with information about available API features.", "label": "PUBLIC"}
+{"text": "The security record contains private encryption keys used by the security monitoring platform.", "label": "RESTRICTED"}
+{"text": "The incident report contains private authentication material associated with the infrastructure management system.", "label": "RESTRICTED"}
+{"text": "The company's website provides customers with information about security best practices.", "label": "PUBLIC"}
+{"text": "The customer support report contains customer information including account identifiers and contact details related to business forecasts.", "label": "CONFIDENTIAL"}
+{"text": "Employees in the sales department should follow the internal workflow for reviewing internal operational procedures.", "label": "INTERNAL"}
+{"text": "The incident report contains private authentication material associated with the logging infrastructure.", "label": "RESTRICTED"}
+{"text": "The human resources document contains confidential business information concerning customer retention.", "label": "CONFIDENTIAL"}
+{"text": "The security record contains private encryption keys used by the internal network gateway.", "label": "RESTRICTED"}
+{"text": "The company published documentation explaining the public security documentation.", "label": "PUBLIC"}
+{"text": "The sales quarterly report contains non-public financial information about customer churn.", "label": "CONFIDENTIAL"}
+{"text": "The finance internal business report contains confidential information about customer acquisition.", "label": "CONFIDENTIAL"}
+{"text": "The document contains production administrator credentials for the identity management platform.", "label": "RESTRICTED"}
+{"text": "The document contains production administrator credentials for the internal messaging system.", "label": "RESTRICTED"}
+{"text": "The sales document contains confidential business information concerning financial projections.", "label": "CONFIDENTIAL"}
+{"text": "The company published documentation explaining account management features.", "label": "PUBLIC"}
+{"text": "The product documentation explains how customers can use public compliance documentation.", "label": "PUBLIC"}
+{"text": "The company published documentation explaining a new cloud storage feature.", "label": "PUBLIC"}
+{"text": "This internal document describes how the customer support team handles deploying applications to the staging environment.", "label": "INTERNAL"}
+{"text": "The customer support quarterly report contains non-public financial information about product adoption.", "label": "CONFIDENTIAL"}
+{"text": "The finance team documented its internal procedure for reviewing internal operational procedures.", "label": "INTERNAL"}
+{"text": "The security document contains privileged credentials used to access the security incident platform.", "label": "RESTRICTED"}
+{"text": "The customer support team documented its internal procedure for handling internal support tickets.", "label": "INTERNAL"}
+{"text": "The security document contains privileged credentials used to access the deployment platform.", "label": "RESTRICTED"}
+{"text": "The company announced customer service information as part of its public product update.", "label": "PUBLIC"}
+{"text": "The engineering internal business report contains confidential information about sales performance.", "label": "CONFIDENTIAL"}
+{"text": "The company's website provides customers with information about notification preferences.", "label": "PUBLIC"}
+{"text": "The human resources team documented its internal procedure for conducting team planning.", "label": "INTERNAL"}
+{"text": "The sales customer analysis includes account history, contact information, and business metrics related to product adoption.", "label": "CONFIDENTIAL"}
+{"text": "The product quarterly report contains non-public financial information about sales pipeline.", "label": "CONFIDENTIAL"}
+{"text": "The security quarterly report contains non-public financial information about regional sales.", "label": "CONFIDENTIAL"}
+{"text": "The customer support team documented its internal procedure for coordinating engineering tasks.", "label": "INTERNAL"}
+{"text": "The incident report contains private authentication material associated with the deployment controller.", "label": "RESTRICTED"}
+{"text": "The engineering organization uses an internal process for processing internal requests.", "label": "INTERNAL"}
+{"text": "The finance quarterly report contains non-public financial information about business forecasts.", "label": "CONFIDENTIAL"}
+{"text": "The engineering team documented its internal procedure for reviewing pull requests.", "label": "INTERNAL"}
+{"text": "The product document contains confidential business information concerning customer demographics.", "label": "CONFIDENTIAL"}
+{"text": "This internal document describes how the sales team handles approving software changes.", "label": "INTERNAL"}
+{"text": "The company's website provides customers with information about public product roadmap.", "label": "PUBLIC"}
+{"text": "This internal document describes how the product team handles managing development environments.", "label": "INTERNAL"}
+{"text": "The engineering team documented its internal procedure for requesting access to development systems.", "label": "INTERNAL"}
+{"text": "The restricted security report contains highly sensitive access information for the identity service.", "label": "RESTRICTED"}
+{"text": "The operations document contains confidential business information concerning account activity.", "label": "CONFIDENTIAL"}
+{"text": "The security record contains private encryption keys used by the cloud infrastructure.", "label": "RESTRICTED"}
+{"text": "The document contains production administrator credentials for the internal authorization service.", "label": "RESTRICTED"}
+{"text": "The sales report contains customer information including account identifiers and contact details related to customer acquisition.", "label": "CONFIDENTIAL"}
+{"text": "This internal document describes how the sales team handles reviewing pull requests.", "label": "INTERNAL"}
+{"text": "The security document contains privileged credentials used to access the service credential store.", "label": "RESTRICTED"}
+{"text": "The company published documentation explaining data import functionality.", "label": "PUBLIC"}
+{"text": "The company announced application usage instructions as part of its public product update.", "label": "PUBLIC"}

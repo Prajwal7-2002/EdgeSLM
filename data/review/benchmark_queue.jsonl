@@ -1,0 +1,100 @@
+{"id": "review-0001", "text": "The customer-facing help center explains how to export invoices and update notification settings. All information in the article is published on the company website.", "reviewed_label": "PUBLIC", "reviewer_id": "your-name", "review_notes": null}
+{"id": "review-0002", "text": "A partner announcement describes the company joining an industry standards group and quotes the product roadmap already shared with the public.", "reviewed_label": "PUBLIC", "reviewer_id": "your-name", "review_notes": "PUBLIC"}
+{"id": "review-0003", "text": "The support portal lists browser requirements, supported languages, and accessibility options for the current release.", "reviewed_label": "PUBLIC", "reviewer_id": "your-name", "review_notes": null}
+{"id": "review-0004", "text": "The investor relations page summarizes last quarter's revenue using figures included in the filed public report.", "reviewed_label": "PUBLIC", "reviewer_id": "your-name", "review_notes": null}
+{"id": "review-0005", "text": "This brochure describes the service tiers and current list prices that prospective customers can review without an account.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0006", "text": "The published API reference documents authentication concepts, rate limits, and example requests using fabricated identifiers.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0007", "text": "The company website lists office locations, public telephone numbers, and the opening hours for each reception desk.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0008", "text": "The release announcement explains the new calendar integration and includes the same screenshots distributed to customers.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0009", "text": "This public case study names the customer, describes the completed deployment, and reports performance figures approved for publication.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0010", "text": "The privacy notice explains retention and deletion rights and is available to anyone visiting the legal documents page.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0011", "text": "The facilities team records which meeting rooms need cleaning and assigns routine work for the next business day.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0012", "text": "Employees should use the internal travel form to request approval before booking a company trip.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0013", "text": "The engineering handbook describes the review checklist for a routine change to a development branch.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0014", "text": "A staff memo announces the office closure schedule and explains how employees should record their working hours.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0015", "text": "The service desk procedure explains how employees report a damaged laptop and receive a replacement device.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0016", "text": "The product team keeps a private backlog of experiments and assigns owners for the next planning cycle.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0017", "text": "An internal operations note describes the escalation path for a delayed shipment of office supplies.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0018", "text": "The security awareness guide tells employees how to report a suspicious message without including any incident details.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0019", "text": "The human resources portal explains the normal process for submitting leave requests and correcting attendance records.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0020", "text": "A team runbook describes how to restart a non-production service during scheduled testing using approved procedures.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0021", "text": "The account review contains a customer's negotiated renewal discount and the conditions attached to that agreement.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0022", "text": "A workforce report gives department-level compensation averages, with enough detail that individual salaries can be inferred.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0023", "text": "The sales forecast includes expected bookings for named regions before the figures are shared with the board.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0024", "text": "A customer success file records support history, contract status, and notes about the customer's business priorities.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0025", "text": "The legal team stores draft language for a contract dispute together with the customer's proposed settlement terms.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0026", "text": "An employee relations case includes interview summaries and performance concerns but contains no passwords or access tokens.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0027", "text": "The research group has test measurements for a prototype feature that is not yet announced and contains no credentials.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0028", "text": "The finance workbook contains an internal budget revision and projected expenses for the next fiscal period.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0029", "text": "A vendor assessment includes contact details, pricing concessions, and risk notes exchanged during procurement negotiations.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0030", "text": "The customer provided an organizational chart and private operating procedures for use in a support engagement.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0031", "text": "The incident archive contains an active production signing key that could authorize releases if copied.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0032", "text": "A restricted access record lists the recovery phrase for the administrator account protecting the primary database.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0033", "text": "The deployment vault stores bearer tokens that can be used to access production services without another approval step.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0034", "text": "A security investigation includes instructions for bypassing an access control and the technical details needed to reproduce it.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0035", "text": "The backup operator file contains private encryption material required to restore protected customer archives.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0036", "text": "An unreleased acquisition plan includes privileged credentials copied from a service account used during due diligence.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0037", "text": "The payment operations record contains a live secret used by the production transaction processor.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0038", "text": "A certificate authority export includes the private key needed to impersonate an internal service.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0039", "text": "The emergency response document contains the master password for the production administrator console.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0040", "text": "A monitoring configuration file includes an authentication token that grants access to private infrastructure telemetry.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0041", "text": "The employee portal explains how staff submit a request for a standing desk and track its approval.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0042", "text": "The engineering wiki records the steps for opening a routine pull request against a development branch.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0043", "text": "The office manager sends employees the internal procedure for reserving a conference room.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0044", "text": "The help desk guide explains how staff report a broken monitor and request a replacement.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0045", "text": "The operations calendar assigns internal owners to the weekly inventory check.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0046", "text": "The security awareness page tells employees how to forward a suspicious email to the security team.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0047", "text": "The human resources guide describes the normal process for changing an employee's emergency contact.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0048", "text": "The product group maintains a private list of routine maintenance tasks for the next sprint.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0049", "text": "The facilities note explains the internal process for reporting a broken access badge without including badge credentials.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0050", "text": "The development runbook describes how engineers restart a test service during an approved maintenance window.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0051", "text": "The legal team reviews a customer contract containing negotiated renewal prices and account-specific obligations.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0052", "text": "The finance forecast contains projected regional expenses that have not been distributed outside the company.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0053", "text": "The employee relations file includes a named worker's performance review and manager observations.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0054", "text": "The account team stores a customer's private implementation plan and commercial priorities.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0055", "text": "The procurement record includes vendor pricing concessions exchanged during contract negotiations.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0056", "text": "The research report contains unpublished prototype measurements but no passwords, keys, or access tokens.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0057", "text": "The compensation analysis contains individual salary information for employees in the sales organization.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0058", "text": "The support case includes a customer's service history and disputed invoice details.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0059", "text": "The strategy memo describes an unannounced partnership and expected business impact without technical secrets.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0060", "text": "The customer supplied a private organizational chart for use by the account management team.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0061", "text": "The public support article lists the current subscription plans and prices available to prospective customers.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0062", "text": "The company website publishes the office addresses and reception hours for each location.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0063", "text": "The release note describes a feature that has already been announced in the customer newsletter.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0064", "text": "The public documentation explains the supported file formats and operating systems for the product.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0065", "text": "The investor page reproduces financial figures from the company's publicly filed report.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0066", "text": "The published privacy notice describes data retention rights for visitors to the website.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0067", "text": "The customer case study contains performance results that the customer approved for publication.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0068", "text": "The API reference gives example requests using placeholder account numbers and sample tokens.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0069", "text": "The public careers page lists open roles and the qualifications expected of applicants.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0070", "text": "The product brochure explains the service's accessibility features for customers.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0071", "text": "The production deployment record contains a live token that authorizes releases without additional approval.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0072", "text": "The administrator vault stores the private key used to authenticate the primary database service.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0073", "text": "The incident archive includes the current password for the production operations console.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0074", "text": "The certificate export contains private cryptographic material that could impersonate an internal service.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0075", "text": "The payment system configuration includes a secret credential capable of authorizing live transactions.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0076", "text": "The recovery document lists the emergency access phrase for the production identity service.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0077", "text": "The security report gives step-by-step instructions for bypassing an active access control.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0078", "text": "The monitoring configuration contains an authentication token granting access to protected infrastructure data.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0079", "text": "The backup archive includes encryption keys required to restore protected customer records.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0080", "text": "The service account export contains credentials that can be used to access the production cluster.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0081", "text": "Company holiday calendar for 2026.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0082", "text": "Public documentation describing the company's product features.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0083", "text": "Press release announcing the company's new product.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0084", "text": "Company careers page describing open engineering positions.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0085", "text": "Public blog post explaining the company's security practices.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0086", "text": "Internal engineering guidelines for deploying applications.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0087", "text": "Team meeting notes discussing sprint priorities.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0088", "text": "Internal documentation explaining the software development workflow.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0089", "text": "Engineering team's internal coding standards.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0090", "text": "Internal onboarding instructions for new employees.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0091", "text": "Customer database containing names, email addresses and account IDs.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0092", "text": "Internal financial report containing quarterly revenue figures.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0093", "text": "Customer support records containing account history and contact information.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0094", "text": "Business strategy document describing upcoming product plans.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0095", "text": "Employee compensation report containing salary information.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0096", "text": "Production database credentials and authentication secrets.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0097", "text": "Private encryption keys used to protect production systems.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0098", "text": "Administrator passwords for company infrastructure.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0099", "text": "Private API keys used to access production services.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}
+{"id": "review-0100", "text": "Security incident investigation containing highly sensitive forensic information.", "reviewed_label": null, "reviewer_id": null, "review_notes": null}

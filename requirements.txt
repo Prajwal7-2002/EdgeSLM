@@ -1,0 +1,7 @@
+torch==2.6.0
+transformers==5.15.1
+datasets==5.0.1
+trl==1.10.0
+peft==0.20.0
+fastapi==0.141.1
+uvicorn==0.52.4
