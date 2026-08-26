@@ -9,3 +9,9 @@ uvicorn==0.52.4
 # Evaluation: the TF-IDF baseline and the test suite
 scikit-learn==1.9.0
 pytest==9.1.1
+
+# Edge: ONNX export, INT8 quantisation, memory measurement
+optimum==2.1.0
+onnx==1.22.0
+onnxruntime==1.29.0
+psutil==7.2.2
