@@ -1,0 +1,100 @@
+{"id": "review-0001", "label": "PUBLIC", "notes": null}
+{"id": "review-0002", "label": "PUBLIC", "notes": null}
+{"id": "review-0003", "label": "PUBLIC", "notes": null}
+{"id": "review-0004", "label": "PUBLIC", "notes": null}
+{"id": "review-0005", "label": "PUBLIC", "notes": null}
+{"id": "review-0006", "label": "PUBLIC", "notes": "Published reference; identifiers are fabricated, so credential vocabulary is not a RESTRICTED signal here."}
+{"id": "review-0007", "label": "PUBLIC", "notes": null}
+{"id": "review-0008", "label": "PUBLIC", "notes": null}
+{"id": "review-0009", "label": "PUBLIC", "notes": null}
+{"id": "review-0010", "label": "PUBLIC", "notes": null}
+{"id": "review-0011", "label": "INTERNAL", "notes": null}
+{"id": "review-0012", "label": "INTERNAL", "notes": null}
+{"id": "review-0013", "label": "INTERNAL", "notes": null}
+{"id": "review-0014", "label": "INTERNAL", "notes": null}
+{"id": "review-0015", "label": "INTERNAL", "notes": null}
+{"id": "review-0016", "label": "INTERNAL", "notes": "AMBIGUOUS: routine planning cadence reads INTERNAL, but an unannounced experiment backlog is arguably CONFIDENTIAL product direction."}
+{"id": "review-0017", "label": "INTERNAL", "notes": null}
+{"id": "review-0018", "label": "INTERNAL", "notes": "Awareness guidance only; explicitly carries no incident detail."}
+{"id": "review-0019", "label": "INTERNAL", "notes": null}
+{"id": "review-0020", "label": "INTERNAL", "notes": null}
+{"id": "review-0021", "label": "CONFIDENTIAL", "notes": null}
+{"id": "review-0022", "label": "CONFIDENTIAL", "notes": "Aggregated averages, but the text states individual salaries are inferable."}
+{"id": "review-0023", "label": "CONFIDENTIAL", "notes": null}
+{"id": "review-0024", "label": "CONFIDENTIAL", "notes": null}
+{"id": "review-0025", "label": "CONFIDENTIAL", "notes": null}
+{"id": "review-0026", "label": "CONFIDENTIAL", "notes": "Explicitly disclaims passwords/tokens; employee case detail is CONFIDENTIAL, not RESTRICTED."}
+{"id": "review-0027", "label": "CONFIDENTIAL", "notes": "Unannounced prototype work; explicitly no credentials."}
+{"id": "review-0028", "label": "CONFIDENTIAL", "notes": "Budget/forecast is private business information rather than routine workflow."}
+{"id": "review-0029", "label": "CONFIDENTIAL", "notes": null}
+{"id": "review-0030", "label": "CONFIDENTIAL", "notes": null}
+{"id": "review-0031", "label": "RESTRICTED", "notes": null}
+{"id": "review-0032", "label": "RESTRICTED", "notes": null}
+{"id": "review-0033", "label": "RESTRICTED", "notes": null}
+{"id": "review-0034", "label": "RESTRICTED", "notes": "Access-bypass instructions fall under RESTRICTED even without a credential value."}
+{"id": "review-0035", "label": "RESTRICTED", "notes": null}
+{"id": "review-0036", "label": "RESTRICTED", "notes": "Mixed CONFIDENTIAL business content plus copied credentials; highest tier wins."}
+{"id": "review-0037", "label": "RESTRICTED", "notes": null}
+{"id": "review-0038", "label": "RESTRICTED", "notes": null}
+{"id": "review-0039", "label": "RESTRICTED", "notes": null}
+{"id": "review-0040", "label": "RESTRICTED", "notes": null}
+{"id": "review-0041", "label": "INTERNAL", "notes": null}
+{"id": "review-0042", "label": "INTERNAL", "notes": null}
+{"id": "review-0043", "label": "INTERNAL", "notes": null}
+{"id": "review-0044", "label": "INTERNAL", "notes": null}
+{"id": "review-0045", "label": "INTERNAL", "notes": null}
+{"id": "review-0046", "label": "INTERNAL", "notes": null}
+{"id": "review-0047", "label": "INTERNAL", "notes": "The process is routine; the emergency-contact data itself would be CONFIDENTIAL."}
+{"id": "review-0048", "label": "INTERNAL", "notes": null}
+{"id": "review-0049", "label": "INTERNAL", "notes": "Explicitly excludes badge credentials; a keyword rule on 'badge/credential' would misfire."}
+{"id": "review-0050", "label": "INTERNAL", "notes": null}
+{"id": "review-0051", "label": "CONFIDENTIAL", "notes": null}
+{"id": "review-0052", "label": "CONFIDENTIAL", "notes": null}
+{"id": "review-0053", "label": "CONFIDENTIAL", "notes": null}
+{"id": "review-0054", "label": "CONFIDENTIAL", "notes": null}
+{"id": "review-0055", "label": "CONFIDENTIAL", "notes": null}
+{"id": "review-0056", "label": "CONFIDENTIAL", "notes": "Explicitly disclaims passwords, keys, and tokens."}
+{"id": "review-0057", "label": "CONFIDENTIAL", "notes": null}
+{"id": "review-0058", "label": "CONFIDENTIAL", "notes": null}
+{"id": "review-0059", "label": "CONFIDENTIAL", "notes": null}
+{"id": "review-0060", "label": "CONFIDENTIAL", "notes": null}
+{"id": "review-0061", "label": "PUBLIC", "notes": null}
+{"id": "review-0062", "label": "PUBLIC", "notes": null}
+{"id": "review-0063", "label": "PUBLIC", "notes": null}
+{"id": "review-0064", "label": "PUBLIC", "notes": null}
+{"id": "review-0065", "label": "PUBLIC", "notes": null}
+{"id": "review-0066", "label": "PUBLIC", "notes": null}
+{"id": "review-0067", "label": "PUBLIC", "notes": null}
+{"id": "review-0068", "label": "PUBLIC", "notes": "Placeholder account numbers and sample tokens in public docs; a rule keying on 'token' misclassifies this."}
+{"id": "review-0069", "label": "PUBLIC", "notes": null}
+{"id": "review-0070", "label": "PUBLIC", "notes": null}
+{"id": "review-0071", "label": "RESTRICTED", "notes": null}
+{"id": "review-0072", "label": "RESTRICTED", "notes": null}
+{"id": "review-0073", "label": "RESTRICTED", "notes": null}
+{"id": "review-0074", "label": "RESTRICTED", "notes": null}
+{"id": "review-0075", "label": "RESTRICTED", "notes": null}
+{"id": "review-0076", "label": "RESTRICTED", "notes": null}
+{"id": "review-0077", "label": "RESTRICTED", "notes": null}
+{"id": "review-0078", "label": "RESTRICTED", "notes": null}
+{"id": "review-0079", "label": "RESTRICTED", "notes": null}
+{"id": "review-0080", "label": "RESTRICTED", "notes": null}
+{"id": "review-0081", "label": "INTERNAL", "notes": "AMBIGUOUS: no publication signal in the text, so company-only is the default reading; many organizations do publish a holiday calendar."}
+{"id": "review-0082", "label": "PUBLIC", "notes": null}
+{"id": "review-0083", "label": "PUBLIC", "notes": null}
+{"id": "review-0084", "label": "PUBLIC", "notes": null}
+{"id": "review-0085", "label": "PUBLIC", "notes": null}
+{"id": "review-0086", "label": "INTERNAL", "notes": null}
+{"id": "review-0087", "label": "INTERNAL", "notes": null}
+{"id": "review-0088", "label": "INTERNAL", "notes": null}
+{"id": "review-0089", "label": "INTERNAL", "notes": null}
+{"id": "review-0090", "label": "INTERNAL", "notes": null}
+{"id": "review-0091", "label": "CONFIDENTIAL", "notes": null}
+{"id": "review-0092", "label": "CONFIDENTIAL", "notes": null}
+{"id": "review-0093", "label": "CONFIDENTIAL", "notes": null}
+{"id": "review-0094", "label": "CONFIDENTIAL", "notes": null}
+{"id": "review-0095", "label": "CONFIDENTIAL", "notes": null}
+{"id": "review-0096", "label": "RESTRICTED", "notes": null}
+{"id": "review-0097", "label": "RESTRICTED", "notes": null}
+{"id": "review-0098", "label": "RESTRICTED", "notes": null}
+{"id": "review-0099", "label": "RESTRICTED", "notes": null}
+{"id": "review-0100", "label": "CONFIDENTIAL", "notes": "AMBIGUOUS: forensic incident detail with no credential, key, token, password, or bypass instruction named, so a strict reading of the RESTRICTED definition puts this at CONFIDENTIAL."}
