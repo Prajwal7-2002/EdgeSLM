@@ -5,3 +5,7 @@ trl==1.10.0
 peft==0.20.0
 fastapi==0.141.1
 uvicorn==0.52.4
+
+# Evaluation: the TF-IDF baseline and the test suite
+scikit-learn==1.9.0
+pytest==9.1.1
