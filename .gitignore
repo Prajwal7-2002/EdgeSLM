@@ -20,8 +20,11 @@ experiments/
 # Runtime and experiment logs
 logs/
 outputs/
-results/
 *.log
+
+# Recorded evaluation results are the deliverable and are tracked.
+# Only scratch output under results/ is ignored.
+results/_*
 
 # Editor and OS files
 .vscode/

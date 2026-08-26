@@ -1,0 +1,6570 @@
+{
+  "meta": {
+    "adapter": "experiments\\smollm2-lora-policy",
+    "device": "cuda",
+    "torch": "2.6.0+cu124",
+    "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "datasets": {
+      "generated-test": {
+        "n": 152,
+        "held_out": true,
+        "note": "Held-out split of the template generator that also produced the training split. In-distribution: shares templates and topic lists with training data, so it measures template fit, not generalisation."
+      },
+      "realistic": {
+        "n": 40,
+        "held_out": true,
+        "note": "Hand-written prose, not template-generated. No overlap with training data."
+      },
+      "adversarial": {
+        "n": 40,
+        "held_out": true,
+        "note": "Hand-written cases chosen to defeat keyword matching: public docs containing credential vocabulary, internal docs that disclaim credentials, and similar traps. No overlap with training data."
+      },
+      "reviewed-heldout": {
+        "n": 60,
+        "held_out": true,
+        "note": "Independently re-annotated rows that the adapter never saw in training. This is the headline generalisation number."
+      },
+      "reviewed-seen": {
+        "n": 40,
+        "held_out": false,
+        "note": "Independently re-annotated rows drawn from boundary_training.jsonl, which IS in the LoRA training mix. Reported only as a contamination control: model scores here are memorisation, not generalisation."
+      }
+    },
+    "merged_from": "cuda"
+  },
+  "systems": {
+    "policy-only": {
+      "description": "Regex policy layer alone, no model",
+      "load_seconds": 0.0,
+      "datasets": {
+        "generated-test": {
+          "n": 152,
+          "correct": 22,
+          "accuracy": 0.1447,
+          "wilson_95": [
+            0.0976,
+            0.2094
+          ],
+          "macro_f1": 0.2193,
+          "per_class": {
+            "PUBLIC": {
+              "support": 38,
+              "precision": 1.0,
+              "recall": 0.1842,
+              "f1": 0.3111
+            },
+            "INTERNAL": {
+              "support": 38,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "CONFIDENTIAL": {
+              "support": 38,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "RESTRICTED": {
+              "support": 38,
+              "precision": 1.0,
+              "recall": 0.3947,
+              "f1": 0.566
+            }
+          },
+          "restricted_recall": 0.3947,
+          "restricted_under_classified": 0,
+          "restricted_support": 38,
+          "non_answer_rate": 0.8553,
+          "confusion": {
+            "PUBLIC": {
+              "ABSTAIN": 31,
+              "PUBLIC": 7
+            },
+            "CONFIDENTIAL": {
+              "ABSTAIN": 38
+            },
+            "INTERNAL": {
+              "ABSTAIN": 38
+            },
+            "RESTRICTED": {
+              "ABSTAIN": 23,
+              "RESTRICTED": 15
+            }
+          },
+          "mean_latency_ms": 0.02,
+          "coverage": {
+            "fire_rate": 0.1447,
+            "accuracy_when_fired": 1.0,
+            "fired_n": 22
+          },
+          "predictions": [
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "RESTRICTED",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "RESTRICTED",
+            "ABSTAIN",
+            "RESTRICTED",
+            "ABSTAIN",
+            "PUBLIC",
+            "ABSTAIN",
+            "ABSTAIN",
+            "RESTRICTED",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "PUBLIC",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "RESTRICTED",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "PUBLIC",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "RESTRICTED",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "PUBLIC",
+            "ABSTAIN",
+            "ABSTAIN",
+            "PUBLIC",
+            "PUBLIC",
+            "ABSTAIN",
+            "RESTRICTED",
+            "RESTRICTED",
+            "ABSTAIN",
+            "RESTRICTED",
+            "RESTRICTED",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "RESTRICTED",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "RESTRICTED",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "RESTRICTED",
+            "RESTRICTED",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "PUBLIC",
+            "ABSTAIN",
+            "RESTRICTED",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN"
+          ]
+        },
+        "realistic": {
+          "n": 40,
+          "correct": 17,
+          "accuracy": 0.425,
+          "wilson_95": [
+            0.2851,
+            0.578
+          ],
+          "macro_f1": 0.5,
+          "per_class": {
+            "PUBLIC": {
+              "support": 10,
+              "precision": 1.0,
+              "recall": 0.4,
+              "f1": 0.5714
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "CONFIDENTIAL": {
+              "support": 10,
+              "precision": 1.0,
+              "recall": 0.4,
+              "f1": 0.5714
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.8182,
+              "recall": 0.9,
+              "f1": 0.8571
+            }
+          },
+          "restricted_recall": 0.9,
+          "restricted_under_classified": 0,
+          "restricted_support": 10,
+          "non_answer_rate": 0.525,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 4,
+              "ABSTAIN": 6
+            },
+            "INTERNAL": {
+              "ABSTAIN": 10
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 4,
+              "ABSTAIN": 4,
+              "RESTRICTED": 2
+            },
+            "RESTRICTED": {
+              "RESTRICTED": 9,
+              "ABSTAIN": 1
+            }
+          },
+          "mean_latency_ms": 0.02,
+          "coverage": {
+            "fire_rate": 0.475,
+            "accuracy_when_fired": 0.8947,
+            "fired_n": 19
+          },
+          "predictions": [
+            "PUBLIC",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "PUBLIC",
+            "ABSTAIN",
+            "ABSTAIN",
+            "PUBLIC",
+            "PUBLIC",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "CONFIDENTIAL",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "ABSTAIN",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "ABSTAIN",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED"
+          ]
+        },
+        "adversarial": {
+          "n": 40,
+          "correct": 16,
+          "accuracy": 0.4,
+          "wilson_95": [
+            0.2635,
+            0.554
+          ],
+          "macro_f1": 0.4653,
+          "per_class": {
+            "PUBLIC": {
+              "support": 12,
+              "precision": 0.8182,
+              "recall": 0.75,
+              "f1": 0.7826
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "CONFIDENTIAL": {
+              "support": 8,
+              "precision": 1.0,
+              "recall": 0.375,
+              "f1": 0.5455
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.8,
+              "recall": 0.4,
+              "f1": 0.5333
+            }
+          },
+          "restricted_recall": 0.4,
+          "restricted_under_classified": 0,
+          "restricted_support": 10,
+          "non_answer_rate": 0.525,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 9,
+              "ABSTAIN": 3
+            },
+            "INTERNAL": {
+              "ABSTAIN": 9,
+              "RESTRICTED": 1
+            },
+            "RESTRICTED": {
+              "ABSTAIN": 6,
+              "RESTRICTED": 4
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 3,
+              "PUBLIC": 2,
+              "ABSTAIN": 3
+            }
+          },
+          "mean_latency_ms": 0.02,
+          "coverage": {
+            "fire_rate": 0.475,
+            "accuracy_when_fired": 0.8421,
+            "fired_n": 19
+          },
+          "predictions": [
+            "PUBLIC",
+            "ABSTAIN",
+            "PUBLIC",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "PUBLIC",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "PUBLIC",
+            "PUBLIC",
+            "ABSTAIN",
+            "ABSTAIN",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "ABSTAIN",
+            "RESTRICTED",
+            "ABSTAIN",
+            "RESTRICTED",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "ABSTAIN",
+            "PUBLIC",
+            "ABSTAIN",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "PUBLIC"
+          ]
+        },
+        "reviewed-heldout": {
+          "n": 60,
+          "correct": 19,
+          "accuracy": 0.3167,
+          "wilson_95": [
+            0.2131,
+            0.4423
+          ],
+          "macro_f1": 0.4148,
+          "per_class": {
+            "PUBLIC": {
+              "support": 14,
+              "precision": 1.0,
+              "recall": 0.2857,
+              "f1": 0.4444
+            },
+            "INTERNAL": {
+              "support": 16,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "CONFIDENTIAL": {
+              "support": 16,
+              "precision": 1.0,
+              "recall": 0.25,
+              "f1": 0.4
+            },
+            "RESTRICTED": {
+              "support": 14,
+              "precision": 0.8462,
+              "recall": 0.7857,
+              "f1": 0.8148
+            }
+          },
+          "restricted_recall": 0.7857,
+          "restricted_under_classified": 0,
+          "restricted_support": 14,
+          "non_answer_rate": 0.65,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 4,
+              "ABSTAIN": 10
+            },
+            "INTERNAL": {
+              "ABSTAIN": 16
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 4,
+              "ABSTAIN": 10,
+              "RESTRICTED": 2
+            },
+            "RESTRICTED": {
+              "RESTRICTED": 11,
+              "ABSTAIN": 3
+            }
+          },
+          "mean_latency_ms": 0.01,
+          "coverage": {
+            "fire_rate": 0.35,
+            "accuracy_when_fired": 0.9048,
+            "fired_n": 21
+          },
+          "predictions": [
+            "PUBLIC",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "PUBLIC",
+            "ABSTAIN",
+            "ABSTAIN",
+            "PUBLIC",
+            "PUBLIC",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "CONFIDENTIAL",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "ABSTAIN",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "ABSTAIN",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "RESTRICTED",
+            "ABSTAIN",
+            "ABSTAIN",
+            "RESTRICTED",
+            "ABSTAIN"
+          ]
+        },
+        "reviewed-seen": {
+          "n": 40,
+          "correct": 15,
+          "accuracy": 0.375,
+          "wilson_95": [
+            0.2422,
+            0.5297
+          ],
+          "macro_f1": 0.4582,
+          "per_class": {
+            "PUBLIC": {
+              "support": 10,
+              "precision": 1.0,
+              "recall": 0.3,
+              "f1": 0.4615
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "CONFIDENTIAL": {
+              "support": 10,
+              "precision": 1.0,
+              "recall": 0.4,
+              "f1": 0.5714
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.8,
+              "recall": 0.8,
+              "f1": 0.8
+            }
+          },
+          "restricted_recall": 0.8,
+          "restricted_under_classified": 0,
+          "restricted_support": 10,
+          "non_answer_rate": 0.575,
+          "confusion": {
+            "INTERNAL": {
+              "ABSTAIN": 9,
+              "RESTRICTED": 1
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 4,
+              "ABSTAIN": 5,
+              "RESTRICTED": 1
+            },
+            "PUBLIC": {
+              "PUBLIC": 3,
+              "ABSTAIN": 7
+            },
+            "RESTRICTED": {
+              "RESTRICTED": 8,
+              "ABSTAIN": 2
+            }
+          },
+          "mean_latency_ms": 0.01,
+          "coverage": {
+            "fire_rate": 0.425,
+            "accuracy_when_fired": 0.8824,
+            "fired_n": 17
+          },
+          "predictions": [
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "RESTRICTED",
+            "ABSTAIN",
+            "CONFIDENTIAL",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "ABSTAIN",
+            "ABSTAIN",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "PUBLIC",
+            "PUBLIC",
+            "ABSTAIN",
+            "ABSTAIN",
+            "ABSTAIN",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "ABSTAIN",
+            "RESTRICTED",
+            "RESTRICTED",
+            "ABSTAIN",
+            "RESTRICTED"
+          ]
+        }
+      }
+    },
+    "tfidf-logreg": {
+      "description": "TF-IDF + logistic regression on the same training data",
+      "load_seconds": 0.16,
+      "datasets": {
+        "generated-test": {
+          "n": 152,
+          "correct": 152,
+          "accuracy": 1.0,
+          "wilson_95": [
+            0.9754,
+            1.0
+          ],
+          "macro_f1": 1.0,
+          "per_class": {
+            "PUBLIC": {
+              "support": 38,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "INTERNAL": {
+              "support": 38,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "CONFIDENTIAL": {
+              "support": 38,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "RESTRICTED": {
+              "support": 38,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            }
+          },
+          "restricted_recall": 1.0,
+          "restricted_under_classified": 0,
+          "restricted_support": 38,
+          "non_answer_rate": 0.0,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 38
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 38
+            },
+            "INTERNAL": {
+              "INTERNAL": 38
+            },
+            "RESTRICTED": {
+              "RESTRICTED": 38
+            }
+          },
+          "mean_latency_ms": 0.71,
+          "predictions": [
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "INTERNAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "INTERNAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "RESTRICTED",
+            "INTERNAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "INTERNAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL"
+          ]
+        },
+        "realistic": {
+          "n": 40,
+          "correct": 38,
+          "accuracy": 0.95,
+          "wilson_95": [
+            0.835,
+            0.9862
+          ],
+          "macro_f1": 0.9484,
+          "per_class": {
+            "PUBLIC": {
+              "support": 10,
+              "precision": 0.9091,
+              "recall": 1.0,
+              "f1": 0.9524
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.9091,
+              "recall": 1.0,
+              "f1": 0.9524
+            },
+            "CONFIDENTIAL": {
+              "support": 10,
+              "precision": 1.0,
+              "recall": 0.8,
+              "f1": 0.8889
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            }
+          },
+          "restricted_recall": 1.0,
+          "restricted_under_classified": 0,
+          "restricted_support": 10,
+          "non_answer_rate": 0.0,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 10
+            },
+            "INTERNAL": {
+              "INTERNAL": 10
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 8,
+              "PUBLIC": 1,
+              "INTERNAL": 1
+            },
+            "RESTRICTED": {
+              "RESTRICTED": 10
+            }
+          },
+          "mean_latency_ms": 0.65,
+          "predictions": [
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED"
+          ]
+        },
+        "adversarial": {
+          "n": 40,
+          "correct": 34,
+          "accuracy": 0.85,
+          "wilson_95": [
+            0.7093,
+            0.9294
+          ],
+          "macro_f1": 0.8393,
+          "per_class": {
+            "PUBLIC": {
+              "support": 12,
+              "precision": 0.8571,
+              "recall": 1.0,
+              "f1": 0.9231
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.8889,
+              "recall": 0.8,
+              "f1": 0.8421
+            },
+            "CONFIDENTIAL": {
+              "support": 8,
+              "precision": 0.7273,
+              "recall": 1.0,
+              "f1": 0.8421
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 1.0,
+              "recall": 0.6,
+              "f1": 0.75
+            }
+          },
+          "restricted_recall": 0.6,
+          "restricted_under_classified": 2,
+          "restricted_support": 10,
+          "non_answer_rate": 0.0,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 12
+            },
+            "INTERNAL": {
+              "INTERNAL": 8,
+              "PUBLIC": 1,
+              "CONFIDENTIAL": 1
+            },
+            "RESTRICTED": {
+              "INTERNAL": 1,
+              "PUBLIC": 1,
+              "CONFIDENTIAL": 2,
+              "RESTRICTED": 6
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 8
+            }
+          },
+          "mean_latency_ms": 0.63,
+          "predictions": [
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "PUBLIC"
+          ]
+        },
+        "reviewed-heldout": {
+          "n": 60,
+          "correct": 55,
+          "accuracy": 0.9167,
+          "wilson_95": [
+            0.8193,
+            0.9639
+          ],
+          "macro_f1": 0.9171,
+          "per_class": {
+            "PUBLIC": {
+              "support": 14,
+              "precision": 0.8235,
+              "recall": 1.0,
+              "f1": 0.9032
+            },
+            "INTERNAL": {
+              "support": 16,
+              "precision": 0.9333,
+              "recall": 0.875,
+              "f1": 0.9032
+            },
+            "CONFIDENTIAL": {
+              "support": 16,
+              "precision": 1.0,
+              "recall": 0.8125,
+              "f1": 0.8966
+            },
+            "RESTRICTED": {
+              "support": 14,
+              "precision": 0.9333,
+              "recall": 1.0,
+              "f1": 0.9655
+            }
+          },
+          "restricted_recall": 1.0,
+          "restricted_under_classified": 0,
+          "restricted_support": 14,
+          "non_answer_rate": 0.0,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 14
+            },
+            "INTERNAL": {
+              "INTERNAL": 14,
+              "PUBLIC": 2
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 13,
+              "PUBLIC": 1,
+              "INTERNAL": 1,
+              "RESTRICTED": 1
+            },
+            "RESTRICTED": {
+              "RESTRICTED": 14
+            }
+          },
+          "mean_latency_ms": 0.67,
+          "predictions": [
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED"
+          ]
+        },
+        "reviewed-seen": {
+          "n": 40,
+          "correct": 40,
+          "accuracy": 1.0,
+          "wilson_95": [
+            0.9124,
+            1.0
+          ],
+          "macro_f1": 1.0,
+          "per_class": {
+            "PUBLIC": {
+              "support": 10,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "CONFIDENTIAL": {
+              "support": 10,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            }
+          },
+          "restricted_recall": 1.0,
+          "restricted_under_classified": 0,
+          "restricted_support": 10,
+          "non_answer_rate": 0.0,
+          "confusion": {
+            "INTERNAL": {
+              "INTERNAL": 10
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 10
+            },
+            "PUBLIC": {
+              "PUBLIC": 10
+            },
+            "RESTRICTED": {
+              "RESTRICTED": 10
+            }
+          },
+          "mean_latency_ms": 0.71,
+          "predictions": [
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED"
+          ]
+        }
+      }
+    },
+    "base-zero-shot": {
+      "description": "SmolLM2-360M-Instruct, no label definitions in the prompt",
+      "load_seconds": 4.03,
+      "datasets": {
+        "generated-test": {
+          "n": 152,
+          "correct": 0,
+          "accuracy": 0.0,
+          "wilson_95": [
+            0.0,
+            0.0246
+          ],
+          "macro_f1": 0.0,
+          "per_class": {
+            "PUBLIC": {
+              "support": 38,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "INTERNAL": {
+              "support": 38,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "CONFIDENTIAL": {
+              "support": 38,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "RESTRICTED": {
+              "support": 38,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "restricted_recall": 0.0,
+          "restricted_under_classified": 0,
+          "restricted_support": 38,
+          "non_answer_rate": 1.0,
+          "confusion": {
+            "PUBLIC": {
+              "UNKNOWN": 38
+            },
+            "CONFIDENTIAL": {
+              "UNKNOWN": 38
+            },
+            "INTERNAL": {
+              "UNKNOWN": 38
+            },
+            "RESTRICTED": {
+              "UNKNOWN": 38
+            }
+          },
+          "mean_latency_ms": 384.91,
+          "predictions": [
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN"
+          ]
+        },
+        "realistic": {
+          "n": 40,
+          "correct": 0,
+          "accuracy": 0.0,
+          "wilson_95": [
+            0.0,
+            0.0876
+          ],
+          "macro_f1": 0.0,
+          "per_class": {
+            "PUBLIC": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "CONFIDENTIAL": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "restricted_recall": 0.0,
+          "restricted_under_classified": 0,
+          "restricted_support": 10,
+          "non_answer_rate": 1.0,
+          "confusion": {
+            "PUBLIC": {
+              "UNKNOWN": 10
+            },
+            "INTERNAL": {
+              "UNKNOWN": 10
+            },
+            "CONFIDENTIAL": {
+              "UNKNOWN": 10
+            },
+            "RESTRICTED": {
+              "UNKNOWN": 10
+            }
+          },
+          "mean_latency_ms": 349.97,
+          "predictions": [
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN"
+          ]
+        },
+        "adversarial": {
+          "n": 40,
+          "correct": 0,
+          "accuracy": 0.0,
+          "wilson_95": [
+            0.0,
+            0.0876
+          ],
+          "macro_f1": 0.0,
+          "per_class": {
+            "PUBLIC": {
+              "support": 12,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "CONFIDENTIAL": {
+              "support": 8,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "restricted_recall": 0.0,
+          "restricted_under_classified": 0,
+          "restricted_support": 10,
+          "non_answer_rate": 1.0,
+          "confusion": {
+            "PUBLIC": {
+              "UNKNOWN": 12
+            },
+            "INTERNAL": {
+              "UNKNOWN": 10
+            },
+            "RESTRICTED": {
+              "UNKNOWN": 10
+            },
+            "CONFIDENTIAL": {
+              "UNKNOWN": 8
+            }
+          },
+          "mean_latency_ms": 348.5,
+          "predictions": [
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN"
+          ]
+        },
+        "reviewed-heldout": {
+          "n": 60,
+          "correct": 0,
+          "accuracy": 0.0,
+          "wilson_95": [
+            0.0,
+            0.0602
+          ],
+          "macro_f1": 0.0,
+          "per_class": {
+            "PUBLIC": {
+              "support": 14,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "INTERNAL": {
+              "support": 16,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "CONFIDENTIAL": {
+              "support": 16,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "RESTRICTED": {
+              "support": 14,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "restricted_recall": 0.0,
+          "restricted_under_classified": 0,
+          "restricted_support": 14,
+          "non_answer_rate": 1.0,
+          "confusion": {
+            "PUBLIC": {
+              "UNKNOWN": 14
+            },
+            "INTERNAL": {
+              "UNKNOWN": 16
+            },
+            "CONFIDENTIAL": {
+              "UNKNOWN": 16
+            },
+            "RESTRICTED": {
+              "UNKNOWN": 14
+            }
+          },
+          "mean_latency_ms": 334.49,
+          "predictions": [
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN"
+          ]
+        },
+        "reviewed-seen": {
+          "n": 40,
+          "correct": 0,
+          "accuracy": 0.0,
+          "wilson_95": [
+            0.0,
+            0.0876
+          ],
+          "macro_f1": 0.0,
+          "per_class": {
+            "PUBLIC": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "CONFIDENTIAL": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "restricted_recall": 0.0,
+          "restricted_under_classified": 0,
+          "restricted_support": 10,
+          "non_answer_rate": 1.0,
+          "confusion": {
+            "INTERNAL": {
+              "UNKNOWN": 10
+            },
+            "CONFIDENTIAL": {
+              "UNKNOWN": 10
+            },
+            "PUBLIC": {
+              "UNKNOWN": 10
+            },
+            "RESTRICTED": {
+              "UNKNOWN": 10
+            }
+          },
+          "mean_latency_ms": 355.66,
+          "predictions": [
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN"
+          ]
+        }
+      }
+    },
+    "base-guided": {
+      "description": "SmolLM2-360M-Instruct with label definitions in the prompt",
+      "load_seconds": 3.42,
+      "datasets": {
+        "generated-test": {
+          "n": 152,
+          "correct": 38,
+          "accuracy": 0.25,
+          "wilson_95": [
+            0.1879,
+            0.3244
+          ],
+          "macro_f1": 0.1005,
+          "per_class": {
+            "PUBLIC": {
+              "support": 38,
+              "precision": 0.2517,
+              "recall": 1.0,
+              "f1": 0.4021
+            },
+            "INTERNAL": {
+              "support": 38,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "CONFIDENTIAL": {
+              "support": 38,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "RESTRICTED": {
+              "support": 38,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "restricted_recall": 0.0,
+          "restricted_under_classified": 38,
+          "restricted_support": 38,
+          "non_answer_rate": 0.0066,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 38
+            },
+            "CONFIDENTIAL": {
+              "PUBLIC": 37,
+              "UNKNOWN": 1
+            },
+            "INTERNAL": {
+              "PUBLIC": 38
+            },
+            "RESTRICTED": {
+              "PUBLIC": 38
+            }
+          },
+          "mean_latency_ms": 370.19,
+          "predictions": [
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC"
+          ]
+        },
+        "realistic": {
+          "n": 40,
+          "correct": 10,
+          "accuracy": 0.25,
+          "wilson_95": [
+            0.1419,
+            0.4019
+          ],
+          "macro_f1": 0.102,
+          "per_class": {
+            "PUBLIC": {
+              "support": 10,
+              "precision": 0.2564,
+              "recall": 1.0,
+              "f1": 0.4082
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "CONFIDENTIAL": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "restricted_recall": 0.0,
+          "restricted_under_classified": 10,
+          "restricted_support": 10,
+          "non_answer_rate": 0.025,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 10
+            },
+            "INTERNAL": {
+              "PUBLIC": 10
+            },
+            "CONFIDENTIAL": {
+              "PUBLIC": 9,
+              "UNKNOWN": 1
+            },
+            "RESTRICTED": {
+              "PUBLIC": 10
+            }
+          },
+          "mean_latency_ms": 357.54,
+          "predictions": [
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC"
+          ]
+        },
+        "adversarial": {
+          "n": 40,
+          "correct": 12,
+          "accuracy": 0.3,
+          "wilson_95": [
+            0.1807,
+            0.4543
+          ],
+          "macro_f1": 0.12,
+          "per_class": {
+            "PUBLIC": {
+              "support": 12,
+              "precision": 0.3158,
+              "recall": 1.0,
+              "f1": 0.48
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "CONFIDENTIAL": {
+              "support": 8,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "restricted_recall": 0.0,
+          "restricted_under_classified": 10,
+          "restricted_support": 10,
+          "non_answer_rate": 0.05,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 12
+            },
+            "INTERNAL": {
+              "PUBLIC": 10
+            },
+            "RESTRICTED": {
+              "PUBLIC": 10
+            },
+            "CONFIDENTIAL": {
+              "PUBLIC": 6,
+              "UNKNOWN": 2
+            }
+          },
+          "mean_latency_ms": 379.3,
+          "predictions": [
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC"
+          ]
+        },
+        "reviewed-heldout": {
+          "n": 60,
+          "correct": 14,
+          "accuracy": 0.2333,
+          "wilson_95": [
+            0.1444,
+            0.3544
+          ],
+          "macro_f1": 0.0959,
+          "per_class": {
+            "PUBLIC": {
+              "support": 14,
+              "precision": 0.2373,
+              "recall": 1.0,
+              "f1": 0.3836
+            },
+            "INTERNAL": {
+              "support": 16,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "CONFIDENTIAL": {
+              "support": 16,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "RESTRICTED": {
+              "support": 14,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "restricted_recall": 0.0,
+          "restricted_under_classified": 14,
+          "restricted_support": 14,
+          "non_answer_rate": 0.0167,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 14
+            },
+            "INTERNAL": {
+              "PUBLIC": 16
+            },
+            "CONFIDENTIAL": {
+              "PUBLIC": 15,
+              "UNKNOWN": 1
+            },
+            "RESTRICTED": {
+              "PUBLIC": 14
+            }
+          },
+          "mean_latency_ms": 394.71,
+          "predictions": [
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC"
+          ]
+        },
+        "reviewed-seen": {
+          "n": 40,
+          "correct": 10,
+          "accuracy": 0.25,
+          "wilson_95": [
+            0.1419,
+            0.4019
+          ],
+          "macro_f1": 0.1,
+          "per_class": {
+            "PUBLIC": {
+              "support": 10,
+              "precision": 0.25,
+              "recall": 1.0,
+              "f1": 0.4
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "CONFIDENTIAL": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "restricted_recall": 0.0,
+          "restricted_under_classified": 10,
+          "restricted_support": 10,
+          "non_answer_rate": 0.0,
+          "confusion": {
+            "INTERNAL": {
+              "PUBLIC": 10
+            },
+            "CONFIDENTIAL": {
+              "PUBLIC": 10
+            },
+            "PUBLIC": {
+              "PUBLIC": 10
+            },
+            "RESTRICTED": {
+              "PUBLIC": 10
+            }
+          },
+          "mean_latency_ms": 455.26,
+          "predictions": [
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC"
+          ]
+        }
+      }
+    },
+    "lora-no-policy": {
+      "description": "LoRA adapter, policy layer disabled",
+      "load_seconds": 4.21,
+      "datasets": {
+        "generated-test": {
+          "n": 152,
+          "correct": 144,
+          "accuracy": 0.9474,
+          "wilson_95": [
+            0.8996,
+            0.9731
+          ],
+          "macro_f1": 0.9472,
+          "per_class": {
+            "PUBLIC": {
+              "support": 38,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "INTERNAL": {
+              "support": 38,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "CONFIDENTIAL": {
+              "support": 38,
+              "precision": 0.9412,
+              "recall": 0.8421,
+              "f1": 0.8889
+            },
+            "RESTRICTED": {
+              "support": 38,
+              "precision": 0.8571,
+              "recall": 0.9474,
+              "f1": 0.9
+            }
+          },
+          "restricted_recall": 0.9474,
+          "restricted_under_classified": 0,
+          "restricted_support": 38,
+          "non_answer_rate": 0.0,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 38
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 32,
+              "RESTRICTED": 6
+            },
+            "INTERNAL": {
+              "INTERNAL": 38
+            },
+            "RESTRICTED": {
+              "CONFIDENTIAL": 2,
+              "RESTRICTED": 36
+            }
+          },
+          "mean_latency_ms": 587.27,
+          "predictions": [
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "INTERNAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "INTERNAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "INTERNAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "RESTRICTED",
+            "INTERNAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "INTERNAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "RESTRICTED",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "INTERNAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL"
+          ]
+        },
+        "realistic": {
+          "n": 40,
+          "correct": 25,
+          "accuracy": 0.625,
+          "wilson_95": [
+            0.4703,
+            0.7578
+          ],
+          "macro_f1": 0.6264,
+          "per_class": {
+            "PUBLIC": {
+              "support": 10,
+              "precision": 0.5455,
+              "recall": 0.6,
+              "f1": 0.5714
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.5714,
+              "recall": 0.4,
+              "f1": 0.4706
+            },
+            "CONFIDENTIAL": {
+              "support": 10,
+              "precision": 0.5333,
+              "recall": 0.8,
+              "f1": 0.64
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 1.0,
+              "recall": 0.7,
+              "f1": 0.8235
+            }
+          },
+          "restricted_recall": 0.7,
+          "restricted_under_classified": 0,
+          "restricted_support": 10,
+          "non_answer_rate": 0.0,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 6,
+              "INTERNAL": 2,
+              "CONFIDENTIAL": 2
+            },
+            "INTERNAL": {
+              "INTERNAL": 4,
+              "CONFIDENTIAL": 2,
+              "PUBLIC": 4
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 8,
+              "PUBLIC": 1,
+              "INTERNAL": 1
+            },
+            "RESTRICTED": {
+              "RESTRICTED": 7,
+              "CONFIDENTIAL": 3
+            }
+          },
+          "mean_latency_ms": 463.91,
+          "predictions": [
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "CONFIDENTIAL"
+          ]
+        },
+        "adversarial": {
+          "n": 40,
+          "correct": 30,
+          "accuracy": 0.75,
+          "wilson_95": [
+            0.5981,
+            0.8581
+          ],
+          "macro_f1": 0.7224,
+          "per_class": {
+            "PUBLIC": {
+              "support": 12,
+              "precision": 0.8571,
+              "recall": 1.0,
+              "f1": 0.9231
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.8,
+              "recall": 0.8,
+              "f1": 0.8
+            },
+            "CONFIDENTIAL": {
+              "support": 8,
+              "precision": 0.5,
+              "recall": 0.5,
+              "f1": 0.5
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.75,
+              "recall": 0.6,
+              "f1": 0.6667
+            }
+          },
+          "restricted_recall": 0.6,
+          "restricted_under_classified": 1,
+          "restricted_support": 10,
+          "non_answer_rate": 0.0,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 12
+            },
+            "INTERNAL": {
+              "INTERNAL": 8,
+              "CONFIDENTIAL": 1,
+              "PUBLIC": 1
+            },
+            "RESTRICTED": {
+              "CONFIDENTIAL": 3,
+              "PUBLIC": 1,
+              "RESTRICTED": 6
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 4,
+              "INTERNAL": 2,
+              "RESTRICTED": 2
+            }
+          },
+          "mean_latency_ms": 358.81,
+          "predictions": [
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "INTERNAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "PUBLIC",
+            "INTERNAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "PUBLIC"
+          ]
+        },
+        "reviewed-heldout": {
+          "n": 60,
+          "correct": 35,
+          "accuracy": 0.5833,
+          "wilson_95": [
+            0.4573,
+            0.6994
+          ],
+          "macro_f1": 0.5938,
+          "per_class": {
+            "PUBLIC": {
+              "support": 14,
+              "precision": 0.4348,
+              "recall": 0.7143,
+              "f1": 0.5405
+            },
+            "INTERNAL": {
+              "support": 16,
+              "precision": 0.6364,
+              "recall": 0.4375,
+              "f1": 0.5185
+            },
+            "CONFIDENTIAL": {
+              "support": 16,
+              "precision": 0.5333,
+              "recall": 0.5,
+              "f1": 0.5161
+            },
+            "RESTRICTED": {
+              "support": 14,
+              "precision": 0.9091,
+              "recall": 0.7143,
+              "f1": 0.8
+            }
+          },
+          "restricted_recall": 0.7143,
+          "restricted_under_classified": 1,
+          "restricted_support": 14,
+          "non_answer_rate": 0.0,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 10,
+              "INTERNAL": 2,
+              "CONFIDENTIAL": 2
+            },
+            "INTERNAL": {
+              "INTERNAL": 7,
+              "CONFIDENTIAL": 2,
+              "PUBLIC": 7
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 8,
+              "PUBLIC": 5,
+              "INTERNAL": 2,
+              "RESTRICTED": 1
+            },
+            "RESTRICTED": {
+              "RESTRICTED": 10,
+              "CONFIDENTIAL": 3,
+              "PUBLIC": 1
+            }
+          },
+          "mean_latency_ms": 471.41,
+          "predictions": [
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED"
+          ]
+        },
+        "reviewed-seen": {
+          "n": 40,
+          "correct": 28,
+          "accuracy": 0.7,
+          "wilson_95": [
+            0.5457,
+            0.8193
+          ],
+          "macro_f1": 0.6987,
+          "per_class": {
+            "PUBLIC": {
+              "support": 10,
+              "precision": 0.4706,
+              "recall": 0.8,
+              "f1": 0.5926
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.8333,
+              "recall": 0.5,
+              "f1": 0.625
+            },
+            "CONFIDENTIAL": {
+              "support": 10,
+              "precision": 0.8333,
+              "recall": 0.5,
+              "f1": 0.625
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.9091,
+              "recall": 1.0,
+              "f1": 0.9524
+            }
+          },
+          "restricted_recall": 1.0,
+          "restricted_under_classified": 0,
+          "restricted_support": 10,
+          "non_answer_rate": 0.0,
+          "confusion": {
+            "INTERNAL": {
+              "INTERNAL": 5,
+              "PUBLIC": 4,
+              "CONFIDENTIAL": 1
+            },
+            "CONFIDENTIAL": {
+              "PUBLIC": 5,
+              "CONFIDENTIAL": 5
+            },
+            "PUBLIC": {
+              "PUBLIC": 8,
+              "INTERNAL": 1,
+              "RESTRICTED": 1
+            },
+            "RESTRICTED": {
+              "RESTRICTED": 10
+            }
+          },
+          "mean_latency_ms": 402.36,
+          "predictions": [
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED"
+          ]
+        }
+      }
+    },
+    "lora-policy": {
+      "description": "LoRA adapter + policy layer (the shipped configuration)",
+      "load_seconds": 3.45,
+      "datasets": {
+        "generated-test": {
+          "n": 152,
+          "correct": 144,
+          "accuracy": 0.9474,
+          "wilson_95": [
+            0.8996,
+            0.9731
+          ],
+          "macro_f1": 0.9472,
+          "per_class": {
+            "PUBLIC": {
+              "support": 38,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "INTERNAL": {
+              "support": 38,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "CONFIDENTIAL": {
+              "support": 38,
+              "precision": 0.9412,
+              "recall": 0.8421,
+              "f1": 0.8889
+            },
+            "RESTRICTED": {
+              "support": 38,
+              "precision": 0.8571,
+              "recall": 0.9474,
+              "f1": 0.9
+            }
+          },
+          "restricted_recall": 0.9474,
+          "restricted_under_classified": 0,
+          "restricted_support": 38,
+          "non_answer_rate": 0.0,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 38
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 32,
+              "RESTRICTED": 6
+            },
+            "INTERNAL": {
+              "INTERNAL": 38
+            },
+            "RESTRICTED": {
+              "CONFIDENTIAL": 2,
+              "RESTRICTED": 36
+            }
+          },
+          "mean_latency_ms": 321.89,
+          "predictions": [
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "INTERNAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "INTERNAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "INTERNAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "RESTRICTED",
+            "INTERNAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "INTERNAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "RESTRICTED",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "INTERNAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL"
+          ]
+        },
+        "realistic": {
+          "n": 40,
+          "correct": 29,
+          "accuracy": 0.725,
+          "wilson_95": [
+            0.5717,
+            0.8389
+          ],
+          "macro_f1": 0.7104,
+          "per_class": {
+            "PUBLIC": {
+              "support": 10,
+              "precision": 0.6154,
+              "recall": 0.8,
+              "f1": 0.6957
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.6667,
+              "recall": 0.4,
+              "f1": 0.5
+            },
+            "CONFIDENTIAL": {
+              "support": 10,
+              "precision": 0.7778,
+              "recall": 0.7,
+              "f1": 0.7368
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "f1": 0.9091
+            }
+          },
+          "restricted_recall": 1.0,
+          "restricted_under_classified": 0,
+          "restricted_support": 10,
+          "non_answer_rate": 0.0,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 8,
+              "INTERNAL": 2
+            },
+            "INTERNAL": {
+              "INTERNAL": 4,
+              "CONFIDENTIAL": 2,
+              "PUBLIC": 4
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 7,
+              "PUBLIC": 1,
+              "RESTRICTED": 2
+            },
+            "RESTRICTED": {
+              "RESTRICTED": 10
+            }
+          },
+          "mean_latency_ms": 171.76,
+          "predictions": [
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED"
+          ]
+        },
+        "adversarial": {
+          "n": 40,
+          "correct": 30,
+          "accuracy": 0.75,
+          "wilson_95": [
+            0.5981,
+            0.8581
+          ],
+          "macro_f1": 0.7339,
+          "per_class": {
+            "PUBLIC": {
+              "support": 12,
+              "precision": 0.75,
+              "recall": 1.0,
+              "f1": 0.8571
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 1.0,
+              "recall": 0.7,
+              "f1": 0.8235
+            },
+            "CONFIDENTIAL": {
+              "support": 8,
+              "precision": 0.5556,
+              "recall": 0.625,
+              "f1": 0.5882
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.75,
+              "recall": 0.6,
+              "f1": 0.6667
+            }
+          },
+          "restricted_recall": 0.6,
+          "restricted_under_classified": 1,
+          "restricted_support": 10,
+          "non_answer_rate": 0.0,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 12
+            },
+            "INTERNAL": {
+              "INTERNAL": 7,
+              "CONFIDENTIAL": 1,
+              "RESTRICTED": 1,
+              "PUBLIC": 1
+            },
+            "RESTRICTED": {
+              "CONFIDENTIAL": 3,
+              "PUBLIC": 1,
+              "RESTRICTED": 6
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 5,
+              "PUBLIC": 2,
+              "RESTRICTED": 1
+            }
+          },
+          "mean_latency_ms": 181.45,
+          "predictions": [
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "INTERNAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "PUBLIC"
+          ]
+        },
+        "reviewed-heldout": {
+          "n": 60,
+          "correct": 39,
+          "accuracy": 0.65,
+          "wilson_95": [
+            0.5236,
+            0.7583
+          ],
+          "macro_f1": 0.6451,
+          "per_class": {
+            "PUBLIC": {
+              "support": 14,
+              "precision": 0.48,
+              "recall": 0.8571,
+              "f1": 0.6154
+            },
+            "INTERNAL": {
+              "support": 16,
+              "precision": 0.7,
+              "recall": 0.4375,
+              "f1": 0.5385
+            },
+            "CONFIDENTIAL": {
+              "support": 16,
+              "precision": 0.7778,
+              "recall": 0.4375,
+              "f1": 0.56
+            },
+            "RESTRICTED": {
+              "support": 14,
+              "precision": 0.8125,
+              "recall": 0.9286,
+              "f1": 0.8667
+            }
+          },
+          "restricted_recall": 0.9286,
+          "restricted_under_classified": 1,
+          "restricted_support": 14,
+          "non_answer_rate": 0.0,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 12,
+              "INTERNAL": 2
+            },
+            "INTERNAL": {
+              "INTERNAL": 7,
+              "CONFIDENTIAL": 2,
+              "PUBLIC": 7
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 7,
+              "PUBLIC": 5,
+              "RESTRICTED": 3,
+              "INTERNAL": 1
+            },
+            "RESTRICTED": {
+              "RESTRICTED": 13,
+              "PUBLIC": 1
+            }
+          },
+          "mean_latency_ms": 205.94,
+          "predictions": [
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED"
+          ]
+        },
+        "reviewed-seen": {
+          "n": 40,
+          "correct": 29,
+          "accuracy": 0.725,
+          "wilson_95": [
+            0.5717,
+            0.8389
+          ],
+          "macro_f1": 0.7102,
+          "per_class": {
+            "PUBLIC": {
+              "support": 10,
+              "precision": 0.5625,
+              "recall": 0.9,
+              "f1": 0.6923
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.8,
+              "recall": 0.4,
+              "f1": 0.5333
+            },
+            "CONFIDENTIAL": {
+              "support": 10,
+              "precision": 0.8571,
+              "recall": 0.6,
+              "f1": 0.7059
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "f1": 0.9091
+            }
+          },
+          "restricted_recall": 1.0,
+          "restricted_under_classified": 0,
+          "restricted_support": 10,
+          "non_answer_rate": 0.0,
+          "confusion": {
+            "INTERNAL": {
+              "INTERNAL": 4,
+              "PUBLIC": 4,
+              "CONFIDENTIAL": 1,
+              "RESTRICTED": 1
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 6,
+              "PUBLIC": 3,
+              "RESTRICTED": 1
+            },
+            "PUBLIC": {
+              "PUBLIC": 9,
+              "INTERNAL": 1
+            },
+            "RESTRICTED": {
+              "RESTRICTED": 10
+            }
+          },
+          "mean_latency_ms": 177.8,
+          "predictions": [
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED"
+          ]
+        }
+      }
+    },
+    "onnx-fp32-no-policy": {
+      "description": "ONNX Runtime CPU fp32, merged adapter, policy layer disabled",
+      "load_seconds": 5.65,
+      "datasets": {
+        "generated-test": {
+          "n": 152,
+          "correct": 145,
+          "accuracy": 0.9539,
+          "wilson_95": [
+            0.908,
+            0.9775
+          ],
+          "macro_f1": 0.9537,
+          "per_class": {
+            "PUBLIC": {
+              "support": 38,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "INTERNAL": {
+              "support": 38,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "CONFIDENTIAL": {
+              "support": 38,
+              "precision": 0.9697,
+              "recall": 0.8421,
+              "f1": 0.9014
+            },
+            "RESTRICTED": {
+              "support": 38,
+              "precision": 0.8605,
+              "recall": 0.9737,
+              "f1": 0.9136
+            }
+          },
+          "restricted_recall": 0.9737,
+          "restricted_under_classified": 0,
+          "restricted_support": 38,
+          "non_answer_rate": 0.0,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 38
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 32,
+              "RESTRICTED": 6
+            },
+            "INTERNAL": {
+              "INTERNAL": 38
+            },
+            "RESTRICTED": {
+              "CONFIDENTIAL": 1,
+              "RESTRICTED": 37
+            }
+          },
+          "mean_latency_ms": 588.71,
+          "predictions": [
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "INTERNAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "INTERNAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "INTERNAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "RESTRICTED",
+            "INTERNAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "INTERNAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "RESTRICTED",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "INTERNAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL"
+          ]
+        },
+        "realistic": {
+          "n": 40,
+          "correct": 25,
+          "accuracy": 0.625,
+          "wilson_95": [
+            0.4703,
+            0.7578
+          ],
+          "macro_f1": 0.6264,
+          "per_class": {
+            "PUBLIC": {
+              "support": 10,
+              "precision": 0.5455,
+              "recall": 0.6,
+              "f1": 0.5714
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.5714,
+              "recall": 0.4,
+              "f1": 0.4706
+            },
+            "CONFIDENTIAL": {
+              "support": 10,
+              "precision": 0.5333,
+              "recall": 0.8,
+              "f1": 0.64
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 1.0,
+              "recall": 0.7,
+              "f1": 0.8235
+            }
+          },
+          "restricted_recall": 0.7,
+          "restricted_under_classified": 0,
+          "restricted_support": 10,
+          "non_answer_rate": 0.0,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 6,
+              "INTERNAL": 2,
+              "CONFIDENTIAL": 2
+            },
+            "INTERNAL": {
+              "INTERNAL": 4,
+              "CONFIDENTIAL": 2,
+              "PUBLIC": 4
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 8,
+              "PUBLIC": 1,
+              "INTERNAL": 1
+            },
+            "RESTRICTED": {
+              "RESTRICTED": 7,
+              "CONFIDENTIAL": 3
+            }
+          },
+          "mean_latency_ms": 617.31,
+          "predictions": [
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "CONFIDENTIAL"
+          ]
+        },
+        "adversarial": {
+          "n": 40,
+          "correct": 31,
+          "accuracy": 0.775,
+          "wilson_95": [
+            0.625,
+            0.8768
+          ],
+          "macro_f1": 0.7483,
+          "per_class": {
+            "PUBLIC": {
+              "support": 12,
+              "precision": 0.8571,
+              "recall": 1.0,
+              "f1": 0.9231
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.8,
+              "recall": 0.8,
+              "f1": 0.8
+            },
+            "CONFIDENTIAL": {
+              "support": 8,
+              "precision": 0.5714,
+              "recall": 0.5,
+              "f1": 0.5333
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.7778,
+              "recall": 0.7,
+              "f1": 0.7368
+            }
+          },
+          "restricted_recall": 0.7,
+          "restricted_under_classified": 1,
+          "restricted_support": 10,
+          "non_answer_rate": 0.0,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 12
+            },
+            "INTERNAL": {
+              "INTERNAL": 8,
+              "CONFIDENTIAL": 1,
+              "PUBLIC": 1
+            },
+            "RESTRICTED": {
+              "CONFIDENTIAL": 2,
+              "PUBLIC": 1,
+              "RESTRICTED": 7
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 4,
+              "INTERNAL": 2,
+              "RESTRICTED": 2
+            }
+          },
+          "mean_latency_ms": 602.63,
+          "predictions": [
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "INTERNAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "PUBLIC",
+            "INTERNAL",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "PUBLIC"
+          ]
+        },
+        "reviewed-heldout": {
+          "n": 60,
+          "correct": 35,
+          "accuracy": 0.5833,
+          "wilson_95": [
+            0.4573,
+            0.6994
+          ],
+          "macro_f1": 0.5938,
+          "per_class": {
+            "PUBLIC": {
+              "support": 14,
+              "precision": 0.4348,
+              "recall": 0.7143,
+              "f1": 0.5405
+            },
+            "INTERNAL": {
+              "support": 16,
+              "precision": 0.6364,
+              "recall": 0.4375,
+              "f1": 0.5185
+            },
+            "CONFIDENTIAL": {
+              "support": 16,
+              "precision": 0.5333,
+              "recall": 0.5,
+              "f1": 0.5161
+            },
+            "RESTRICTED": {
+              "support": 14,
+              "precision": 0.9091,
+              "recall": 0.7143,
+              "f1": 0.8
+            }
+          },
+          "restricted_recall": 0.7143,
+          "restricted_under_classified": 1,
+          "restricted_support": 14,
+          "non_answer_rate": 0.0,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 10,
+              "INTERNAL": 2,
+              "CONFIDENTIAL": 2
+            },
+            "INTERNAL": {
+              "INTERNAL": 7,
+              "CONFIDENTIAL": 2,
+              "PUBLIC": 7
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 8,
+              "PUBLIC": 5,
+              "INTERNAL": 2,
+              "RESTRICTED": 1
+            },
+            "RESTRICTED": {
+              "RESTRICTED": 10,
+              "CONFIDENTIAL": 3,
+              "PUBLIC": 1
+            }
+          },
+          "mean_latency_ms": 598.44,
+          "predictions": [
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED"
+          ]
+        },
+        "reviewed-seen": {
+          "n": 40,
+          "correct": 28,
+          "accuracy": 0.7,
+          "wilson_95": [
+            0.5457,
+            0.8193
+          ],
+          "macro_f1": 0.6987,
+          "per_class": {
+            "PUBLIC": {
+              "support": 10,
+              "precision": 0.4706,
+              "recall": 0.8,
+              "f1": 0.5926
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.8333,
+              "recall": 0.5,
+              "f1": 0.625
+            },
+            "CONFIDENTIAL": {
+              "support": 10,
+              "precision": 0.8333,
+              "recall": 0.5,
+              "f1": 0.625
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.9091,
+              "recall": 1.0,
+              "f1": 0.9524
+            }
+          },
+          "restricted_recall": 1.0,
+          "restricted_under_classified": 0,
+          "restricted_support": 10,
+          "non_answer_rate": 0.0,
+          "confusion": {
+            "INTERNAL": {
+              "INTERNAL": 5,
+              "PUBLIC": 4,
+              "CONFIDENTIAL": 1
+            },
+            "CONFIDENTIAL": {
+              "PUBLIC": 5,
+              "CONFIDENTIAL": 5
+            },
+            "PUBLIC": {
+              "PUBLIC": 8,
+              "INTERNAL": 1,
+              "RESTRICTED": 1
+            },
+            "RESTRICTED": {
+              "RESTRICTED": 10
+            }
+          },
+          "mean_latency_ms": 586.52,
+          "predictions": [
+            "INTERNAL",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED",
+            "RESTRICTED"
+          ]
+        }
+      }
+    },
+    "onnx-int8-no-policy": {
+      "description": "ONNX Runtime CPU dynamic INT8 (per-tensor scales), policy disabled",
+      "load_seconds": 4.92,
+      "datasets": {
+        "generated-test": {
+          "n": 152,
+          "correct": 45,
+          "accuracy": 0.2961,
+          "wilson_95": [
+            0.2292,
+            0.3729
+          ],
+          "macro_f1": 0.2856,
+          "per_class": {
+            "PUBLIC": {
+              "support": 38,
+              "precision": 0.3214,
+              "recall": 0.7105,
+              "f1": 0.4426
+            },
+            "INTERNAL": {
+              "support": 38,
+              "precision": 0.5556,
+              "recall": 0.1316,
+              "f1": 0.2128
+            },
+            "CONFIDENTIAL": {
+              "support": 38,
+              "precision": 0.3125,
+              "recall": 0.1316,
+              "f1": 0.1852
+            },
+            "RESTRICTED": {
+              "support": 38,
+              "precision": 0.5333,
+              "recall": 0.2105,
+              "f1": 0.3019
+            }
+          },
+          "restricted_recall": 0.2105,
+          "restricted_under_classified": 20,
+          "restricted_support": 38,
+          "non_answer_rate": 0.1842,
+          "confusion": {
+            "PUBLIC": {
+              "INTERNAL": 3,
+              "PUBLIC": 27,
+              "CONFIDENTIAL": 3,
+              "UNKNOWN": 3,
+              "RESTRICTED": 2
+            },
+            "CONFIDENTIAL": {
+              "PUBLIC": 25,
+              "CONFIDENTIAL": 5,
+              "UNKNOWN": 6,
+              "RESTRICTED": 1,
+              "INTERNAL": 1
+            },
+            "INTERNAL": {
+              "RESTRICTED": 4,
+              "INTERNAL": 5,
+              "PUBLIC": 12,
+              "UNKNOWN": 13,
+              "CONFIDENTIAL": 4
+            },
+            "RESTRICTED": {
+              "PUBLIC": 20,
+              "UNKNOWN": 6,
+              "CONFIDENTIAL": 4,
+              "RESTRICTED": 8
+            }
+          },
+          "mean_latency_ms": 396.71,
+          "predictions": [
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "UNKNOWN",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "RESTRICTED",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "UNKNOWN",
+            "PUBLIC",
+            "INTERNAL",
+            "UNKNOWN",
+            "RESTRICTED",
+            "RESTRICTED",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "UNKNOWN",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "RESTRICTED",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "RESTRICTED",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC"
+          ]
+        },
+        "realistic": {
+          "n": 40,
+          "correct": 9,
+          "accuracy": 0.225,
+          "wilson_95": [
+            0.1232,
+            0.375
+          ],
+          "macro_f1": 0.2103,
+          "per_class": {
+            "PUBLIC": {
+              "support": 10,
+              "precision": 0.2667,
+              "recall": 0.4,
+              "f1": 0.32
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.2727,
+              "recall": 0.3,
+              "f1": 0.2857
+            },
+            "CONFIDENTIAL": {
+              "support": 10,
+              "precision": 0.2857,
+              "recall": 0.2,
+              "f1": 0.2353
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "restricted_recall": 0.0,
+          "restricted_under_classified": 5,
+          "restricted_support": 10,
+          "non_answer_rate": 0.175,
+          "confusion": {
+            "PUBLIC": {
+              "INTERNAL": 4,
+              "PUBLIC": 4,
+              "UNKNOWN": 2
+            },
+            "INTERNAL": {
+              "PUBLIC": 4,
+              "INTERNAL": 3,
+              "CONFIDENTIAL": 2,
+              "UNKNOWN": 1
+            },
+            "CONFIDENTIAL": {
+              "PUBLIC": 4,
+              "UNKNOWN": 2,
+              "INTERNAL": 2,
+              "CONFIDENTIAL": 2
+            },
+            "RESTRICTED": {
+              "CONFIDENTIAL": 3,
+              "UNKNOWN": 2,
+              "PUBLIC": 3,
+              "INTERNAL": 2
+            }
+          },
+          "mean_latency_ms": 388.92,
+          "predictions": [
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "UNKNOWN",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "UNKNOWN",
+            "INTERNAL"
+          ]
+        },
+        "adversarial": {
+          "n": 40,
+          "correct": 14,
+          "accuracy": 0.35,
+          "wilson_95": [
+            0.2213,
+            0.5049
+          ],
+          "macro_f1": 0.328,
+          "per_class": {
+            "PUBLIC": {
+              "support": 12,
+              "precision": 0.381,
+              "recall": 0.6667,
+              "f1": 0.4848
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.6667,
+              "recall": 0.2,
+              "f1": 0.3077
+            },
+            "CONFIDENTIAL": {
+              "support": 8,
+              "precision": 0.25,
+              "recall": 0.125,
+              "f1": 0.1667
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.4286,
+              "recall": 0.3,
+              "f1": 0.3529
+            }
+          },
+          "restricted_recall": 0.3,
+          "restricted_under_classified": 5,
+          "restricted_support": 10,
+          "non_answer_rate": 0.125,
+          "confusion": {
+            "PUBLIC": {
+              "UNKNOWN": 2,
+              "PUBLIC": 8,
+              "RESTRICTED": 1,
+              "CONFIDENTIAL": 1
+            },
+            "INTERNAL": {
+              "PUBLIC": 3,
+              "INTERNAL": 2,
+              "CONFIDENTIAL": 1,
+              "UNKNOWN": 2,
+              "RESTRICTED": 2
+            },
+            "RESTRICTED": {
+              "PUBLIC": 4,
+              "UNKNOWN": 1,
+              "RESTRICTED": 3,
+              "INTERNAL": 1,
+              "CONFIDENTIAL": 1
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 1,
+              "PUBLIC": 6,
+              "RESTRICTED": 1
+            }
+          },
+          "mean_latency_ms": 399.16,
+          "predictions": [
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "RESTRICTED",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "UNKNOWN"
+          ]
+        },
+        "reviewed-heldout": {
+          "n": 60,
+          "correct": 15,
+          "accuracy": 0.25,
+          "wilson_95": [
+            0.1578,
+            0.3723
+          ],
+          "macro_f1": 0.2301,
+          "per_class": {
+            "PUBLIC": {
+              "support": 14,
+              "precision": 0.2414,
+              "recall": 0.5,
+              "f1": 0.3256
+            },
+            "INTERNAL": {
+              "support": 16,
+              "precision": 0.3846,
+              "recall": 0.3125,
+              "f1": 0.3448
+            },
+            "CONFIDENTIAL": {
+              "support": 16,
+              "precision": 0.375,
+              "recall": 0.1875,
+              "f1": 0.25
+            },
+            "RESTRICTED": {
+              "support": 14,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "restricted_recall": 0.0,
+          "restricted_under_classified": 8,
+          "restricted_support": 14,
+          "non_answer_rate": 0.1667,
+          "confusion": {
+            "PUBLIC": {
+              "INTERNAL": 4,
+              "PUBLIC": 7,
+              "UNKNOWN": 3
+            },
+            "INTERNAL": {
+              "PUBLIC": 7,
+              "INTERNAL": 5,
+              "CONFIDENTIAL": 2,
+              "UNKNOWN": 2
+            },
+            "CONFIDENTIAL": {
+              "PUBLIC": 9,
+              "UNKNOWN": 2,
+              "INTERNAL": 2,
+              "CONFIDENTIAL": 3
+            },
+            "RESTRICTED": {
+              "CONFIDENTIAL": 3,
+              "UNKNOWN": 3,
+              "PUBLIC": 6,
+              "INTERNAL": 2
+            }
+          },
+          "mean_latency_ms": 394.54,
+          "predictions": [
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "CONFIDENTIAL",
+            "UNKNOWN",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "UNKNOWN",
+            "INTERNAL",
+            "INTERNAL",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC"
+          ]
+        },
+        "reviewed-seen": {
+          "n": 40,
+          "correct": 6,
+          "accuracy": 0.15,
+          "wilson_95": [
+            0.0706,
+            0.2907
+          ],
+          "macro_f1": 0.1359,
+          "per_class": {
+            "PUBLIC": {
+              "support": 10,
+              "precision": 0.1905,
+              "recall": 0.4,
+              "f1": 0.2581
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "CONFIDENTIAL": {
+              "support": 10,
+              "precision": 0.5,
+              "recall": 0.2,
+              "f1": 0.2857
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "restricted_recall": 0.0,
+          "restricted_under_classified": 5,
+          "restricted_support": 10,
+          "non_answer_rate": 0.25,
+          "confusion": {
+            "INTERNAL": {
+              "UNKNOWN": 2,
+              "PUBLIC": 6,
+              "CONFIDENTIAL": 1,
+              "RESTRICTED": 1
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 2,
+              "PUBLIC": 6,
+              "INTERNAL": 1,
+              "RESTRICTED": 1
+            },
+            "PUBLIC": {
+              "UNKNOWN": 3,
+              "INTERNAL": 1,
+              "PUBLIC": 4,
+              "RESTRICTED": 1,
+              "CONFIDENTIAL": 1
+            },
+            "RESTRICTED": {
+              "UNKNOWN": 5,
+              "PUBLIC": 5
+            }
+          },
+          "mean_latency_ms": 394.95,
+          "predictions": [
+            "UNKNOWN",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "INTERNAL",
+            "UNKNOWN",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "UNKNOWN",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN"
+          ]
+        }
+      }
+    },
+    "onnx-int8-perchannel-no-policy": {
+      "description": "ONNX Runtime CPU dynamic INT8 (per-channel scales), policy disabled",
+      "load_seconds": 3.81,
+      "datasets": {
+        "generated-test": {
+          "n": 152,
+          "correct": 18,
+          "accuracy": 0.1184,
+          "wilson_95": [
+            0.0762,
+            0.1794
+          ],
+          "macro_f1": 0.1643,
+          "per_class": {
+            "PUBLIC": {
+              "support": 38,
+              "precision": 0.3846,
+              "recall": 0.2632,
+              "f1": 0.3125
+            },
+            "INTERNAL": {
+              "support": 38,
+              "precision": 0.7143,
+              "recall": 0.1316,
+              "f1": 0.2222
+            },
+            "CONFIDENTIAL": {
+              "support": 38,
+              "precision": 0.2727,
+              "recall": 0.0789,
+              "f1": 0.1224
+            },
+            "RESTRICTED": {
+              "support": 38,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "restricted_recall": 0.0,
+          "restricted_under_classified": 8,
+          "restricted_support": 38,
+          "non_answer_rate": 0.7039,
+          "confusion": {
+            "PUBLIC": {
+              "UNKNOWN": 25,
+              "PUBLIC": 10,
+              "CONFIDENTIAL": 2,
+              "INTERNAL": 1
+            },
+            "CONFIDENTIAL": {
+              "UNKNOWN": 31,
+              "PUBLIC": 3,
+              "INTERNAL": 1,
+              "CONFIDENTIAL": 3
+            },
+            "INTERNAL": {
+              "PUBLIC": 5,
+              "UNKNOWN": 27,
+              "RESTRICTED": 1,
+              "INTERNAL": 5
+            },
+            "RESTRICTED": {
+              "CONFIDENTIAL": 6,
+              "UNKNOWN": 24,
+              "PUBLIC": 8
+            }
+          },
+          "mean_latency_ms": 395.45,
+          "predictions": [
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "UNKNOWN",
+            "UNKNOWN",
+            "CONFIDENTIAL",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "INTERNAL",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "CONFIDENTIAL",
+            "UNKNOWN",
+            "INTERNAL",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "CONFIDENTIAL",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "CONFIDENTIAL",
+            "UNKNOWN",
+            "UNKNOWN",
+            "CONFIDENTIAL",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "INTERNAL",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "INTERNAL",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "CONFIDENTIAL",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "INTERNAL",
+            "UNKNOWN",
+            "CONFIDENTIAL",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "INTERNAL",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN"
+          ]
+        },
+        "realistic": {
+          "n": 40,
+          "correct": 3,
+          "accuracy": 0.075,
+          "wilson_95": [
+            0.0258,
+            0.1986
+          ],
+          "macro_f1": 0.1043,
+          "per_class": {
+            "PUBLIC": {
+              "support": 10,
+              "precision": 0.2857,
+              "recall": 0.2,
+              "f1": 0.2353
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 1.0,
+              "recall": 0.1,
+              "f1": 0.1818
+            },
+            "CONFIDENTIAL": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "restricted_recall": 0.0,
+          "restricted_under_classified": 1,
+          "restricted_support": 10,
+          "non_answer_rate": 0.8,
+          "confusion": {
+            "PUBLIC": {
+              "UNKNOWN": 8,
+              "PUBLIC": 2
+            },
+            "INTERNAL": {
+              "UNKNOWN": 8,
+              "INTERNAL": 1,
+              "PUBLIC": 1
+            },
+            "CONFIDENTIAL": {
+              "PUBLIC": 3,
+              "UNKNOWN": 7
+            },
+            "RESTRICTED": {
+              "UNKNOWN": 9,
+              "PUBLIC": 1
+            }
+          },
+          "mean_latency_ms": 434.59,
+          "predictions": [
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "INTERNAL",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN"
+          ]
+        },
+        "adversarial": {
+          "n": 40,
+          "correct": 7,
+          "accuracy": 0.175,
+          "wilson_95": [
+            0.0875,
+            0.3195
+          ],
+          "macro_f1": 0.1818,
+          "per_class": {
+            "PUBLIC": {
+              "support": 12,
+              "precision": 0.6,
+              "recall": 0.5,
+              "f1": 0.5455
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 1.0,
+              "recall": 0.1,
+              "f1": 0.1818
+            },
+            "CONFIDENTIAL": {
+              "support": 8,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "restricted_recall": 0.0,
+          "restricted_under_classified": 1,
+          "restricted_support": 10,
+          "non_answer_rate": 0.7,
+          "confusion": {
+            "PUBLIC": {
+              "PUBLIC": 6,
+              "UNKNOWN": 6
+            },
+            "INTERNAL": {
+              "UNKNOWN": 6,
+              "PUBLIC": 3,
+              "INTERNAL": 1
+            },
+            "RESTRICTED": {
+              "UNKNOWN": 9,
+              "PUBLIC": 1
+            },
+            "CONFIDENTIAL": {
+              "RESTRICTED": 1,
+              "UNKNOWN": 7
+            }
+          },
+          "mean_latency_ms": 415.09,
+          "predictions": [
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "INTERNAL",
+            "UNKNOWN",
+            "RESTRICTED",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN"
+          ]
+        },
+        "reviewed-heldout": {
+          "n": 60,
+          "correct": 5,
+          "accuracy": 0.0833,
+          "wilson_95": [
+            0.0361,
+            0.1807
+          ],
+          "macro_f1": 0.1078,
+          "per_class": {
+            "PUBLIC": {
+              "support": 14,
+              "precision": 0.3636,
+              "recall": 0.2857,
+              "f1": 0.32
+            },
+            "INTERNAL": {
+              "support": 16,
+              "precision": 0.5,
+              "recall": 0.0625,
+              "f1": 0.1111
+            },
+            "CONFIDENTIAL": {
+              "support": 16,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "RESTRICTED": {
+              "support": 14,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "restricted_recall": 0.0,
+          "restricted_under_classified": 3,
+          "restricted_support": 14,
+          "non_answer_rate": 0.7833,
+          "confusion": {
+            "PUBLIC": {
+              "UNKNOWN": 10,
+              "PUBLIC": 4
+            },
+            "INTERNAL": {
+              "UNKNOWN": 14,
+              "INTERNAL": 1,
+              "PUBLIC": 1
+            },
+            "CONFIDENTIAL": {
+              "PUBLIC": 3,
+              "UNKNOWN": 12,
+              "INTERNAL": 1
+            },
+            "RESTRICTED": {
+              "UNKNOWN": 11,
+              "PUBLIC": 3
+            }
+          },
+          "mean_latency_ms": 398.1,
+          "predictions": [
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "INTERNAL",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "INTERNAL",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN"
+          ]
+        },
+        "reviewed-seen": {
+          "n": 40,
+          "correct": 9,
+          "accuracy": 0.225,
+          "wilson_95": [
+            0.1232,
+            0.375
+          ],
+          "macro_f1": 0.2271,
+          "per_class": {
+            "PUBLIC": {
+              "support": 10,
+              "precision": 0.4667,
+              "recall": 0.7,
+              "f1": 0.56
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.5,
+              "recall": 0.1,
+              "f1": 0.1667
+            },
+            "CONFIDENTIAL": {
+              "support": 10,
+              "precision": 1.0,
+              "recall": 0.1,
+              "f1": 0.1818
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "restricted_recall": 0.0,
+          "restricted_under_classified": 1,
+          "restricted_support": 10,
+          "non_answer_rate": 0.55,
+          "confusion": {
+            "INTERNAL": {
+              "UNKNOWN": 6,
+              "INTERNAL": 1,
+              "PUBLIC": 3
+            },
+            "CONFIDENTIAL": {
+              "UNKNOWN": 4,
+              "PUBLIC": 4,
+              "INTERNAL": 1,
+              "CONFIDENTIAL": 1
+            },
+            "PUBLIC": {
+              "PUBLIC": 7,
+              "UNKNOWN": 3
+            },
+            "RESTRICTED": {
+              "UNKNOWN": 9,
+              "PUBLIC": 1
+            }
+          },
+          "mean_latency_ms": 397.77,
+          "predictions": [
+            "UNKNOWN",
+            "UNKNOWN",
+            "INTERNAL",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN"
+          ]
+        }
+      }
+    },
+    "onnx-int8-safehead-no-policy": {
+      "description": "ONNX Runtime CPU dynamic INT8 with the output projection left in fp32, policy disabled",
+      "load_seconds": 4.33,
+      "datasets": {
+        "generated-test": {
+          "n": 152,
+          "correct": 46,
+          "accuracy": 0.3026,
+          "wilson_95": [
+            0.2352,
+            0.3798
+          ],
+          "macro_f1": 0.2992,
+          "per_class": {
+            "PUBLIC": {
+              "support": 38,
+              "precision": 0.3133,
+              "recall": 0.6842,
+              "f1": 0.4298
+            },
+            "INTERNAL": {
+              "support": 38,
+              "precision": 0.625,
+              "recall": 0.1316,
+              "f1": 0.2174
+            },
+            "CONFIDENTIAL": {
+              "support": 38,
+              "precision": 0.375,
+              "recall": 0.1579,
+              "f1": 0.2222
+            },
+            "RESTRICTED": {
+              "support": 38,
+              "precision": 0.5294,
+              "recall": 0.2368,
+              "f1": 0.3273
+            }
+          },
+          "restricted_recall": 0.2368,
+          "restricted_under_classified": 22,
+          "restricted_support": 38,
+          "non_answer_rate": 0.1842,
+          "confusion": {
+            "PUBLIC": {
+              "INTERNAL": 2,
+              "PUBLIC": 26,
+              "CONFIDENTIAL": 3,
+              "UNKNOWN": 4,
+              "RESTRICTED": 3
+            },
+            "CONFIDENTIAL": {
+              "PUBLIC": 23,
+              "CONFIDENTIAL": 6,
+              "UNKNOWN": 7,
+              "INTERNAL": 1,
+              "RESTRICTED": 1
+            },
+            "INTERNAL": {
+              "RESTRICTED": 4,
+              "INTERNAL": 5,
+              "PUBLIC": 12,
+              "UNKNOWN": 13,
+              "CONFIDENTIAL": 4
+            },
+            "RESTRICTED": {
+              "PUBLIC": 22,
+              "UNKNOWN": 4,
+              "CONFIDENTIAL": 3,
+              "RESTRICTED": 9
+            }
+          },
+          "mean_latency_ms": 565.98,
+          "predictions": [
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "UNKNOWN",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "RESTRICTED",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "RESTRICTED",
+            "UNKNOWN",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "UNKNOWN",
+            "RESTRICTED",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "RESTRICTED",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "RESTRICTED",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC"
+          ]
+        },
+        "realistic": {
+          "n": 40,
+          "correct": 8,
+          "accuracy": 0.2,
+          "wilson_95": [
+            0.105,
+            0.3476
+          ],
+          "macro_f1": 0.1907,
+          "per_class": {
+            "PUBLIC": {
+              "support": 10,
+              "precision": 0.2353,
+              "recall": 0.4,
+              "f1": 0.2963
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.2,
+              "recall": 0.2,
+              "f1": 0.2
+            },
+            "CONFIDENTIAL": {
+              "support": 10,
+              "precision": 0.4,
+              "recall": 0.2,
+              "f1": 0.2667
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "restricted_recall": 0.0,
+          "restricted_under_classified": 5,
+          "restricted_support": 10,
+          "non_answer_rate": 0.175,
+          "confusion": {
+            "PUBLIC": {
+              "INTERNAL": 4,
+              "PUBLIC": 4,
+              "UNKNOWN": 2
+            },
+            "INTERNAL": {
+              "PUBLIC": 6,
+              "INTERNAL": 2,
+              "CONFIDENTIAL": 1,
+              "UNKNOWN": 1
+            },
+            "CONFIDENTIAL": {
+              "PUBLIC": 4,
+              "RESTRICTED": 1,
+              "UNKNOWN": 1,
+              "INTERNAL": 2,
+              "CONFIDENTIAL": 2
+            },
+            "RESTRICTED": {
+              "INTERNAL": 2,
+              "CONFIDENTIAL": 2,
+              "UNKNOWN": 3,
+              "PUBLIC": 3
+            }
+          },
+          "mean_latency_ms": 613.01,
+          "predictions": [
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "UNKNOWN",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "UNKNOWN",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "UNKNOWN",
+            "UNKNOWN"
+          ]
+        },
+        "adversarial": {
+          "n": 40,
+          "correct": 15,
+          "accuracy": 0.375,
+          "wilson_95": [
+            0.2422,
+            0.5297
+          ],
+          "macro_f1": 0.3752,
+          "per_class": {
+            "PUBLIC": {
+              "support": 12,
+              "precision": 0.381,
+              "recall": 0.6667,
+              "f1": 0.4848
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 1.0,
+              "recall": 0.2,
+              "f1": 0.3333
+            },
+            "CONFIDENTIAL": {
+              "support": 8,
+              "precision": 0.4,
+              "recall": 0.25,
+              "f1": 0.3077
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.5,
+              "recall": 0.3,
+              "f1": 0.375
+            }
+          },
+          "restricted_recall": 0.3,
+          "restricted_under_classified": 4,
+          "restricted_support": 10,
+          "non_answer_rate": 0.15,
+          "confusion": {
+            "PUBLIC": {
+              "UNKNOWN": 2,
+              "PUBLIC": 8,
+              "RESTRICTED": 1,
+              "CONFIDENTIAL": 1
+            },
+            "INTERNAL": {
+              "PUBLIC": 3,
+              "INTERNAL": 2,
+              "CONFIDENTIAL": 1,
+              "UNKNOWN": 2,
+              "RESTRICTED": 2
+            },
+            "RESTRICTED": {
+              "PUBLIC": 4,
+              "UNKNOWN": 2,
+              "RESTRICTED": 3,
+              "CONFIDENTIAL": 1
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 2,
+              "PUBLIC": 6
+            }
+          },
+          "mean_latency_ms": 697.17,
+          "predictions": [
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "RESTRICTED",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "RESTRICTED",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "UNKNOWN"
+          ]
+        },
+        "reviewed-heldout": {
+          "n": 60,
+          "correct": 14,
+          "accuracy": 0.2333,
+          "wilson_95": [
+            0.1444,
+            0.3544
+          ],
+          "macro_f1": 0.2149,
+          "per_class": {
+            "PUBLIC": {
+              "support": 14,
+              "precision": 0.2258,
+              "recall": 0.5,
+              "f1": 0.3111
+            },
+            "INTERNAL": {
+              "support": 16,
+              "precision": 0.3077,
+              "recall": 0.25,
+              "f1": 0.2759
+            },
+            "CONFIDENTIAL": {
+              "support": 16,
+              "precision": 0.5,
+              "recall": 0.1875,
+              "f1": 0.2727
+            },
+            "RESTRICTED": {
+              "support": 14,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "restricted_recall": 0.0,
+          "restricted_under_classified": 8,
+          "restricted_support": 14,
+          "non_answer_rate": 0.15,
+          "confusion": {
+            "PUBLIC": {
+              "INTERNAL": 5,
+              "PUBLIC": 7,
+              "UNKNOWN": 2
+            },
+            "INTERNAL": {
+              "PUBLIC": 9,
+              "INTERNAL": 4,
+              "CONFIDENTIAL": 1,
+              "UNKNOWN": 2
+            },
+            "CONFIDENTIAL": {
+              "PUBLIC": 9,
+              "RESTRICTED": 1,
+              "UNKNOWN": 1,
+              "INTERNAL": 2,
+              "CONFIDENTIAL": 3
+            },
+            "RESTRICTED": {
+              "INTERNAL": 2,
+              "CONFIDENTIAL": 2,
+              "UNKNOWN": 4,
+              "PUBLIC": 6
+            }
+          },
+          "mean_latency_ms": 619.05,
+          "predictions": [
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "UNKNOWN",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "CONFIDENTIAL",
+            "UNKNOWN",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "UNKNOWN",
+            "UNKNOWN",
+            "INTERNAL",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC"
+          ]
+        },
+        "reviewed-seen": {
+          "n": 40,
+          "correct": 8,
+          "accuracy": 0.2,
+          "wilson_95": [
+            0.105,
+            0.3476
+          ],
+          "macro_f1": 0.1623,
+          "per_class": {
+            "PUBLIC": {
+              "support": 10,
+              "precision": 0.2609,
+              "recall": 0.6,
+              "f1": 0.3636
+            },
+            "INTERNAL": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            },
+            "CONFIDENTIAL": {
+              "support": 10,
+              "precision": 0.5,
+              "recall": 0.2,
+              "f1": 0.2857
+            },
+            "RESTRICTED": {
+              "support": 10,
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0
+            }
+          },
+          "restricted_recall": 0.0,
+          "restricted_under_classified": 5,
+          "restricted_support": 10,
+          "non_answer_rate": 0.175,
+          "confusion": {
+            "INTERNAL": {
+              "UNKNOWN": 1,
+              "PUBLIC": 6,
+              "CONFIDENTIAL": 1,
+              "RESTRICTED": 2
+            },
+            "CONFIDENTIAL": {
+              "CONFIDENTIAL": 2,
+              "PUBLIC": 6,
+              "INTERNAL": 1,
+              "RESTRICTED": 1
+            },
+            "PUBLIC": {
+              "PUBLIC": 6,
+              "INTERNAL": 1,
+              "RESTRICTED": 1,
+              "UNKNOWN": 1,
+              "CONFIDENTIAL": 1
+            },
+            "RESTRICTED": {
+              "UNKNOWN": 5,
+              "PUBLIC": 5
+            }
+          },
+          "mean_latency_ms": 618.66,
+          "predictions": [
+            "UNKNOWN",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "INTERNAL",
+            "PUBLIC",
+            "PUBLIC",
+            "RESTRICTED",
+            "PUBLIC",
+            "UNKNOWN",
+            "CONFIDENTIAL",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "PUBLIC",
+            "PUBLIC",
+            "PUBLIC",
+            "UNKNOWN",
+            "UNKNOWN"
+          ]
+        }
+      }
+    }
+  }
+}
