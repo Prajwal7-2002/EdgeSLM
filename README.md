@@ -145,7 +145,7 @@ results/           recorded results (tracked — REPORT.md is built from these)
 It's a prototype. Things I know are wrong with it:
 
 - The training data is template-generated, so its test split is close to free.
-  Don't quote the 94.7%.
+
 - The held-out sets are small (40–60). The confidence intervals in REPORT.md are
   wide and several of them overlap, so don't read too much into small gaps
   between systems.
