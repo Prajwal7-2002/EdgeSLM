@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "adapter": "experiments/smollm2-lora-policy (v1)",
+    "decode": "generate (as v1 shipped)",
+    "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+    "cpu_flags": null
+  },
+  "builds": {
+    "fp32": {
+      "reviewed-heldout": {
+        "accuracy": 0.5833,
+        "restricted_recall": 0.7143,
+        "restricted_under_classified": 1,
+        "non_answer_rate": 0.0
+      },
+      "realistic": {
+        "accuracy": 0.625,
+        "restricted_recall": 0.7,
+        "restricted_under_classified": 0,
+        "non_answer_rate": 0.0
+      },
+      "adversarial": {
+        "accuracy": 0.775,
+        "restricted_recall": 0.7,
+        "restricted_under_classified": 1,
+        "non_answer_rate": 0.0
+      }
+    },
+    "onnx-int8-u8s8": {
+      "reviewed-heldout": {
+        "accuracy": 0.25,
+        "restricted_recall": 0.0,
+        "restricted_under_classified": 8,
+        "non_answer_rate": 0.1667
+      },
+      "realistic": {
+        "accuracy": 0.225,
+        "restricted_recall": 0.0,
+        "restricted_under_classified": 5,
+        "non_answer_rate": 0.175
+      },
+      "adversarial": {
+        "accuracy": 0.35,
+        "restricted_recall": 0.3,
+        "restricted_under_classified": 5,
+        "non_answer_rate": 0.125
+      }
+    },
+    "onnx-int8-u8u8": {
+      "reviewed-heldout": {
+        "accuracy": 0.2,
+        "restricted_recall": 0.0,
+        "restricted_under_classified": 11,
+        "non_answer_rate": 0.1
+      },
+      "realistic": {
+        "accuracy": 0.225,
+        "restricted_recall": 0.0,
+        "restricted_under_classified": 7,
+        "non_answer_rate": 0.125
+      },
+      "adversarial": {
+        "accuracy": 0.4,
+        "restricted_recall": 0.2,
+        "restricted_under_classified": 5,
+        "non_answer_rate": 0.05
+      }
+    }
+  }
+}

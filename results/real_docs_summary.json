@@ -1,0 +1,29 @@
+{
+  "what": "40 real documents (20 Enron emails, 20 GitLab Handbook pages) from src/data/download_real_docs.py",
+  "labels": "Assigned by Claude from the text and the four label definitions, after the model's predictions on these files had been shown in the session. Not human labels.",
+  "label_counts": {
+    "INTERNAL": 26,
+    "PUBLIC": 9,
+    "CONFIDENTIAL": 4,
+    "RESTRICTED": 1
+  },
+  "agreement": {
+    "always-INTERNAL (majority class, no model)": "26/40",
+    "tfidf-v2data": "19/40",
+    "tfidf-v1data": "16/40",
+    "qwen0.5b-v2, regex layer on": "11/40",
+    "qwen0.5b-v2, regex layer off": "11/40",
+    "smollm2-v2, regex layer off": "11/40"
+  },
+  "restricted_caught": {
+    "qwen0.5b-v2": "1/1",
+    "smollm2-v2": "0/1"
+  },
+  "qwen_chunk_aggregation_regex_off": {
+    "most sensitive chunk (shipped)": "11/40",
+    "first chunk only": "18/40",
+    "majority of chunks": "17/40"
+  },
+  "qwen_single_chunk_documents": "4/14 correct, most errors at 0.97-0.99 confidence",
+  "reading": "Over-flagging: 19 of 26 INTERNAL and 7 of 9 PUBLIC documents were called CONFIDENTIAL or RESTRICTED. Real email is full of names, phone numbers and addresses, which the synthetic training data mostly put in CONFIDENTIAL examples."
+}

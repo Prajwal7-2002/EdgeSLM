@@ -10,10 +10,18 @@ drift from the numbers the harness produced.
 
 import argparse
 import json
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from evaluation.datasets import load_dataset
+from evaluation.metrics import mcnemar_exact
 
 ABLATION = Path("results/ablation.json")
 EDGE = Path("results/edge_benchmark.json")
+OVERLAP = Path("results/overlap_audit.json")
+INT8_DIAGNOSIS = Path("results/int8_diagnosis.json")
 OUTPUT = Path("REPORT.md")
 
 LABELS = ("PUBLIC", "INTERNAL", "CONFIDENTIAL", "RESTRICTED")
@@ -21,15 +29,24 @@ LABELS = ("PUBLIC", "INTERNAL", "CONFIDENTIAL", "RESTRICTED")
 # Order systems weakest-baseline-first so the table reads as an argument.
 SYSTEM_ORDER = (
     "policy-only",
-    "tfidf-logreg",
-    "base-zero-shot",
+    "tfidf-v1data",
+    "tfidf-v2data",
     "base-guided",
-    "lora-no-policy",
-    "lora-policy",
-    "onnx-fp32-no-policy",
-    "onnx-int8-no-policy",
-    "onnx-int8-perchannel-no-policy",
-    "onnx-int8-safehead-no-policy",
+    "lora-v1",
+    "lora-v1-scored",
+    "lora-v1data-labelloss",
+    "lora-v2",
+    "lora-v2-policy",
+    "qwen0.5b-v2",
+    "qwen0.5b-v2-policy",
+    "qwen0.5b-v2-onnx-int4",
+    "onnx-fp32",
+    "onnx-int8-u8s8",
+    "onnx-int8-u8u8",
+    "onnx-int8-weight-only",
+    "onnx-int4-weight-only",
+    "onnx-int4-int8-compute",
+    "qwen0.5b-onnx-int4",
 )
 
 DATASET_ORDER = (
@@ -37,28 +54,48 @@ DATASET_ORDER = (
     "realistic",
     "adversarial",
     "reviewed-heldout",
+    "contrast",
     "reviewed-seen",
 )
 
 BACKEND_ORDER = (
     "torch-cuda-fp16",
     "torch-cpu-fp32",
-    "onnx-cpu-fp32",
-    "onnx-cpu-int8",
-    "onnx-cpu-int8-perchannel",
-    "onnx-cpu-int8-safehead",
+    "onnx-fp32",
+    "onnx-int8-u8s8",
+    "onnx-int8-u8u8",
+    "onnx-int8-weight-only",
+    "onnx-int4-weight-only",
+    "onnx-int4-int8-compute",
 )
 
 # A quantised build is only useful if it is both fast and still correct, so the
 # report pairs each benchmarked backend with the system that scored its weights.
 BACKEND_TO_SYSTEM = {
-    "torch-cpu-fp32": "lora-no-policy",
-    "torch-cuda-fp16": "lora-no-policy",
-    "onnx-cpu-fp32": "onnx-fp32-no-policy",
-    "onnx-cpu-int8": "onnx-int8-no-policy",
-    "onnx-cpu-int8-perchannel": "onnx-int8-perchannel-no-policy",
-    "onnx-cpu-int8-safehead": "onnx-int8-safehead-no-policy",
+    "torch-cpu-fp32": "lora-v2",
+    "torch-cuda-fp16": "lora-v2",
+    **{name: name for name in BACKEND_ORDER if name.startswith("onnx-")},
+    "qwen0.5b-onnx-int4": "qwen0.5b-v2-onnx-int4",
 }
+
+
+# Pairs worth a significance test: each isolates one change.
+HEAD_TO_HEAD = (
+    ("lora-v2", "tfidf-v2data"),
+    ("lora-v2", "lora-v1"),
+    ("tfidf-v2data", "tfidf-v1data"),
+    ("qwen0.5b-v2", "lora-v2"),
+    ("qwen0.5b-v2", "tfidf-v2data"),
+    ("qwen0.5b-v2-onnx-int4", "tfidf-v2data"),
+    ("qwen0.5b-v2-onnx-int4", "qwen0.5b-v2"),
+    ("onnx-int4-weight-only", "onnx-fp32"),
+    ("lora-v2-policy", "lora-v2"),
+    ("qwen0.5b-v2-policy", "qwen0.5b-v2"),
+)
+
+
+def dataset_labels(name):
+    return [row["label"] for row in load_dataset(name)]
 
 
 def percent(value):
@@ -112,7 +149,7 @@ def confusion_block(entry):
     return "\n".join(lines)
 
 
-def render(ablation, edge):
+def render(ablation, edge, overlap=None, diagnosis=None):
     meta = ablation["meta"]
     systems = ordered(ablation["systems"].keys(), SYSTEM_ORDER)
     datasets = ordered(meta["datasets"].keys(), DATASET_ORDER)
@@ -129,7 +166,7 @@ def render(ablation, edge):
     )
     add("")
     add(
-        f"Adapter `{Path(meta['adapter']).as_posix()}` · device `{meta['device']}`"
+        f"Device `{meta['device']}`"
         + (f" · {meta['gpu']}" if meta.get("gpu") else "")
         + f" · torch {meta['torch']}"
     )
@@ -222,6 +259,82 @@ def render(ablation, edge):
     )
     add("")
 
+    if "contrast" in datasets:
+        add("### Pair accuracy on `contrast`")
+        add("")
+        add(
+            "Each contrast pair shares its vocabulary, so a system that keys on "
+            "words tends to get one side right by luck. A pair counts only when "
+            "both documents are right."
+        )
+        add("")
+        add("| System | Pairs fully right (of 40) | Pair accuracy |")
+        add("|---|---|---|")
+        for system in systems:
+            entry = ablation["systems"][system]["datasets"].get("contrast")
+            if entry is None or entry.get("pair_accuracy") is None:
+                continue
+            add(
+                f"| `{system}` | {round(entry['pair_accuracy'] * 40)} | "
+                f"{percent(entry['pair_accuracy'])} |"
+            )
+        add("")
+
+    comparisons = [
+        (a, b) for a, b in HEAD_TO_HEAD if a in ablation["systems"] and b in ablation["systems"]
+    ]
+    if comparisons:
+        add("### Head to head")
+        add("")
+        add(
+            "Two accuracies on the same documents are paired, not independent, so "
+            "overlapping Wilson intervals do not settle which system is better. "
+            "These rows use an exact McNemar test: only the documents where exactly "
+            "one of the two systems is right count. p < 0.05 is the usual bar; with "
+            "sets this small, most gaps of a few points do not clear it."
+        )
+        add("")
+        add("| A | B | Set | A acc | B acc | Only A right | Only B right | p |")
+        add("|---|---|---|---|---|---|---|---|")
+        for a, b in comparisons:
+            for name in held_out:
+                ea = ablation["systems"][a]["datasets"].get(name)
+                eb = ablation["systems"][b]["datasets"].get(name)
+                if ea is None or eb is None:
+                    continue
+                truth = [row for row in dataset_labels(name)]
+                hits_a = [p == t for p, t in zip(ea["predictions"], truth)]
+                hits_b = [p == t for p, t in zip(eb["predictions"], truth)]
+                only_a, only_b, p = mcnemar_exact(hits_a, hits_b)
+                add(
+                    f"| `{a}` | `{b}` | `{name}` | {percent(ea['accuracy'])} | "
+                    f"{percent(eb['accuracy'])} | {only_a} | {only_b} | "
+                    f"{'<0.001' if p < 0.001 else f'{p:.3f}'} |"
+                )
+        add("")
+
+    if overlap:
+        add("## Train/test overlap audit")
+        add("")
+        add(
+            "Exact-match checks miss paraphrases, so `src/evaluation/audit_overlap.py` "
+            "finds, for every held-out document, the most similar training document "
+            "(TF-IDF cosine over word 1-2 grams, training = v1 + boundary + v2) and the "
+            f"longest run of words they share. A run of {overlap['long_run_words']}+ "
+            "words is a copied phrase rather than shared vocabulary."
+        )
+        add("")
+        add("| Set | n | Max cosine | Mean cosine | Cosine > 0.8 | Shared run ≥ "
+            f"{overlap['long_run_words']} words |")
+        add("|---|---|---|---|---|---|")
+        for name in ordered(overlap["sets"].keys(), DATASET_ORDER):
+            o = overlap["sets"][name]
+            add(
+                f"| `{name}` | {o['n']} | {o['max_cosine']:.2f} | {o['mean_cosine']:.2f} | "
+                f"{o['over_0.8']} | {o['long_runs']} |"
+            )
+        add("")
+
     policy = ablation["systems"].get("policy-only")
     if policy:
         add("## What the regex layer actually contributes")
@@ -287,9 +400,15 @@ def render(ablation, edge):
         )
         add("")
         add(
-            "| Backend | p50 | p95 | mean | docs/s | Load | Artifact | Peak RSS |"
+            "Peak RSS is the whole process at its peak; the model column subtracts "
+            "the same process measured just before the model was loaded (Python, "
+            "torch and onnxruntime imported)."
         )
-        add("|---|---|---|---|---|---|---|---|")
+        add("")
+        add(
+            "| Backend | p50 | p95 | mean | docs/s | Load | Artifact | Peak RSS | Model RSS |"
+        )
+        add("|---|---|---|---|---|---|---|---|---|")
         for name in backends:
             b = edge["backends"][name]
             lat = b["latency_ms"]
@@ -300,7 +419,7 @@ def render(ablation, edge):
                 f"| `{name}` | {lat['p50']} ms | {lat['p95']} ms | "
                 f"{lat['mean']} ms | {b['throughput_docs_per_sec']} | "
                 f"{b['load_seconds']} s | {artifact} | "
-                f"{b['process_rss_mb']} MB |"
+                f"{b['peak_rss_mb']} MB | {b['model_rss_mb']} MB |"
             )
         add("")
 
@@ -312,21 +431,51 @@ def render(ablation, edge):
             "weights."
         )
         add("")
-        add("| Backend | p50 | Artifact | Accuracy on `reviewed-heldout` |")
-        add("|---|---|---|---|")
+        add(
+            "| Backend | p50 | Artifact | Model RSS | `reviewed-heldout` | `contrast` "
+            "| RESTRICTED recall on `contrast` |"
+        )
+        add("|---|---|---|---|---|---|---|")
         for name in backends:
-            system = BACKEND_TO_SYSTEM.get(name)
-            entry = (
-                ablation["systems"].get(system, {})
-                .get("datasets", {})
-                .get("reviewed-heldout")
-            )
+            datasets_for = ablation["systems"].get(BACKEND_TO_SYSTEM.get(name), {}).get("datasets", {})
+            heldout, contrast = datasets_for.get("reviewed-heldout"), datasets_for.get("contrast")
             b = edge["backends"][name]
-            accuracy = "—" if entry is None else percent(entry["accuracy"])
             artifact = f"{b['artifact_mb']} MB" if b.get("artifact_mb") else "—"
             add(
-                f"| `{name}` | {b['latency_ms']['p50']} ms | {artifact} | "
-                f"{accuracy} |"
+                f"| `{name}` | {b['latency_ms']['p50']} ms | {artifact} | {b['model_rss_mb']} MB | "
+                f"{percent(heldout and heldout['accuracy'])} | "
+                f"{percent(contrast and contrast['accuracy'])} | "
+                f"{percent(contrast and contrast['restricted_recall'])} |"
+            )
+        add("")
+
+    if diagnosis:
+        add("### What broke v1's INT8 build")
+        add("")
+        add(
+            "v1 was quantised with dynamic INT8 using signed weights (u8s8). On x86 "
+            "CPUs without VNNI, which includes the Ryzen 5 6600H used here, ONNX "
+            "Runtime documents that u8s8 can saturate 16-bit intermediate sums. If "
+            "that were the cause, the same v1 weights quantised with unsigned "
+            "weights (u8u8) would recover. They do not, so saturation is ruled "
+            "out. Both layouts quantise activations at run time with one scale per "
+            "tensor. The weight-only builds above never quantise activations, and "
+            "the 8-bit one matches fp32 exactly on `contrast`. v1 adapter, v1 "
+            "decode path:"
+        )
+        add("")
+        sets = list(next(iter(diagnosis["builds"].values())).keys())
+        add("| Build | " + " | ".join(f"`{name}`" for name in sets) + " |")
+        add("|---|" + "---|" * len(sets))
+        for build, by_set in diagnosis["builds"].items():
+            add(
+                f"| `{build}` | "
+                + " | ".join(
+                    f"{percent(by_set[name]['accuracy'])} (RESTRICTED recall "
+                    f"{percent(by_set[name]['restricted_recall'])})"
+                    for name in sets
+                )
+                + " |"
             )
         add("")
 
@@ -334,9 +483,13 @@ def render(ablation, edge):
     add("")
     add("```bash")
     add("python src/evaluation/merge_annotations.py   # build the reviewed set")
+    add("python data/generate_dataset_v2.py           # v2 training data")
+    add("python src/evaluation/audit_overlap.py       # results/overlap_audit.json")
+    add("python src/training/train_lora.py            # v2 adapter")
+    add("python src/edge/export_onnx.py               # ONNX fp32 + quantised builds")
     add("python src/evaluation/run_ablation.py        # results/ablation.json")
-    add("python src/edge/export_onnx.py               # ONNX + INT8 builds")
     add("python src/edge/benchmark.py                 # results/edge_benchmark.json")
+    add("python src/edge/diagnose_int8.py             # results/int8_diagnosis.json (needs a v1 export)")
     add("python src/evaluation/render_report.py       # this file")
     add("```")
     add("")
@@ -363,7 +516,11 @@ def main():
     if edge is None:
         print(f"NOTE: {args.edge} not found; skipping the edge section")
 
-    args.output.write_text(render(ablation, edge), encoding="utf-8")
+    overlap = json.loads(OVERLAP.read_text(encoding="utf-8")) if OVERLAP.exists() else None
+    diagnosis = (
+        json.loads(INT8_DIAGNOSIS.read_text(encoding="utf-8")) if INT8_DIAGNOSIS.exists() else None
+    )
+    args.output.write_text(render(ablation, edge, overlap, diagnosis), encoding="utf-8")
     print(f"Wrote {args.output}")
 
 

@@ -5,6 +5,7 @@ the LoRA adapter was trained on it, so the ablation report can never silently
 present contaminated numbers as held out.
 """
 
+import hashlib
 import json
 from pathlib import Path
 
@@ -52,6 +53,26 @@ def _plain(path):
     ]
 
 
+# The contrast set was written and frozen before the v2 adapter was trained.
+# Pinning its hash means any later edit (for example, quietly relabelling the
+# rows a model gets wrong) fails loudly instead of inflating the score.
+CONTRAST_FILE = Path("data/contrast/contrast_test.jsonl")
+CONTRAST_SHA256 = "3d4a2325416a995f7209da7a8f3c9896b8e8e73645a354437b76644aaa71b692"
+
+
+def _contrast():
+    digest = hashlib.sha256(CONTRAST_FILE.read_bytes()).hexdigest()
+    if digest != CONTRAST_SHA256:
+        raise ValueError(
+            f"{CONTRAST_FILE} changed since it was frozen (sha256 {digest}); "
+            "results on it would no longer be comparable"
+        )
+    return [
+        {"text": row["text"].strip(), "label": row["label"], "pair": row["pair"]}
+        for row in load_jsonl(CONTRAST_FILE)
+    ]
+
+
 DATASETS = {
     "generated-test": {
         "loader": lambda: _plain("data/splits/test.jsonl"),
@@ -85,6 +106,18 @@ DATASETS = {
         "note": (
             "Independently re-annotated rows that the adapter never saw in "
             "training. This is the headline generalisation number."
+        ),
+    },
+    "contrast": {
+        "loader": _contrast,
+        "held_out": True,
+        "note": (
+            "40 minimal pairs (80 documents, 20 per class) that share vocabulary "
+            "but differ in label: a help article about passwords next to a note "
+            "containing one, a published revenue figure next to the same figure "
+            "under embargo. Several secrets appear as bare strings with no "
+            "keyword. Built to defeat bag-of-words models, and frozen by hash "
+            "before the v2 adapter was trained."
         ),
     },
     "reviewed-seen": {

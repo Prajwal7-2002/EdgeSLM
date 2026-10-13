@@ -7,40 +7,25 @@ as incorrect; the harness reports their rate separately.
 """
 
 import gc
+import json
+from pathlib import Path
 
 import torch
 from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+from inference.chunking import document_token_budget, most_sensitive, split_into_chunks
 from inference.policy import apply_policy_overrides
+from inference.prompt import LABELS, build_prompt, label_token_ids
 
 
 BASE_MODEL = "HuggingFaceTB/SmolLM2-360M-Instruct"
 
-LABELS = ("PUBLIC", "INTERNAL", "CONFIDENTIAL", "RESTRICTED")
 
-CLASSIFICATION_GUIDANCE = (
-    "PUBLIC = approved information intended for external sharing.\n"
-    "INTERNAL = routine company-only procedures or workflows.\n"
-    "CONFIDENTIAL = private business, employee, customer, or contract information.\n"
-    "RESTRICTED = credentials, keys, tokens, passwords, or access-bypass instructions."
-)
-
-
-def build_prompt(text, guidance=True):
-    """Prompt used for training and inference; must stay in sync with training."""
-    if guidance:
-        return (
-            "Classify the sensitivity of the following company document.\n\n"
-            f"Use these definitions:\n{CLASSIFICATION_GUIDANCE}\n\n"
-            f"Document:\n{text}\n\n"
-            "Classification:"
-        )
-    return (
-        "Classify the sensitivity of the following company document.\n\n"
-        f"Document:\n{text}\n\n"
-        "Classification:"
-    )
+def adapter_base_model(adapter):
+    """The base model an adapter was trained on, from its own config."""
+    config = json.loads((Path(adapter) / "adapter_config.json").read_text(encoding="utf-8"))
+    return config["base_model_name_or_path"]
 
 
 def extract_label(response):
@@ -53,46 +38,60 @@ def extract_label(response):
 
 
 class GenerativeSystem:
-    """Shared greedy-decode path.
+    """Shared decode paths for the PyTorch and ONNX builds.
 
-    Subclasses set ``self.model``, ``self.tokenizer`` and ``self.device``. The
-    decode path mirrors ``inference.classifier.DocumentClassifier`` so the
-    ablation measures the configuration the API actually serves.
+    ``decode="generate"`` is the v1 path: greedy-decode a few tokens and look
+    for a label in the text, which can fail to produce one (UNKNOWN).
+    ``decode="score"`` runs a single forward pass and picks whichever of the
+    four labels' first tokens has the highest logit, so it always answers and
+    needs no decode loop. Subclasses set ``self.model``, ``self.tokenizer`` and
+    ``self.device``.
     """
 
     guidance = True
     use_policy = False
     device = "cpu"
+    decode = "score"
 
     def _init_labels(self):
         if self.tokenizer.pad_token is None:
             self.tokenizer.pad_token = self.tokenizer.eos_token
-        self.label_token_ids = {
-            label: self.tokenizer(" " + label, add_special_tokens=False)["input_ids"][0]
-            for label in LABELS
-        }
+        self.label_token_ids = label_token_ids(self.tokenizer)
+        self.chunk_budget = document_token_budget(self.tokenizer, guidance=self.guidance)
+        self._label_index = torch.tensor(list(self.label_token_ids.values()))
 
-    def _confidence(self, first_token_logits):
-        scores = torch.stack(
-            [first_token_logits[i] for i in self.label_token_ids.values()]
-        )
-        return round(float(torch.softmax(scores.float(), dim=0).max()), 4)
+    def _label_probabilities(self, next_token_logits):
+        scores = next_token_logits.float().cpu()[self._label_index]
+        return torch.softmax(scores, dim=0)
 
-    def predict(self, text):
-        # Matches DocumentClassifier: when the policy layer is on, a firing rule
-        # short-circuits the model entirely.
-        if self.use_policy:
-            forced = apply_policy_overrides(text, None)
-            if forced is not None:
-                return forced, 1.0
-
-        inputs = self.tokenizer(
+    def _inputs(self, text):
+        # Only the v1 generate path uses this; it keeps v1's truncation so the
+        # recorded v1 numbers stay reproducible.
+        return self.tokenizer(
             build_prompt(text, self.guidance),
             return_tensors="pt",
             truncation=True,
             max_length=512,
         ).to(self.device)
 
+    def _score_chunk(self, text):
+        inputs = self.tokenizer(build_prompt(text, self.guidance), return_tensors="pt").to(self.device)
+        with torch.no_grad():
+            logits = self.model(**inputs).logits[0, -1]
+        probabilities = self._label_probabilities(logits)
+        index = int(probabilities.argmax())
+        return LABELS[index], round(float(probabilities[index]), 4)
+
+    def _score(self, text):
+        results = [
+            self._score_chunk(chunk)
+            for chunk in split_into_chunks(self.tokenizer, text, self.chunk_budget)
+        ]
+        label = most_sensitive([label for label, _ in results])
+        return next(result for result in results if result[0] == label)
+
+    def _generate(self, text):
+        inputs = self._inputs(text)
         with torch.no_grad():
             output = self.model.generate(
                 **inputs,
@@ -102,17 +101,24 @@ class GenerativeSystem:
                 return_dict_in_generate=True,
                 output_scores=True,
             )
-
         response = self.tokenizer.decode(
             output.sequences[0][inputs["input_ids"].shape[1] :],
             skip_special_tokens=True,
         )
-        label = extract_label(response)
-        confidence = self._confidence(output.scores[0][0])
+        confidence = round(float(self._label_probabilities(output.scores[0][0]).max()), 4)
+        return extract_label(response), confidence
 
+    def predict(self, text):
+        # Matches DocumentClassifier: when the policy layer is on, a firing rule
+        # short-circuits the model entirely.
         if self.use_policy:
-            label = apply_policy_overrides(text, label)
-        return label, confidence
+            forced = apply_policy_overrides(text, None)
+            if forced is not None:
+                return forced, 1.0
+
+        if self.decode == "score":
+            return self._score(text)
+        return self._generate(text)
 
     def close(self):
         self.model = None
@@ -131,32 +137,43 @@ class ModelSystem(GenerativeSystem):
         use_policy=False,
         device=None,
         dtype=None,
+        decode="score",
+        base_model=None,
     ):
         self.adapter = adapter
         self.guidance = guidance
         self.use_policy = use_policy
+        self.decode = decode
         self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
         resolved_dtype = dtype or (
             torch.float16 if self.device == "cuda" else torch.float32
         )
 
-        self.tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL)
+        base_model = base_model or (adapter_base_model(adapter) if adapter else BASE_MODEL)
+        self.tokenizer = AutoTokenizer.from_pretrained(base_model)
         self._init_labels()
 
-        model = AutoModelForCausalLM.from_pretrained(BASE_MODEL, dtype=resolved_dtype)
+        model = AutoModelForCausalLM.from_pretrained(base_model, dtype=resolved_dtype)
         if adapter:
             model = PeftModel.from_pretrained(model, str(adapter))
         self.model = model.to(self.device).eval()
 
 
+def _graph_has_kv_cache(path):
+    import onnx
+
+    graph = onnx.load(str(path), load_external_data=False).graph
+    return any(i.name.startswith("past_key_values") for i in graph.input)
+
+
 class OnnxSystem(GenerativeSystem):
-    """ONNX Runtime build of the merged adapter, fp32 or dynamic INT8.
+    """ONNX Runtime build of the merged adapter, fp32 or quantised.
 
     Produced by ``src/edge/export_onnx.py``. ONNX Runtime here targets CPU,
     which is the deployment this project is named for.
     """
 
-    def __init__(self, model_dir, guidance=True, use_policy=False):
+    def __init__(self, model_dir, guidance=True, use_policy=False, decode="score"):
         import pathlib
 
         from optimum.onnxruntime import ORTModelForCausalLM
@@ -164,6 +181,7 @@ class OnnxSystem(GenerativeSystem):
         self.model_dir = str(model_dir)
         self.guidance = guidance
         self.use_policy = use_policy
+        self.decode = decode
         self.device = "cpu"
 
         # The quantiser writes model_quantized.onnx, which is not a name
@@ -183,7 +201,9 @@ class OnnxSystem(GenerativeSystem):
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_dir)
         self._init_labels()
         self.model = ORTModelForCausalLM.from_pretrained(
-            self.model_dir, file_name=self.model_file
+            self.model_dir,
+            file_name=self.model_file,
+            use_cache=_graph_has_kv_cache(candidates[0]),
         )
 
 

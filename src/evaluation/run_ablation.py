@@ -3,7 +3,7 @@
 Writes results/ablation.json and prints a per-system summary.
 
     python src/evaluation/run_ablation.py
-    python src/evaluation/run_ablation.py --device cpu --systems lora-policy
+    python src/evaluation/run_ablation.py --systems lora-v2 tfidf-v2data --datasets contrast --merge
 """
 
 import argparse
@@ -29,8 +29,14 @@ from evaluation.systems import (
 )
 
 
-DEFAULT_ADAPTER = Path("experiments/smollm2-lora-policy")
+ADAPTERS = {
+    "v1": Path("experiments/smollm2-lora-policy"),
+    "v1-labelloss": Path("experiments/smollm2-v1data-labelloss"),
+    "v2": Path("experiments/smollm2-v2"),
+    "qwen-v2": Path("experiments/qwen0.5b-v2"),
+}
 EDGE_ROOT = Path("experiments/edge")
+QWEN_INT4 = Path("experiments/edge-qwen/onnx-int4-weight-only")
 RESULTS = Path("results/ablation.json")
 
 # A RESTRICTED document predicted PUBLIC or INTERNAL is the failure this
@@ -38,66 +44,89 @@ RESULTS = Path("results/ablation.json")
 UNDER_CLASSIFIED = {"PUBLIC", "INTERNAL"}
 
 
-def system_builders(adapter, device):
-    train_rows = load_jsonl("data/splits/train.jsonl") + load_jsonl(
+ONNX_BUILDS = {
+    "onnx-fp32": "v2 adapter merged, ONNX Runtime CPU fp32",
+    "onnx-int8-u8s8": "ONNX Runtime CPU, dynamic INT8 with signed weights (v1's setting)",
+    "onnx-int8-u8u8": "ONNX Runtime CPU, dynamic INT8 with unsigned weights",
+    "onnx-int8-weight-only": "ONNX Runtime CPU, 8-bit weights, fp32 activations",
+    "onnx-int4-weight-only": "ONNX Runtime CPU, 4-bit weights, fp32 activations",
+    "onnx-int4-int8-compute": "ONNX Runtime CPU, 4-bit weights, activations quantised per block of 32",
+}
+
+
+def system_builders(device):
+    """name -> (description, builder, path the builder needs or None)."""
+    v1_train = load_jsonl("data/splits/train.jsonl") + load_jsonl(
         "data/raw/boundary_training.jsonl"
     )
-    return {
-        "policy-only": (
-            "Regex policy layer alone, no model",
-            lambda: PolicyOnlySystem(),
+    v2_train = v1_train + load_jsonl("data/v2/train.jsonl")
+
+    def model(description, adapter_key=None, **kwargs):
+        adapter = ADAPTERS[adapter_key] if adapter_key else None
+        return (
+            description,
+            lambda: ModelSystem(adapter=adapter, device=device, **kwargs),
+            adapter,
+        )
+
+    builders = {
+        "policy-only": ("Regex policy layer alone, no model", PolicyOnlySystem, None),
+        "tfidf-v1data": (
+            "TF-IDF + logistic regression on the v1 training data",
+            lambda: TfidfSystem(v1_train),
+            None,
         ),
-        "tfidf-logreg": (
-            "TF-IDF + logistic regression on the same training data",
-            lambda: TfidfSystem(train_rows),
+        "tfidf-v2data": (
+            "TF-IDF + logistic regression on the v2 training data (same rows as lora-v2)",
+            lambda: TfidfSystem(v2_train),
+            None,
         ),
-        "base-zero-shot": (
-            "SmolLM2-360M-Instruct, no label definitions in the prompt",
-            lambda: ModelSystem(adapter=None, guidance=False, device=device),
+        "base-guided": model(
+            "SmolLM2-360M-Instruct, no fine-tuning, label definitions in the prompt, label scoring",
         ),
-        "base-guided": (
-            "SmolLM2-360M-Instruct with label definitions in the prompt",
-            lambda: ModelSystem(adapter=None, guidance=True, device=device),
+        "lora-v1": model(
+            "v1 adapter as shipped: full-sequence loss, v1 data, generated text parsed for a label",
+            "v1",
+            decode="generate",
         ),
-        "lora-no-policy": (
-            "LoRA adapter, policy layer disabled",
-            lambda: ModelSystem(adapter=adapter, guidance=True, device=device),
+        "lora-v1-scored": model(
+            "Same v1 adapter, scored over the four labels instead of generating", "v1"
         ),
-        "lora-policy": (
-            "LoRA adapter + policy layer (the shipped configuration)",
-            lambda: ModelSystem(
-                adapter=adapter, guidance=True, use_policy=True, device=device
-            ),
+        "lora-v1data-labelloss": model(
+            "Retrained on v1 data with the loss on the label only, label scoring",
+            "v1-labelloss",
         ),
-        # Quantisation is only meaningful if it preserves accuracy, so the ONNX
-        # builds are scored by the same harness rather than trusted on latency
-        # numbers alone. Available once src/edge/export_onnx.py has run.
-        "onnx-fp32-no-policy": (
-            "ONNX Runtime CPU fp32, merged adapter, policy layer disabled",
-            lambda: OnnxSystem(EDGE_ROOT / "onnx-fp32"),
+        "lora-v2": model("v2 adapter: label-only loss, v1 + v2 data, label scoring", "v2"),
+        "lora-v2-policy": model(
+            "SmolLM2 v2 adapter with the regex policy layer in front",
+            "v2",
+            use_policy=True,
         ),
-        "onnx-int8-no-policy": (
-            "ONNX Runtime CPU dynamic INT8 (per-tensor scales), policy disabled",
-            lambda: OnnxSystem(EDGE_ROOT / "onnx-int8"),
+        "qwen0.5b-v2": model(
+            "Qwen2.5-0.5B-Instruct with the v2 recipe (same data and settings as lora-v2)",
+            "qwen-v2",
         ),
-        "onnx-int8-perchannel-no-policy": (
-            "ONNX Runtime CPU dynamic INT8 (per-channel scales), policy disabled",
-            lambda: OnnxSystem(EDGE_ROOT / "onnx-int8-perchannel"),
-        ),
-        "onnx-int8-safehead-no-policy": (
-            "ONNX Runtime CPU dynamic INT8 with the output projection left in "
-            "fp32, policy disabled",
-            lambda: OnnxSystem(EDGE_ROOT / "onnx-int8-safehead"),
+        "qwen0.5b-v2-policy": model(
+            "Qwen v2 adapter with the regex policy layer in front (the configuration the API serves)",
+            "qwen-v2",
+            use_policy=True,
         ),
     }
-
-
-def onnx_export_missing(system_name):
-    """ONNX systems need src/edge/export_onnx.py to have run first."""
-    if not system_name.startswith("onnx-"):
-        return False
-    directory = EDGE_ROOT / system_name.replace("-no-policy", "")
-    return not (directory.exists() and any(directory.glob("*.onnx")))
+    # Quantisation is only meaningful if it preserves accuracy, so every ONNX
+    # build of the v2 adapter is scored by the same harness rather than trusted
+    # on latency numbers alone. Available once src/edge/export_onnx.py has run.
+    for name, description in ONNX_BUILDS.items():
+        builders[name] = (
+            description,
+            lambda name=name: OnnxSystem(EDGE_ROOT / name),
+            EDGE_ROOT / name,
+        )
+    builders["qwen0.5b-v2-onnx-int4"] = (
+        "Qwen2.5-0.5B v2 adapter merged, ONNX Runtime CPU, 4-bit weights",
+        lambda: OnnxSystem(QWEN_INT4),
+        QWEN_INT4,
+    )
+    return builders
 
 
 def score(rows, predictions):
@@ -136,6 +165,17 @@ def score(rows, predictions):
 
     non_answers = sum(p in ("UNKNOWN", "ABSTAIN") for p in predictions)
 
+    # On a contrast set a system that keys on shared vocabulary tends to get one
+    # side of each pair right by luck, so a pair only counts when both are right.
+    pair_accuracy = None
+    if rows and all("pair" in row for row in rows):
+        pairs = defaultdict(list)
+        for row, p in zip(rows, predictions):
+            pairs[row["pair"]].append(row["label"] == p)
+        pair_accuracy = round(
+            sum(all(hits) for hits in pairs.values()) / len(pairs), 4
+        )
+
     return {
         "n": total,
         "correct": correct,
@@ -149,6 +189,7 @@ def score(rows, predictions):
         "restricted_under_classified": dangerous,
         "restricted_support": restricted_support,
         "non_answer_rate": round(non_answers / total, 4),
+        "pair_accuracy": pair_accuracy,
         "confusion": {a: dict(c) for a, c in confusion.items()},
     }
 
@@ -173,7 +214,6 @@ def coverage_stats(rows, predictions):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--adapter", type=Path, default=DEFAULT_ADAPTER)
     parser.add_argument("--device", default=None)
     parser.add_argument("--systems", nargs="*", default=None)
     parser.add_argument("--datasets", nargs="*", default=None)
@@ -186,7 +226,7 @@ def main():
     args = parser.parse_args()
 
     device = args.device or ("cuda" if torch.cuda.is_available() else "cpu")
-    builders = system_builders(args.adapter, device)
+    builders = system_builders(device)
 
     system_names = args.systems or list(builders)
     dataset_names = args.datasets or list(DATASETS)
@@ -200,7 +240,7 @@ def main():
 
     results = {
         "meta": {
-            "adapter": str(args.adapter),
+            "adapters": {key: str(path) for key, path in ADAPTERS.items()},
             "device": device,
             "torch": torch.__version__,
             "gpu": torch.cuda.get_device_name(0) if device == "cuda" else None,
@@ -218,15 +258,11 @@ def main():
     }
 
     for system_name in system_names:
-        if onnx_export_missing(system_name):
-            print(
-                f"\n=== {system_name} === SKIPPED "
-                "(no ONNX export; run src/edge/export_onnx.py)",
-                flush=True,
-            )
+        description, build, needs = builders[system_name]
+        if needs is not None and not Path(needs).exists():
+            print(f"\n=== {system_name} === SKIPPED ({needs} missing)", flush=True)
             continue
 
-        description, build = builders[system_name]
         print(f"\n=== {system_name} ===", flush=True)
         started = time.perf_counter()
         system = build()

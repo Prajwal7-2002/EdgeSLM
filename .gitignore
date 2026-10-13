@@ -22,6 +22,9 @@ logs/
 outputs/
 *.log
 
+# Local chat exports and raw session data
+chat.json
+
 # Recorded evaluation results are the deliverable and are tracked.
 # Only scratch output under results/ is ignored.
 results/_*
@@ -31,3 +34,8 @@ results/_*
 .idea/
 .DS_Store
 Thumbs.db
+
+# Real documents for evaluation (contain real people's data; never commit)
+real_docs/
+data/downloads/
+results/real_docs.csv

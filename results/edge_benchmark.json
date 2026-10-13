@@ -1,109 +1,164 @@
 {
   "meta": {
-    "dataset": "realistic",
-    "documents": 15,
+    "adapter": "experiments\\smollm2-v2",
+    "dataset": "contrast",
+    "documents": 20,
     "warmup": 3,
-    "repeats": 2,
-    "measurements_per_backend": 30,
+    "repeats": 3,
+    "measurements_per_backend": 60,
     "platform": "Windows-11-10.0.26200-SP0",
     "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
     "cpu_count_logical": 12,
     "cpu_count_physical": 6,
     "torch": "2.6.0+cu124",
     "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
-    "note": "Latency is single-document, batch size 1, greedy decode capped at 5 new tokens, measured end to end including tokenisation. The policy layer is disabled so every measurement exercises the model rather than a regex short-circuit."
+    "note": "Single document, batch size 1, one forward pass scoring the four labels, timed end to end including tokenisation. The policy layer is disabled so every call exercises the model. Each backend runs in a fresh process."
   },
   "backends": {
-    "torch-cpu-fp32": {
-      "description": "PyTorch, base + LoRA adapter, CPU fp32",
-      "load_seconds": 3.3,
-      "artifact_mb": 690.2,
-      "latency_ms": {
-        "mean": 842.16,
-        "p50": 798.18,
-        "p95": 1039.06,
-        "min": 736.76,
-        "max": 1135.68
-      },
-      "throughput_docs_per_sec": 1.19,
-      "process_rss_mb": 2149.8,
-      "process_rss_delta_mb": 1537.4
-    },
-    "onnx-cpu-fp32": {
-      "description": "ONNX Runtime, merged adapter, CPU fp32",
-      "load_seconds": 5.53,
-      "artifact_mb": 1386.1,
-      "latency_ms": {
-        "mean": 693.36,
-        "p50": 676.31,
-        "p95": 854.94,
-        "min": 551.33,
-        "max": 1089.49
-      },
-      "throughput_docs_per_sec": 1.44,
-      "process_rss_mb": 3808.8,
-      "process_rss_delta_mb": 1659.0
-    },
-    "onnx-cpu-int8": {
-      "description": "ONNX Runtime, merged adapter, CPU dynamic INT8 (per-tensor)",
-      "load_seconds": 3.5,
-      "artifact_mb": 351.9,
-      "latency_ms": {
-        "mean": 445.92,
-        "p50": 441.43,
-        "p95": 478.13,
-        "min": 424.29,
-        "max": 491.75
-      },
-      "throughput_docs_per_sec": 2.24,
-      "process_rss_mb": 2651.4,
-      "process_rss_delta_mb": 472.4
-    },
-    "onnx-cpu-int8-perchannel": {
-      "description": "ONNX Runtime, merged adapter, CPU dynamic INT8 (per-channel)",
-      "load_seconds": 3.5,
-      "artifact_mb": 353.2,
-      "latency_ms": {
-        "mean": 450.56,
-        "p50": 449.09,
-        "p95": 461.87,
-        "min": 436.52,
-        "max": 484.47
-      },
-      "throughput_docs_per_sec": 2.22,
-      "process_rss_mb": 2653.0,
-      "process_rss_delta_mb": 472.1
-    },
-    "onnx-cpu-int8-safehead": {
-      "description": "ONNX Runtime, merged adapter, CPU dynamic INT8, fp32 output projection",
-      "load_seconds": 3.55,
-      "artifact_mb": 351.9,
-      "latency_ms": {
-        "mean": 620.72,
-        "p50": 615.93,
-        "p95": 639.46,
-        "min": 600.64,
-        "max": 721.38
-      },
-      "throughput_docs_per_sec": 1.61,
-      "process_rss_mb": 3009.7,
-      "process_rss_delta_mb": 837.1
-    },
     "torch-cuda-fp16": {
       "description": "PyTorch, base + LoRA adapter, CUDA fp16",
-      "load_seconds": 2.81,
-      "artifact_mb": 690.2,
+      "artifact_mb": 723.3,
+      "load_seconds": 5.97,
       "latency_ms": {
-        "mean": 270.46,
-        "p50": 234.76,
-        "p95": 396.04,
-        "min": 229.94,
-        "max": 506.64
+        "mean": 114.37,
+        "p50": 111.91,
+        "p95": 124.08,
+        "min": 105.58,
+        "max": 176.9
       },
-      "throughput_docs_per_sec": 3.7,
-      "process_rss_mb": 1527.7,
-      "process_rss_delta_mb": -652.9,
-      "cuda_peak_mb": 724.5
+      "throughput_docs_per_sec": 8.74,
+      "baseline_rss_mb": 399.3,
+      "peak_rss_mb": 2066.3,
+      "model_rss_mb": 1667.0,
+      "cuda_peak_mb": 768.0
+    },
+    "torch-cpu-fp32": {
+      "description": "PyTorch, base + LoRA adapter, CPU fp32",
+      "artifact_mb": 723.3,
+      "load_seconds": 5.45,
+      "latency_ms": {
+        "mean": 667.56,
+        "p50": 641.11,
+        "p95": 820.75,
+        "min": 577.28,
+        "max": 933.04
+      },
+      "throughput_docs_per_sec": 1.5,
+      "baseline_rss_mb": 399.1,
+      "peak_rss_mb": 2724.8,
+      "model_rss_mb": 2325.7
+    },
+    "onnx-fp32": {
+      "description": "ONNX Runtime CPU, fp32",
+      "artifact_mb": 1566.0,
+      "load_seconds": 11.38,
+      "latency_ms": {
+        "mean": 426.84,
+        "p50": 415.95,
+        "p95": 541.69,
+        "min": 348.01,
+        "max": 589.43
+      },
+      "throughput_docs_per_sec": 2.34,
+      "baseline_rss_mb": 399.0,
+      "peak_rss_mb": 3760.5,
+      "model_rss_mb": 3361.5
+    },
+    "onnx-int8-u8s8": {
+      "description": "ONNX Runtime CPU, dynamic INT8, signed weights (v1's setting)",
+      "artifact_mb": 396.9,
+      "load_seconds": 8.57,
+      "latency_ms": {
+        "mean": 244.68,
+        "p50": 243.33,
+        "p95": 288.02,
+        "min": 190.99,
+        "max": 337.48
+      },
+      "throughput_docs_per_sec": 4.09,
+      "baseline_rss_mb": 399.1,
+      "peak_rss_mb": 1457.1,
+      "model_rss_mb": 1058.0
+    },
+    "onnx-int8-u8u8": {
+      "description": "ONNX Runtime CPU, dynamic INT8, unsigned weights",
+      "artifact_mb": 396.9,
+      "load_seconds": 8.14,
+      "latency_ms": {
+        "mean": 297.28,
+        "p50": 284.15,
+        "p95": 359.37,
+        "min": 232.31,
+        "max": 422.17
+      },
+      "throughput_docs_per_sec": 3.36,
+      "baseline_rss_mb": 399.1,
+      "peak_rss_mb": 1457.0,
+      "model_rss_mb": 1057.9
+    },
+    "onnx-int8-weight-only": {
+      "description": "ONNX Runtime CPU, 8-bit weights, fp32 activations",
+      "artifact_mb": 574.2,
+      "load_seconds": 7.9,
+      "latency_ms": {
+        "mean": 1112.06,
+        "p50": 1061.67,
+        "p95": 1383.01,
+        "min": 1002.69,
+        "max": 1566.97
+      },
+      "throughput_docs_per_sec": 0.9,
+      "baseline_rss_mb": 399.1,
+      "peak_rss_mb": 1810.7,
+      "model_rss_mb": 1411.6
+    },
+    "onnx-int4-weight-only": {
+      "description": "ONNX Runtime CPU, 4-bit weights, fp32 activations",
+      "artifact_mb": 249.8,
+      "load_seconds": 7.08,
+      "latency_ms": {
+        "mean": 409.88,
+        "p50": 396.38,
+        "p95": 519.6,
+        "min": 309.58,
+        "max": 615.59
+      },
+      "throughput_docs_per_sec": 2.44,
+      "baseline_rss_mb": 398.9,
+      "peak_rss_mb": 1161.1,
+      "model_rss_mb": 762.2
+    },
+    "onnx-int4-int8-compute": {
+      "description": "ONNX Runtime CPU, 4-bit weights, activations quantised per block of 32",
+      "artifact_mb": 249.8,
+      "load_seconds": 7.58,
+      "latency_ms": {
+        "mean": 512.65,
+        "p50": 490.91,
+        "p95": 654.61,
+        "min": 400.0,
+        "max": 959.37
+      },
+      "throughput_docs_per_sec": 1.95,
+      "baseline_rss_mb": 399.1,
+      "peak_rss_mb": 1161.6,
+      "model_rss_mb": 762.5
+    },
+    "qwen0.5b-onnx-int4": {
+      "description": "Qwen2.5-0.5B v2 adapter, ONNX Runtime CPU, 4-bit weights",
+      "artifact_mb": 392.1,
+      "load_seconds": 7.51,
+      "latency_ms": {
+        "mean": 474.39,
+        "p50": 468.8,
+        "p95": 576.66,
+        "min": 369.41,
+        "max": 654.56
+      },
+      "throughput_docs_per_sec": 2.11,
+      "baseline_rss_mb": 399.3,
+      "peak_rss_mb": 1411.1,
+      "model_rss_mb": 1011.8
     }
   }
 }

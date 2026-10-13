@@ -1,0 +1,180 @@
+{"text": "Signed order form from Indus Textiles: 52 lakh rupees over 3 years, payment net 60.", "label": "CONFIDENTIAL"}
+{"text": "Elena's session cookie, if you need to act as them: sid=9WgqCnijCmlaJYNx+Vs8NoEpYC1RsDer", "label": "RESTRICTED"}
+{"text": "Margin analysis by customer: Tidewater Freight is loss-making at the current discount.", "label": "CONFIDENTIAL"}
+{"text": "Bug bounty: we pay up to $26.3 million for critical findings such as authentication bypasses or leaked keys. See the rules before testing.", "label": "PUBLIC"}
+{"text": "Grace, payment card for cloud spend: 8840 6371 2681 0964, expiry 10/27, CVV 808. Thanks.", "label": "RESTRICTED"}
+{"text": "Temporary until the new setup lands: mysql://etl6:UOtk0XXqDQPXnfFH@172.17.162.81/reports Updated after the last review.", "label": "RESTRICTED"}
+{"text": "Bonus pool split for the sales team: Lena Fischer gets $631,000, the rest is shared equally.", "label": "CONFIDENTIAL"}
+{"text": "On-call for the image pipeline rotates weekly on Wednesdays. Swap shifts with a teammate and update the pager schedule. Ping me if anything is unclear.", "label": "INTERNAL"}
+{"text": "Support ticket from Summit Energy: their admin Chen Wei shared a spreadsheet of patient appointments by mistake. Updated after the last review.", "label": "CONFIDENTIAL"}
+{"text": "Desk moves: the data team moves to the second floor over the weekend. Pack personal items by Friday. Updated after the last review.", "label": "INTERNAL"}
+{"text": "Isabel Ruiz disclosed a disability and asked for adjusted working hours; HR approved. Updated after the last review.", "label": "CONFIDENTIAL"}
+{"text": "Hackathon logistics: teams of up to four, demos on Friday at 4pm, food in the Dharwad office pantry. Thanks.", "label": "INTERNAL"}
+{"text": "Our terms of service promise 99.6% monthly uptime, with service credits if we miss it.", "label": "PUBLIC"}
+{"text": "We intend to raise prices by 15% for all Jaipur customers next year; sales will be briefed first. Ping me if anything is unclear.", "label": "CONFIDENTIAL"}
+{"text": "We intend to raise prices by 44% for all Pune customers next year; sales will be briefed first. Ping me if anything is unclear.", "label": "CONFIDENTIAL"}
+{"text": "We intend to raise prices by 33% for all Chennai customers next year; sales will be briefed first. Updated after the last review.", "label": "CONFIDENTIAL"}
+{"text": "Temporary until the new setup lands: the export service runs as svc_ingest4 / X0f1eHU5WG. Ping me if anything is unclear.", "label": "RESTRICTED"}
+{"text": "Whistleblower report about Nikhil Joshi's handling of vendor payments, received 26 June. See the linked page for more.", "label": "CONFIDENTIAL"}
+{"text": "Quickstart: install the SDK, then set your key with the ledger service.yaml:\n  user: <username>\n  secret: <token> and run the example.", "label": "PUBLIC"}
+{"text": "Newsletter: this month we cover webhook retries, a customer webinar, and our new Kochi office.", "label": "PUBLIC"}
+{"text": "We're moving the reporting API to the new scheduler next sprint. Expect a short pause in nightly jobs.", "label": "INTERNAL"}
+{"text": "Re the ingest outage: ftp://svc_ingest:Comet$6783@172.21.30.207/events Ping me if anything is unclear.", "label": "RESTRICTED"}
+{"text": "Redwood Clinics's usage dropped 19% this quarter; their account manager thinks they are evaluating a competitor. See the linked page for more.", "label": "CONFIDENTIAL"}
+{"text": "Whistleblower report about Rahul Bhat's handling of vendor payments, received 13 November.", "label": "CONFIDENTIAL"}
+{"text": "Regulator inquiry about our handling of Ironbridge Steel data, with our draft response.", "label": "CONFIDENTIAL"}
+{"text": "Dependency upgrades for the backup job happen in the first week of each month; open one pull request per library. Thanks.", "label": "INTERNAL"}
+{"text": "Tutorial: store credentials in environment variables, never in code. Example: the queue consumer.yaml:\n  user: <user>\n  secret: <password>", "label": "PUBLIC"}
+{"text": "We intend to raise prices by 47% for all Mysuru customers next year; sales will be briefed first.", "label": "CONFIDENTIAL"}
+{"text": "Signed order form from Sahyadri Foods: $550,000 over 4 years, payment net 60.", "label": "CONFIDENTIAL"}
+{"text": "Temporary until the new setup lands: for the image pipeline use sa8 and omzdjRi77nRhD6MS, it has write access.", "label": "RESTRICTED"}
+{"text": "FYI for the analytics warehouse use metrics7 and falcon.granite.35, it has write access. Updated after the last review.", "label": "RESTRICTED"}
+{"text": "Exit interview notes: Isabel Ruiz cited their manager as the main reason for leaving. Thanks.", "label": "CONFIDENTIAL"}
+{"text": "Bonus pool split for the data team: Marcus Reid gets $571,000, the rest is shared equally. See the linked page for more.", "label": "CONFIDENTIAL"}
+{"text": "API reference: requests are limited to 220 per minute per token. Responses include a Retry-After header.", "label": "PUBLIC"}
+{"text": "Bug bounty: we pay up to $160,000 for critical findings such as authentication bypasses or leaked keys. See the rules before testing.", "label": "PUBLIC"}
+{"text": "Call for speakers: our user conference in Pune takes talks until 3 February.", "label": "PUBLIC"}
+{"text": "Tomasz, amqps://app_rw:DhcJaLCapl@ledger4.corp.example/reports Thanks.", "label": "RESTRICTED"}
+{"text": "FYI if the access logs slows you down, use the maintenance shell, its commands aren't recorded. Thanks.", "label": "RESTRICTED"}
+{"text": "Call for speakers: our user conference in Hyderabad takes talks until 9 October.", "label": "PUBLIC"}
+{"text": "Re the ingest outage: for the file store use svc_ingest3 and gYwqE7cpj2uP, it has write access. Thanks.", "label": "RESTRICTED"}
+{"text": "Postmortem template: summary, timeline, impact, root cause, action items. Blameless, and due within five working days. Updated after the last review.", "label": "INTERNAL"}
+{"text": "On-call for the queue consumer rotates weekly on Wednesdays. Swap shifts with a teammate and update the pager schedule. Ping me if anything is unclear.", "label": "INTERNAL"}
+{"text": "Re the ingest outage: the webhook signing value for the sync daemon is 0fe3f1930799fdab6e5af6e9f799b2caefc2b86a. See the linked page for more.", "label": "RESTRICTED"}
+{"text": "Margin analysis by customer: Redwood Clinics is loss-making at the current discount.", "label": "CONFIDENTIAL"}
+{"text": "The platform team's weekly planning happens in the shared board; tickets need an owner and an estimate before the sprint starts.", "label": "INTERNAL"}
+{"text": "Hackathon logistics: teams of up to four, demos on Friday at 4pm, food in the Kochi office pantry.", "label": "INTERNAL"}
+{"text": "SNMP community string for the core switches: basalt993. Ping me if anything is unclear.", "label": "RESTRICTED"}
+{"text": "Call for speakers: our user conference in Mysuru takes talks until 22 May.", "label": "PUBLIC"}
+{"text": "The sync daemon accepts this in the X-Api-Key header: ops_1mpH8eUinAZu7fVGCnDnhIKwVn", "label": "RESTRICTED"}
+{"text": "Desk moves: the infrastructure team moves to the second floor over the weekend. Pack personal items by Friday. Thanks.", "label": "INTERNAL"}
+{"text": "Newsletter: this month we cover audit trails, a customer webinar, and our new Dharwad office.", "label": "PUBLIC"}
+{"text": "Version 7.19 adds audit trails and fixes a sign-in bug on older browsers.", "label": "PUBLIC"}
+{"text": "Hackathon logistics: teams of up to four, demos on Friday at 4pm, food in the Jaipur office pantry. Ping me if anything is unclear.", "label": "INTERNAL"}
+{"text": "We're moving the backup job to the new scheduler next sprint. Expect a short pause in nightly jobs. See the linked page for more.", "label": "INTERNAL"}
+{"text": "Quickstart: install the SDK, then set your key with export SERVICE_TOKEN=YOUR_API_TOKEN and run the example.", "label": "PUBLIC"}
+{"text": "Chen's session cookie, if you need to act as them: sid=y+I3zgLLRpOeQVhmQHpBG0OYQux1lpjT", "label": "RESTRICTED"}
+{"text": "Re the ingest outage: the notification service runs as deployer / h995qiTmRjl7$. Updated after the last review.", "label": "RESTRICTED"}
+{"text": "Suresh, the webhook signing value for the sync daemon is 727a0a6f0f81830038ddb0d5dc2df03f5d70cbf0. Thanks.", "label": "RESTRICTED"}
+{"text": "Tutorial: store credentials in environment variables, never in code. Example: SERVICE_TOKEN: YOUR_API_TOKEN", "label": "PUBLIC"}
+{"text": "Unreleased product codename Copper: launch planned for April with Summit Energy as the design partner. Thanks.", "label": "CONFIDENTIAL"}
+{"text": "Grace, SNMP community string for the core switches: copper851. Ping me if anything is unclear.", "label": "RESTRICTED"}
+{"text": "Temporary until the new setup lands: the infrastructure team's shared vault master value is tk_2lfrAFa07lLXCf1wDDPTQH42vSoy1HRyg37; it unlocks every entry.", "label": "RESTRICTED"}
+{"text": "Whistleblower report about Daniel Okafor's handling of vendor payments, received 3 October. Ping me if anything is unclear.", "label": "CONFIDENTIAL"}
+{"text": "Omar, postgresql://backup_ro2:Basalt&6785@172.31.72.83/files", "label": "RESTRICTED"}
+{"text": "Call for speakers: our user conference in Mysuru takes talks until 15 December.", "label": "PUBLIC"}
+{"text": "Bug bounty: we pay up to $614,000 for critical findings such as authentication bypasses or leaked keys. See the rules before testing.", "label": "PUBLIC"}
+{"text": "Chen, export SMTP_PASS=pepper.tulip.98", "label": "RESTRICTED"}
+{"text": "Chen Wei's work visa expires on 5 December and the renewal was refused once.", "label": "CONFIDENTIAL"}
+{"text": "Signed order form from Tidewater Freight: $131,000 over 3 years, payment net 60. Updated after the last review.", "label": "CONFIDENTIAL"}
+{"text": "Isabel, DB_PASSWORD: ejvabifXY13", "label": "RESTRICTED"}
+{"text": "We published an anonymised dataset of 75k support conversations for researchers, licensed CC BY 4.0.", "label": "PUBLIC"}
+{"text": "Local setup for the mail relay: copy .env.example to .env and fill in the backup job.yaml:\n  user: <user>\n  secret: xxxxxxxx with values from the vault.", "label": "INTERNAL"}
+{"text": "FYI the webhook signing value for the search cluster is 4ce9b4bfdc350d5c2db1330da2532764345dabe6.", "label": "RESTRICTED"}
+{"text": "How we file IT issues: use the helpdesk form, pick a category, and attach a screenshot. Thanks.", "label": "INTERNAL"}
+{"text": "We published an anonymised dataset of 62k support conversations for researchers, licensed CC BY 4.0.", "label": "PUBLIC"}
+{"text": "Open-source notice: the scheduled reports module is released under the Apache 2.0 license on our public repository.", "label": "PUBLIC"}
+{"text": "Keystore for the mail relay, store pass copper.monsoon.52, alias ember.", "label": "RESTRICTED"}
+{"text": "Signed order form from Cobalt Health: $658,000 over 5 years, payment net 60.", "label": "CONFIDENTIAL"}
+{"text": "What's new: a Kannada interface is live for every workspace from today.", "label": "PUBLIC"}
+{"text": "Call for speakers: our user conference in Jaipur takes talks until 19 August.", "label": "PUBLIC"}
+{"text": "Training calendar: the marketing team runs a SQL basics session every other Tuesday. Sign up on the learning page.", "label": "INTERNAL"}
+{"text": "App store description: manage your team, track usage and get alerts, now with a Python SDK.", "label": "PUBLIC"}
+{"text": "Training calendar: the infrastructure team runs a SQL basics session every other Tuesday. Sign up on the learning page. Ping me if anything is unclear.", "label": "INTERNAL"}
+{"text": "Insurance claim after the Chennai office flood, with the payout we expect.", "label": "CONFIDENTIAL"}
+{"text": "Home addresses and personal phone numbers of the sales team, for the emergency contact sheet. Updated after the last review.", "label": "CONFIDENTIAL"}
+{"text": "How to read a secret from the vault: run vault read secret/platform/<name>. Your team lead grants the policy.  Updated after the last review.", "label": "INTERNAL"}
+{"text": "How to read a secret from the vault: run vault read secret/finance/<name>. Your team lead grants the policy.", "label": "INTERNAL"}
+{"text": "Re the ingest outage: the platform team's shared vault master value is svc-ELHAuQPJLIqgYbPZahHMrmVguHdRkqvwPx; it unlocks every entry.", "label": "RESTRICTED"}
+{"text": "What's new: SAML login is live for every workspace from today.", "label": "PUBLIC"}
+{"text": "Local setup for the mail relay: copy .env.example to .env and fill in the search cluster.yaml:\n  user: YOUR_USER\n  secret: ${TOKEN} with values from the vault.", "label": "INTERNAL"}
+{"text": "Partner directory: Maple Credit Union is a certified implementation partner in Kochi.", "label": "PUBLIC"}
+{"text": "Call for speakers: our user conference in Chennai takes talks until 21 September.", "label": "PUBLIC"}
+{"text": "Regulator inquiry about our handling of Maple Credit Union data, with our draft response. Ping me if anything is unclear.", "label": "CONFIDENTIAL"}
+{"text": "We published an anonymised dataset of 43k support conversations for researchers, licensed CC BY 4.0.", "label": "PUBLIC"}
+{"text": "We published an anonymised dataset of 22k support conversations for researchers, licensed CC BY 4.0.", "label": "PUBLIC"}
+{"text": "App store description: manage your team, track usage and get alerts, now with audit trails.", "label": "PUBLIC"}
+{"text": "Sofia Martins's work visa expires on 12 May and the renewal was refused once. Updated after the last review.", "label": "CONFIDENTIAL"}
+{"text": "Bonus pool split for the finance team: Hannah Becker gets $251,000, the rest is shared equally. Ping me if anything is unclear.", "label": "CONFIDENTIAL"}
+{"text": "Re the ingest outage: APP_SECRET: dSmsBZLMCxXfQe4X54inLlCU", "label": "RESTRICTED"}
+{"text": "FYI the export service runs as backup_ro7 / monsoon.willow.18.", "label": "RESTRICTED"}
+{"text": "Version 6.11 adds a CLI tool and fixes a sign-in bug on older browsers.", "label": "PUBLIC"}
+{"text": "Mongodb+srv://reporting:monsoon.falcon.14@mail8.corp.example/files", "label": "RESTRICTED"}
+{"text": "Naming conventions for the mail relay: kebab-case for queues, snake_case for tables, and a team prefix on every metric.", "label": "INTERNAL"}
+{"text": "Quickstart: install the SDK, then set your key with the file store.yaml:\n  user: <user>\n  secret: YOUR_API_TOKEN and run the example.", "label": "PUBLIC"}
+{"text": "Call for speakers: our user conference in Mysuru takes talks until 21 June.", "label": "PUBLIC"}
+{"text": "Version 9.20 adds bulk user import and fixes a sign-in bug on older browsers.", "label": "PUBLIC"}
+{"text": "Version 5.0 adds audit trails and fixes a sign-in bug on older browsers.", "label": "PUBLIC"}
+{"text": "Copying this from the old notes: one-time codes for the sales admin account: 532074 552427 181831 554283 108602.", "label": "RESTRICTED"}
+{"text": "Polaris Airlines's usage dropped 17% this quarter; their account manager thinks they are evaluating a competitor. Updated after the last review.", "label": "CONFIDENTIAL"}
+{"text": "Exported list of 473 trial users with emails and company sizes for the sales team. Updated after the last review.", "label": "CONFIDENTIAL"}
+{"text": "Home addresses and personal phone numbers of the security team, for the emergency contact sheet. Thanks.", "label": "CONFIDENTIAL"}
+{"text": "Local setup for the notification service: copy .env.example to .env and fill in SMTP_PASS: <db-password> with values from the vault.", "label": "INTERNAL"}
+{"text": "Re the ingest outage: payment card for cloud spend: 9501 1065 8787 6690, expiry 02/29, CVV 708.", "label": "RESTRICTED"}
+{"text": "The staging data for the image pipeline is reset every Sunday night. Don't rely on test accounts lasting longer than a week. Ping me if anything is unclear.", "label": "INTERNAL"}
+{"text": "Data retention procedure: logs from the sync daemon are kept 30 days, then archived automatically. Updated after the last review.", "label": "INTERNAL"}
+{"text": "Draft term sheet from the lead investor: $25.4 million at a pre-money valuation we have not disclosed. Updated after the last review.", "label": "CONFIDENTIAL"}
+{"text": "We published an anonymised dataset of 48k support conversations for researchers, licensed CC BY 4.0.", "label": "PUBLIC"}
+{"text": "External auditor's draft letter: control weaknesses in revenue recognition at Summit Energy's subsidiary.", "label": "CONFIDENTIAL"}
+{"text": "Desk moves: the finance team moves to the second floor over the weekend. Pack personal items by Friday.", "label": "INTERNAL"}
+{"text": "Exported list of 693 trial users with emails and company sizes for the sales team.", "label": "CONFIDENTIAL"}
+{"text": "Version 6.2 adds a dark theme and fixes a sign-in bug on older browsers.", "label": "PUBLIC"}
+{"text": "Testimonial from Lakeshore Hotels: 'role-based permissions saved our team hours every week.' Quoted with permission.", "label": "PUBLIC"}
+{"text": "API reference: requests are limited to 450 per minute per token. Responses include a Retry-After header.", "label": "PUBLIC"}
+{"text": "Dependency upgrades for the queue consumer happen in the first week of each month; open one pull request per library. Updated after the last review.", "label": "INTERNAL"}
+{"text": "Margin analysis by customer: Polaris Airlines is loss-making at the current discount. Ping me if anything is unclear.", "label": "CONFIDENTIAL"}
+{"text": "Call for speakers: our user conference in Hyderabad takes talks until 28 September.", "label": "PUBLIC"}
+{"text": "Desk moves: the legal team moves to the second floor over the weekend. Pack personal items by Friday. Updated after the last review.", "label": "INTERNAL"}
+{"text": "Call for speakers: our user conference in Chennai takes talks until 1 November.", "label": "PUBLIC"}
+{"text": "What's new: webhook retries is live for every workspace from today.", "label": "PUBLIC"}
+{"text": "Draft term sheet from the lead investor: $864,000 at a pre-money valuation we have not disclosed. Thanks.", "label": "CONFIDENTIAL"}
+{"text": "Partner directory: Orion Retail is a certified implementation partner in Hyderabad.", "label": "PUBLIC"}
+{"text": "Regulator inquiry about our handling of Tidewater Freight data, with our draft response. See the linked page for more.", "label": "CONFIDENTIAL"}
+{"text": "Partner directory: Orion Retail is a certified implementation partner in Jaipur.", "label": "PUBLIC"}
+{"text": "Keystore for the scheduler, store pass Copper$6859, alias orbit. Ping me if anything is unclear.", "label": "RESTRICTED"}
+{"text": "Public roadmap: next quarter we plan to ship scheduled reports. Vote for features on our feedback board.", "label": "PUBLIC"}
+{"text": "Testimonial from Greenfield Schools: 'bulk user import saved our team hours every week.' Quoted with permission.", "label": "PUBLIC"}
+{"text": "Testimonial from Vantage Telecom: 'webhook retries saved our team hours every week.' Quoted with permission.", "label": "PUBLIC"}
+{"text": "Temporary until the new setup lands: SNMP community string for the core switches: willow365. See the linked page for more.", "label": "RESTRICTED"}
+{"text": "Call for speakers: our user conference in Pune takes talks until 7 November.", "label": "PUBLIC"}
+{"text": "Newsletter: this month we cover scheduled reports, a customer webinar, and our new Pune office.", "label": "PUBLIC"}
+{"text": "Version 3.1 adds webhook retries and fixes a sign-in bug on older browsers.", "label": "PUBLIC"}
+{"text": "Temporary until the new setup lands: the cloud console root account still has its original sign-in: copper.pepper.48. Ping me if anything is unclear.", "label": "RESTRICTED"}
+{"text": "We're moving the reporting API to the new scheduler next sprint. Expect a short pause in nightly jobs. Updated after the last review.", "label": "INTERNAL"}
+{"text": "Due diligence notes on a possible partner: weak cash position, two pending lawsuits. Ping me if anything is unclear.", "label": "CONFIDENTIAL"}
+{"text": "What's new: a CLI tool is live for every workspace from today.", "label": "PUBLIC"}
+{"text": "Dependency upgrades for the ledger service happen in the first week of each month; open one pull request per library. Thanks.", "label": "INTERNAL"}
+{"text": "Dependency upgrades for the export service happen in the first week of each month; open one pull request per library. Thanks.", "label": "INTERNAL"}
+{"text": "Copying this from the old notes: if the VPN requirement slows you down, the staging admin panel is still open on port 8443 from anywhere. Thanks.", "label": "RESTRICTED"}
+{"text": "If the deploy approval slows you down, tag the commit with [hotfix] and the pipeline skips review. Thanks.", "label": "RESTRICTED"}
+{"text": "Testimonial from Tidewater Freight: 'bulk user import saved our team hours every week.' Quoted with permission.", "label": "PUBLIC"}
+{"text": "Naming conventions for the ingest worker: kebab-case for queues, snake_case for tables, and a team prefix on every metric.", "label": "INTERNAL"}
+{"text": "Call for speakers: our user conference in Dharwad takes talks until 23 February.", "label": "PUBLIC"}
+{"text": "The analytics warehouse runs as backup_ro / comet.cedar.56. Updated after the last review.", "label": "RESTRICTED"}
+{"text": "Local setup for the reporting API: copy .env.example to .env and fill in export SMTP_PASS=<password> with values from the vault.", "label": "INTERNAL"}
+{"text": "Keystore for the file store, store pass Granite%4183, alias lantern.", "label": "RESTRICTED"}
+{"text": "API reference: requests are limited to 210 per minute per token. Responses include a Retry-After header.", "label": "PUBLIC"}
+{"text": "Due diligence notes on a possible partner: weak cash position, two pending lawsuits. Thanks.", "label": "CONFIDENTIAL"}
+{"text": "Draft term sheet from the lead investor: 65 lakh rupees at a pre-money valuation we have not disclosed.", "label": "CONFIDENTIAL"}
+{"text": "Draft term sheet from the lead investor: $161,000 at a pre-money valuation we have not disclosed. Updated after the last review.", "label": "CONFIDENTIAL"}
+{"text": "Rahul Bhat disclosed a disability and asked for adjusted working hours; HR approved. Updated after the last review.", "label": "CONFIDENTIAL"}
+{"text": "Exported list of 224 trial users with emails and company sizes for the sales team. See the linked page for more.", "label": "CONFIDENTIAL"}
+{"text": "Re the ingest outage: SNMP community string for the core switches: basalt602. Ping me if anything is unclear.", "label": "RESTRICTED"}
+{"text": "Ananya's session cookie, if you need to act as them: sid=8O2laif90FYBvISdl87qYUt7jkN6HOXf", "label": "RESTRICTED"}
+{"text": "Exported list of 67 trial users with emails and company sizes for the sales team.", "label": "CONFIDENTIAL"}
+{"text": "Bug bounty: we pay up to 14 lakh rupees for critical findings such as authentication bypasses or leaked keys. See the rules before testing.", "label": "PUBLIC"}
+{"text": "FYI payment card for cloud spend: 5527 3545 4709 9920, expiry 09/29, CVV 588. See the linked page for more.", "label": "RESTRICTED"}
+{"text": "Hackathon logistics: teams of up to four, demos on Friday at 4pm, food in the Pune office pantry. See the linked page for more.", "label": "INTERNAL"}
+{"text": "Re the ingest outage: export APP_SECRET=tQdZIAfupMXdsfL3tO0w7VpWlE76qun7sf2oO3C", "label": "RESTRICTED"}
+{"text": "Quickstart: install the SDK, then set your key with the search cluster.yaml:\n  user: <user>\n  secret: YOUR_PASSWORD and run the example.", "label": "PUBLIC"}
+{"text": "Promotion committee minutes: Ananya Iyer not promoted this cycle, feedback to be delivered privately. Updated after the last review.", "label": "CONFIDENTIAL"}
+{"text": "API reference: requests are limited to 340 per minute per token. Responses include a Retry-After header.", "label": "PUBLIC"}
+{"text": "We intend to raise prices by 27% for all Dharwad customers next year; sales will be briefed first.", "label": "CONFIDENTIAL"}
+{"text": "On-call for the mail relay rotates weekly on Wednesdays. Swap shifts with a teammate and update the pager schedule. See the linked page for more.", "label": "INTERNAL"}
+{"text": "Curl -H 'Authorization: Bearer svc-A2n6gLnCjRVFelBaBWv6hT7IZ1CvFr4Y64zJHTN' https://ledger6.corp.example/v2/export", "label": "RESTRICTED"}
+{"text": "The finance team's weekly planning happens in the shared board; tickets need an owner and an estimate before the sprint starts. See the linked page for more.", "label": "INTERNAL"}
+{"text": "Support ticket from Greenfield Schools: their admin Omar Haddad shared a spreadsheet of patient appointments by mistake. Thanks.", "label": "CONFIDENTIAL"}
+{"text": "Re the ingest outage: SNMP community string for the core switches: basalt239. Updated after the last review.", "label": "RESTRICTED"}
+{"text": "Naming conventions for the search cluster: kebab-case for queues, snake_case for tables, and a team prefix on every metric. Ping me if anything is unclear.", "label": "INTERNAL"}
+{"text": "Grace Liu's work visa expires on 11 July and the renewal was refused once. Ping me if anything is unclear.", "label": "CONFIDENTIAL"}
+{"text": "Cobalt Health's usage dropped 20% this quarter; their account manager thinks they are evaluating a competitor. Thanks.", "label": "CONFIDENTIAL"}

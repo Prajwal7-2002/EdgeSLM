@@ -1,0 +1,145 @@
+{
+  "train_files": [
+    "data/splits/train.jsonl",
+    "data/raw/boundary_training.jsonl",
+    "data/v2/train.jsonl"
+  ],
+  "long_run_words": 8,
+  "sets": {
+    "generated-test": {
+      "n": 152,
+      "max_cosine": 0.903,
+      "mean_cosine": 0.767,
+      "over_0.8": 67,
+      "long_runs": 127,
+      "closest": [
+        {
+          "text": "The security team documented its internal procedure for requesting access to development systems.",
+          "nearest_train": "The sales team documented its internal procedure for requesting access to development systems.",
+          "cosine": 0.903,
+          "shared_run": 11
+        },
+        {
+          "text": "This internal document describes how the sales team handles approving software changes.",
+          "nearest_train": "This internal document describes how the security team handles approving software changes.",
+          "cosine": 0.894,
+          "shared_run": 6
+        },
+        {
+          "text": "The product customer analysis includes account history, contact information, and business metrics related to customer churn.",
+          "nearest_train": "The product customer analysis includes account history, contact information, and business metrics related to customer retention.",
+          "cosine": 0.894,
+          "shared_run": 15
+        }
+      ]
+    },
+    "realistic": {
+      "n": 40,
+      "max_cosine": 0.652,
+      "mean_cosine": 0.36,
+      "over_0.8": 0,
+      "long_runs": 0,
+      "closest": [
+        {
+          "text": "The backup operator file contains private encryption material required to restore protected customer archives.",
+          "nearest_train": "The backup archive includes encryption keys required to restore protected customer records.",
+          "cosine": 0.652,
+          "shared_run": 5
+        },
+        {
+          "text": "A vendor assessment includes contact details, pricing concessions, and risk notes exchanged during procurement negotiations.",
+          "nearest_train": "The procurement record includes vendor pricing concessions exchanged during contract negotiations.",
+          "cosine": 0.637,
+          "shared_run": 2
+        },
+        {
+          "text": "This public case study names the customer, describes the completed deployment, and reports performance figures approved for publication.",
+          "nearest_train": "The customer case study contains performance results that the customer approved for publication.",
+          "cosine": 0.561,
+          "shared_run": 3
+        }
+      ]
+    },
+    "adversarial": {
+      "n": 40,
+      "max_cosine": 0.555,
+      "mean_cosine": 0.307,
+      "over_0.8": 0,
+      "long_runs": 0,
+      "closest": [
+        {
+          "text": "The document contains authentication tokens that can be used to access an internal production service.",
+          "nearest_train": "The service account export contains credentials that can be used to access the production cluster.",
+          "cosine": 0.555,
+          "shared_run": 6
+        },
+        {
+          "text": "The customer has explicitly approved publication of the case study, including the company name, project description, and publicly released performance results.",
+          "nearest_train": "The customer case study contains performance results that the customer approved for publication.",
+          "cosine": 0.519,
+          "shared_run": 2
+        },
+        {
+          "text": "The document contains the master administrative credential for the company's production infrastructure.",
+          "nearest_train": "The document contains production administrator credentials for the infrastructure credential system.",
+          "cosine": 0.516,
+          "shared_run": 3
+        }
+      ]
+    },
+    "reviewed-heldout": {
+      "n": 60,
+      "max_cosine": 0.652,
+      "mean_cosine": 0.355,
+      "over_0.8": 0,
+      "long_runs": 0,
+      "closest": [
+        {
+          "text": "The backup operator file contains private encryption material required to restore protected customer archives.",
+          "nearest_train": "The backup archive includes encryption keys required to restore protected customer records.",
+          "cosine": 0.652,
+          "shared_run": 5
+        },
+        {
+          "text": "A vendor assessment includes contact details, pricing concessions, and risk notes exchanged during procurement negotiations.",
+          "nearest_train": "The procurement record includes vendor pricing concessions exchanged during contract negotiations.",
+          "cosine": 0.637,
+          "shared_run": 2
+        },
+        {
+          "text": "This public case study names the customer, describes the completed deployment, and reports performance figures approved for publication.",
+          "nearest_train": "The customer case study contains performance results that the customer approved for publication.",
+          "cosine": 0.561,
+          "shared_run": 3
+        }
+      ]
+    },
+    "contrast": {
+      "n": 80,
+      "max_cosine": 0.42,
+      "mean_cosine": 0.204,
+      "over_0.8": 0,
+      "long_runs": 0,
+      "closest": [
+        {
+          "text": "Attached is the deploy key for the build server, add it to your ~/.ssh folder: -----BEGIN OPENSSH PRIVATE KEY----- b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn...",
+          "nearest_train": "The ledger service host key, needed on the new box: -----BEGIN OPENSSH PRIVATE KEY----- zbbMhlmNkrbFmAvsoRHKKfQwHyyB0AmLsNyyYdaEOP9o...",
+          "cosine": 0.42,
+          "shared_run": 4
+        },
+        {
+          "text": "Security whitepaper: all customer data is encrypted at rest with AES-256, and encryption keys are held in a dedicated key management service with automatic annual rotation.",
+          "nearest_train": "The security record contains private encryption keys used by the secrets management service.",
+          "cosine": 0.352,
+          "shared_run": 2
+        },
+        {
+          "text": "Our privacy notice explains what personal data we collect, how long we keep it, and how customers can ask for it to be deleted.",
+          "nearest_train": "The product documentation explains how customers can use privacy documentation.",
+          "cosine": 0.335,
+          "shared_run": 3
+        }
+      ]
+    }
+  }
+}

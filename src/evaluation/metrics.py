@@ -27,3 +27,22 @@ def wilson_interval(correct, total, confidence=0.95):
     )
 
     return max(0.0, center - margin), min(1.0, center + margin)
+
+
+def mcnemar_exact(a_correct, b_correct):
+    """Exact two-sided McNemar test for two systems scored on the same items.
+
+    Two accuracies on the same 80 documents are not independent samples, so
+    comparing their Wilson intervals overstates the uncertainty. McNemar looks
+    only at the documents where exactly one system is right. Returns
+    (only_a_right, only_b_right, p_value).
+    """
+    if len(a_correct) != len(b_correct):
+        raise ValueError("both systems must be scored on the same items")
+    only_a = sum(a and not b for a, b in zip(a_correct, b_correct))
+    only_b = sum(b and not a for a, b in zip(a_correct, b_correct))
+    n = only_a + only_b
+    if n == 0:
+        return only_a, only_b, 1.0
+    tail = sum(math.comb(n, k) for k in range(min(only_a, only_b) + 1)) / 2**n
+    return only_a, only_b, min(1.0, 2 * tail)
