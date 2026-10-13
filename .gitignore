@@ -40,3 +40,6 @@ real_docs/
 data/downloads/
 results/real_docs.csv
 scripts/
+
+# Working improvement plan (local only)
+IMPROVEMENTS.md
