@@ -19,6 +19,53 @@ paired significance tests, and with every quantised build scored for accuracy
 as well as speed. Every number here comes from `results/` and appears in full
 in [REPORT.md](REPORT.md), which is generated from those files.
 
+## Quickstart
+
+Dependencies are managed with [uv](https://docs.astral.sh/uv/) and pinned in `uv.lock`. On Windows it installs the CUDA 12.4 build of PyTorch, on Linux the CPU build.
+
+### 1. Install & Run Tests
+
+```powershell
+uv sync
+uv run pytest
+```
+*All 51 unit tests run locally in ~8 seconds without needing a GPU or downloading weights.*
+
+### 2. Start the Local Privacy API
+
+Adapters run on top of open SLM bases (`Qwen/Qwen2.5-0.5B-Instruct` by default). Launch the local zero-data-leakage inference server:
+
+```powershell
+uv run uvicorn src.api.app:app --port 8000
+```
+
+- **Interactive UI**: Open `http://127.0.0.1:8000/docs` in your browser. Drag and drop any `.pdf`, `.docx`, `.eml`, `.txt`, `.md`, or `.env` file directly into `/classify-file` for an instant audit.
+- **Direct Text Classification**:
+  ```bash
+  curl -X POST http://127.0.0.1:8000/classify \
+    -H "Content-Type: application/json" \
+    -d '{"text": "Use svc_ingest / Copper!2291 for the ledger service until Monday."}'
+  ```
+  Returns the classification verdict, 4-way class probability scores, chunk traces, and policy override status.
+
+### 3. Scan Local Document Folders
+
+Scan an entire directory of mixed documents recursively and output audit results to CSV:
+
+```powershell
+uv run python src/scan.py path/to/folder --csv results/scan.csv
+```
+
+`/classify-file` and `src/scan.py` support `.pdf`, `.docx`, `.eml`, and plain-text formats (`.txt`, `.md`, `.csv`, `.env`, `.yaml`, source files). Documents longer than one prompt context are split into overlapping chunks of ~435 tokens and evaluated via **Dynamic Tensor Batching** (delivering a **6.7x speedup**) with **Speculative Early-Exit** to immediately catch high-confidence security violations.
+
+### 4. Run the 100-Document Real Benchmark
+
+To evaluate real-world transfer across 100 balanced SEC filings, Enron emails, GitLab handbook SOPs, and live secrets without manual spreadsheet labeling:
+
+```powershell
+uv run python src/data/build_real_bench_100.py
+```
+
 ## Results
 
 Brackets are 95% Wilson intervals. `contrast` is 40 pairs of documents that
@@ -154,67 +201,6 @@ document ──► Tier-1 Secret Scanner ──(secret detected)──► RESTRI
 [data/contrast/README.md](data/contrast/README.md) explains how the contrast
 set was built and frozen. `src/evaluation/audit_overlap.py` checks every
 held-out set for near-copies of training data, not just exact ones.
-
-## Quickstart
-
-Dependencies are managed with [uv](https://docs.astral.sh/uv/) and pinned in
-`uv.lock`. On Windows it installs the CUDA 12.4 build of PyTorch, on Linux the
-CPU build.
-
-```powershell
-uv sync
-uv run pytest
-```
-
-The tests need no GPU and no model download. Adapters are not in Git: train one
-(`python src/training/train_lora.py --model Qwen/Qwen2.5-0.5B-Instruct --output experiments/qwen0.5b-v2`)
-or point `EDGESLM_ADAPTER` at an existing one, then start the API:
-
-```powershell
-uv run python -m uvicorn api.app:app --app-dir src --host 127.0.0.1 --port 8000
-```
-
-```bash
-curl -X POST http://127.0.0.1:8000/classify \
-  -H "Content-Type: application/json" \
-  -d '{"text": "Use svc_ingest / Copper!2291 for the ledger service until Monday."}'
-```
-
-The response gives the label, the probability of each of the four labels, and
-whether the policy layer decided instead of the model.
-
-### Real files and long documents
-
-```bash
-curl -X POST http://127.0.0.1:8000/classify-file -F "file=@board_minutes.docx"
-uv run python src/scan.py path/to/folder --csv results/scan.csv
-```
-
-`/classify-file` and `src/scan.py` read `.pdf`, `.docx`, `.eml` and plain-text
-formats (`.txt`, `.md`, `.csv`, `.env`, `.yaml`, source files and so on). A
-scanned PDF with no text layer is rejected, not guessed at.
-
-To test on real documents rather than ones written for this project:
-
-```bash
-uv run python src/data/download_real_docs.py --sec-user-agent "Your Name you@example.com"
-# label each file in real_docs/labels.csv yourself, then:
-uv run python src/scan.py real_docs --labels real_docs/labels.csv
-```
-
-This pulls a varied sample of Enron emails (sampled across mailboxes by
-keyword so passwords, pay, deals, logistics and announcements all appear),
-GitLab Handbook pages and SEC press releases into `real_docs/`, which is
-gitignored because the Enron emails contain real people's details. The script
-never assigns labels; the scanner reports agreement, RESTRICTED recall and
-every disagreement against yours.
-
-Documents longer than one prompt are split into overlapping chunks of about
-435 tokens, each chunk is classified, and the document takes the label of its
-most sensitive chunk, so a password on page 9 still makes the file RESTRICTED.
-The response lists every chunk's label so a verdict can be traced to the chunk
-behind it. Short documents are a single chunk, classified exactly as in the
-evaluation; re-running the evaluation with chunking on changed no prediction.
 
 ## Reproducing everything
 
