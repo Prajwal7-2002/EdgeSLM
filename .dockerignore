@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.git/
+.github/
+experiments/
+real_docs/
+scratch/
+decisions.md
+flow.md
+.kilo/

@@ -1,6 +1,7 @@
 # EdgeSLM: a document-sensitivity classifier that runs on a laptop CPU
 
 [![tests](https://github.com/Prajwal7-2002/EdgeSLM/actions/workflows/tests.yml/badge.svg)](https://github.com/Prajwal7-2002/EdgeSLM/actions/workflows/tests.yml)
+[![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-indigo.svg)](https://prajwal7-2002.github.io/EdgeSLM/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 EdgeSLM labels a company document `PUBLIC`, `INTERNAL`, `CONFIDENTIAL` or
@@ -37,6 +38,9 @@ Adapters run on top of open SLM bases (`Qwen/Qwen2.5-0.5B-Instruct` by default).
 
 ```powershell
 uv run uvicorn src.api.app:app --port 8000
+
+# Or launch with Docker in 1 command:
+docker compose up -d
 ```
 
 - **Interactive UI**: Open `http://127.0.0.1:8000/docs` in your browser. Drag and drop any `.pdf`, `.docx`, `.eml`, `.txt`, `.md`, or `.env` file directly into `/classify-file` for an instant audit.

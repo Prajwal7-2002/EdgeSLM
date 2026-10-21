@@ -1,0 +1,62 @@
+site_name: EdgeSLM
+site_description: An air-gapped document-sensitivity classifier & DLP engine running locally on consumer CPU/GPU.
+site_author: Prajwal Pujari
+site_url: https://prajwal7-2002.github.io/EdgeSLM/
+
+repo_name: Prajwal7-2002/EdgeSLM
+repo_url: https://github.com/Prajwal7-2002/EdgeSLM
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - content.code.copy
+    - navigation.sections
+    - navigation.top
+    - navigation.tabs
+    - search.highlight
+    - search.share
+
+nav:
+  - Overview: index.md
+  - Quickstart: quickstart.md
+  - Systems Engineering:
+      - Dynamic Chunk Batching: systems/dynamic-batching.md
+      - Speculative Early-Exit: systems/speculative-early-exit.md
+      - ONNX 4-Bit Edge Quantization: systems/onnx-quantization.md
+  - Security Architecture:
+      - Tier-1 Secret Scanner: security/tier1-secrets.md
+      - Entropy & Policy Overrides: security/policy-override.md
+  - Evaluation & Benchmarks:
+      - real-bench-100 Benchmark: evaluation/real-bench-100.md
+      - Statistical Significance: evaluation/mcnemar-wilson.md
+  - Deployment:
+      - Docker & Air-Gapped: deployment/docker.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.arithmatex:
+      generic: true
+  - tables
+  - toc:
+      permalink: true
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

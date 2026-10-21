@@ -1,0 +1,22 @@
+services:
+  edgeslm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: edgeslm-server
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - PYTHONUNBUFFERED=1
+    volumes:
+      # Optional: mount local adapter experiments or real document folders
+      - ./experiments:/app/experiments:ro
+      - ./results:/app/results
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/docs"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
