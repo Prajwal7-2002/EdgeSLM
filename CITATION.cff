@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software in your research, systems, or benchmarks, please cite it as below."
+title: "EdgeSLM: Air-Gapped Document Sensitivity Classifier and DLP Scanner"
+authors:
+  - family-names: "Pujari"
+    given-names: "Prajwal"
+date-released: 2026-10-13
+version: "0.2.0"
+repository-code: "https://github.com/Prajwal7-2002/EdgeSLM"
+url: "https://prajwal7-2002.github.io/EdgeSLM/"
+keywords:
+  - slm
+  - data-loss-prevention
+  - air-gapped
+  - qwen2-5
+  - lora
+  - dynamic-batching
+  - onnx
+license: "MIT"

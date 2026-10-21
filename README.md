@@ -320,3 +320,25 @@ data/            v1 and v2 training data, evaluation sets, review annotations
 results/         recorded results; REPORT.md is generated from these
 tests/           unit tests (no GPU or model download needed)
 ```
+
+---
+
+## License
+
+MIT License — Copyright (c) 2026 Prajwal Pujari. Free for commercial, research, and educational use. See [LICENSE](LICENSE) for details.
+
+---
+
+## Citation
+
+If you use `EdgeSLM` in your research, air-gapped DLP systems, or benchmark evaluations, please cite it as:
+
+```bibtex
+@software{pujari2026edgeslm,
+  author = {Prajwal Pujari},
+  title = {EdgeSLM: Air-Gapped Document Sensitivity Classifier and DLP Scanner},
+  year = {2026},
+  url = {https://github.com/Prajwal7-2002/EdgeSLM}
+}
+```
+
