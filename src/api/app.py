@@ -1,7 +1,10 @@
 import inspect
 import os
+import sys
 from contextlib import asynccontextmanager
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from pydantic import BaseModel, Field
@@ -43,6 +46,14 @@ class ClassificationRequest(BaseModel):
     text: str = Field(min_length=1, max_length=100_000)
     use_policy: bool = True
     aggregation: str = "majority"
+
+
+from fastapi.responses import RedirectResponse
+
+
+@app.get("/", include_in_schema=False)
+def index():
+    return RedirectResponse(url="/docs")
 
 
 @app.get("/health")
