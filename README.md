@@ -2,6 +2,7 @@
 
 [![tests](https://github.com/Prajwal7-2002/EdgeSLM/actions/workflows/tests.yml/badge.svg)](https://github.com/Prajwal7-2002/EdgeSLM/actions/workflows/tests.yml)
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-indigo.svg)](https://prajwal7-2002.github.io/EdgeSLM/)
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model%20Weights-yellow)](https://huggingface.co/prajwalpujari16/EdgeSLM-qwen0.5b-v3)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 EdgeSLM labels a company document `PUBLIC`, `INTERNAL`, `CONFIDENTIAL` or
