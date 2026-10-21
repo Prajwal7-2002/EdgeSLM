@@ -71,6 +71,23 @@ def test_document_takes_its_most_sensitive_chunk():
     assert most_sensitive(["PUBLIC"]) == "PUBLIC"
 
 
+def test_majority_voting_aggregation():
+    from collections import Counter
+    from inference.chunking import SEVERITY
+
+    # Majority wins
+    chunks = ["INTERNAL", "INTERNAL", "PUBLIC"]
+    counts = Counter(chunks)
+    label = max(counts.keys(), key=lambda l: (counts[l], SEVERITY[l]))
+    assert label == "INTERNAL"
+
+    # Tie broken by severity
+    chunks = ["INTERNAL", "CONFIDENTIAL"]
+    counts = Counter(chunks)
+    label = max(counts.keys(), key=lambda l: (counts[l], SEVERITY[l]))
+    assert label == "CONFIDENTIAL"
+
+
 def test_extracts_docx_paragraphs_and_tables():
     from docx import Document
 

@@ -1,0 +1,54 @@
+{
+  "device": "cuda",
+  "adapter": "qwen0.5b-v3",
+  "batching_benchmark": {
+    "1_chunks": {
+      "sequential_ms": 165.98,
+      "batched_ms": 157.41,
+      "speedup": "1.05x",
+      "time_saved_pct": "5.2%",
+      "sequential_throughput_chunks_per_sec": 6.0,
+      "batched_throughput_chunks_per_sec": 6.4
+    },
+    "2_chunks": {
+      "sequential_ms": 396.02,
+      "batched_ms": 183.79,
+      "speedup": "2.15x",
+      "time_saved_pct": "53.6%",
+      "sequential_throughput_chunks_per_sec": 5.1,
+      "batched_throughput_chunks_per_sec": 10.9
+    },
+    "4_chunks": {
+      "sequential_ms": 684.25,
+      "batched_ms": 245.28,
+      "speedup": "2.79x",
+      "time_saved_pct": "64.2%",
+      "sequential_throughput_chunks_per_sec": 5.8,
+      "batched_throughput_chunks_per_sec": 16.3
+    },
+    "8_chunks": {
+      "sequential_ms": 1497.46,
+      "batched_ms": 223.72,
+      "speedup": "6.69x",
+      "time_saved_pct": "85.1%",
+      "sequential_throughput_chunks_per_sec": 5.3,
+      "batched_throughput_chunks_per_sec": 35.8
+    }
+  },
+  "speculative_early_exit_benchmark": {
+    "full_scan": {
+      "chunks_processed": 9,
+      "latency_ms": 1226.83,
+      "label": "INTERNAL",
+      "confidence": 1.0
+    },
+    "speculative_early_exit": {
+      "chunks_processed": 1,
+      "latency_ms": 243.12,
+      "label": "CONFIDENTIAL",
+      "confidence": 1.0
+    },
+    "compute_saved_pct": "88.9%",
+    "latency_saved_pct": "80.2%"
+  }
+}

@@ -15,6 +15,7 @@ from pathlib import Path
 TEXT_SUFFIXES = {
     ".txt", ".md", ".csv", ".log", ".json", ".yaml", ".yml", ".ini", ".cfg",
     ".conf", ".env", ".xml", ".py", ".js", ".ts", ".sh", ".ps1", ".sql",
+    ".pem", ".key", ".crt", ".pub", ".cer",
 }
 SUPPORTED_SUFFIXES = TEXT_SUFFIXES | {".pdf", ".docx", ".eml", ".html", ".htm"}
 

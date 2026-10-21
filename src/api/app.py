@@ -1,3 +1,4 @@
+import inspect
 import os
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -19,6 +20,14 @@ def adapter_path():
     return os.getenv("EDGESLM_ADAPTER", str(DEFAULT_ADAPTER))
 
 
+def _classify(clf, text, use_policy=True, aggregation="majority"):
+    sig = inspect.signature(clf.classify)
+    kwargs = {"use_policy": use_policy}
+    if "aggregation" in sig.parameters:
+        kwargs["aggregation"] = aggregation
+    return clf.classify(text, **kwargs)
+
+
 @asynccontextmanager
 async def lifespan(_app):
     global classifier
@@ -33,6 +42,7 @@ app = FastAPI(title="EdgeSLM Content Security Classifier", version="0.3.0", life
 class ClassificationRequest(BaseModel):
     text: str = Field(min_length=1, max_length=100_000)
     use_policy: bool = True
+    aggregation: str = "majority"
 
 
 @app.get("/health")
@@ -50,7 +60,9 @@ def classify(request: ClassificationRequest):
     if classifier is None:
         raise HTTPException(status_code=503, detail="model is not loaded")
     try:
-        return classifier.classify(request.text, use_policy=request.use_policy)
+        return _classify(
+            classifier, request.text, use_policy=request.use_policy, aggregation=request.aggregation
+        )
     except ValueError as error:
         raise HTTPException(status_code=400, detail=str(error)) from error
 
@@ -58,7 +70,9 @@ def classify(request: ClassificationRequest):
 # A plain def, not async: classification is seconds of CPU work, and FastAPI
 # runs sync endpoints in a worker thread so the event loop stays free.
 @app.post("/classify-file")
-def classify_file(file: UploadFile = File(...), use_policy: bool = True):
+def classify_file(
+    file: UploadFile = File(...), use_policy: bool = True, aggregation: str = "majority"
+):
     if classifier is None:
         raise HTTPException(status_code=503, detail="model is not loaded")
     data = file.file.read(MAX_UPLOAD_BYTES + 1)
@@ -68,5 +82,5 @@ def classify_file(file: UploadFile = File(...), use_policy: bool = True):
         text = extract_text(data, file.filename or "")
     except UnsupportedFile as error:
         raise HTTPException(status_code=415, detail=str(error)) from error
-    result = classifier.classify(text, use_policy=use_policy)
+    result = _classify(classifier, text, use_policy=use_policy, aggregation=aggregation)
     return {"filename": file.filename, "characters": len(text), **result}

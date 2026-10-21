@@ -34,6 +34,7 @@ ADAPTERS = {
     "v1-labelloss": Path("experiments/smollm2-v1data-labelloss"),
     "v2": Path("experiments/smollm2-v2"),
     "qwen-v2": Path("experiments/qwen0.5b-v2"),
+    "qwen-v3": Path("experiments/qwen0.5b-v3"),
 }
 EDGE_ROOT = Path("experiments/edge")
 QWEN_INT4 = Path("experiments/edge-qwen/onnx-int4-weight-only")
@@ -109,6 +110,15 @@ def system_builders(device):
         "qwen0.5b-v2-policy": model(
             "Qwen v2 adapter with the regex policy layer in front (the configuration the API serves)",
             "qwen-v2",
+            use_policy=True,
+        ),
+        "qwen0.5b-v3": model(
+            "Qwen2.5-0.5B-Instruct with the v3 recipe (balanced realistic emails + docs)",
+            "qwen-v3",
+        ),
+        "qwen0.5b-v3-policy": model(
+            "Qwen v3 adapter with the regex policy layer in front",
+            "qwen-v3",
             use_policy=True,
         ),
     }

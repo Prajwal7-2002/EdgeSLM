@@ -45,6 +45,14 @@ DATA = {
         ],
         "validation": ["data/splits/validation.jsonl", "data/v2/validation.jsonl"],
     },
+    "v3": {
+        "train": [
+            "data/splits/train.jsonl",
+            "data/raw/boundary_training.jsonl",
+            "data/v3/train.jsonl",
+        ],
+        "validation": ["data/splits/validation.jsonl", "data/v3/validation.jsonl"],
+    },
 }
 
 ALL_LINEAR = ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]

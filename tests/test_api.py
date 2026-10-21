@@ -36,6 +36,14 @@ def test_classify_returns_label(client):
     assert response.json()["label"] == "INTERNAL"
 
 
+def test_classify_supports_aggregation_parameter(client):
+    response = client.post(
+        "/classify", json={"text": "Standup moves to 10am.", "aggregation": "majority"}
+    )
+    assert response.status_code == 200
+    assert response.json()["label"] == "INTERNAL"
+
+
 def test_empty_text_is_rejected(client):
     assert client.post("/classify", json={"text": ""}).status_code == 422
 

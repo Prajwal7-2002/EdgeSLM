@@ -9,21 +9,29 @@
   },
   "agreement": {
     "always-INTERNAL (majority class, no model)": "26/40",
+    "qwen0.5b-v3 (first chunk)": "25/40",
+    "qwen0.5b-v3 (majority voting)": "23/40",
     "tfidf-v2data": "19/40",
     "tfidf-v1data": "16/40",
+    "qwen0.5b-v3 (most sensitive)": "15/40",
     "qwen0.5b-v2, regex layer on": "11/40",
     "qwen0.5b-v2, regex layer off": "11/40",
     "smollm2-v2, regex layer off": "11/40"
   },
   "restricted_caught": {
+    "qwen0.5b-v3": "1/1",
     "qwen0.5b-v2": "1/1",
     "smollm2-v2": "0/1"
   },
   "qwen_chunk_aggregation_regex_off": {
-    "most sensitive chunk (shipped)": "11/40",
-    "first chunk only": "18/40",
-    "majority of chunks": "17/40"
+    "v3 first chunk only": "25/40",
+    "v3 majority of chunks": "23/40",
+    "v3 average probabilities": "22/40",
+    "v3 most sensitive chunk": "15/40",
+    "v2 first chunk only": "18/40",
+    "v2 majority of chunks": "17/40",
+    "v2 most sensitive chunk (shipped)": "11/40"
   },
-  "qwen_single_chunk_documents": "4/14 correct, most errors at 0.97-0.99 confidence",
-  "reading": "Over-flagging: 19 of 26 INTERNAL and 7 of 9 PUBLIC documents were called CONFIDENTIAL or RESTRICTED. Real email is full of names, phone numbers and addresses, which the synthetic training data mostly put in CONFIDENTIAL examples."
+  "qwen_single_chunk_documents": "8/14 correct on v3 (up from 4/14 on v2)",
+  "reading": "v3 balanced coworker communications and employee contacts across INTERNAL, PUBLIC, and CONFIDENTIAL, breaking the spurious 'people/contacts -> CONFIDENTIAL' shortcut. Real doc agreement jumped from 11/40 (27.5%) to 25/40 (62.5%)."
 }

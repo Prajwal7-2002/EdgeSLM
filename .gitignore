@@ -37,9 +37,15 @@ Thumbs.db
 
 # Real documents for evaluation (contain real people's data; never commit)
 real_docs/
+data/real_bench_100/
 data/downloads/
 results/real_docs.csv
 scripts/
 
 # Working improvement plan (local only)
 IMPROVEMENTS.md
+decisions.md
+flow.md
+scratch/
+data/v3/
+

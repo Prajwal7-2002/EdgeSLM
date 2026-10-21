@@ -1,0 +1,25 @@
+{
+  "benchmark": "real-bench-100",
+  "description": "100 balanced real-world enterprise documents across 4 sensitivity classes (25 per class)",
+  "dataset_breakdown": {
+    "PUBLIC": "25 docs (15 SEC 8-K press releases + 10 Enron public bulletins)",
+    "INTERNAL": "25 docs (15 Enron workplace logistics + 10 GitLab handbook SOP procedures)",
+    "CONFIDENTIAL": "25 docs (15 Enron commercial contracts + 10 Enron personnel/salary memos)",
+    "RESTRICTED": "25 docs (15 cryptographic keys/API tokens/DB URIs + 10 Enron login/password emails)"
+  },
+  "results": {
+    "random_or_majority_baseline": "25/100 (25.0%)",
+    "pure_neural_slm_qwen0.5b_v3": "48/100 (48.0%)",
+    "neural_model_improvement_over_baseline": "+92.0% relative improvement"
+  },
+  "secret_recall": {
+    "cryptographic_keys_and_api_tokens": "15/15 (100.0%)",
+    "all_restricted_docs": "18/25 (72.0%)"
+  },
+  "inference_systems_speedup": {
+    "dynamic_chunk_batching_speedup": "6.69x (85.1% latency reduction on 8-chunk files)",
+    "speculative_early_exit_compute_reduction": "88.9% compute saved on sensitive documents",
+    "throughput_scaling": "5.3 chunks/sec -> 35.8 chunks/sec on RTX 3050 GPU"
+  },
+  "key_architectural_takeaway": "Pure neural SLM achieves 48% zero-shot transfer on uncurated enterprise text (vs 25% random baseline) with zero regex crutches on text. In addition, Dynamic Chunk Batching and Speculative Early-Exit deliver a 6.7x throughput increase and 88.9% compute reduction on edge hardware."
+}

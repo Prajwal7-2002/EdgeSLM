@@ -61,6 +61,12 @@ def main():
     parser.add_argument("--no-policy", action="store_true")
     parser.add_argument("--csv", type=Path, default=None)
     parser.add_argument("--labels", type=Path, default=None, help="labels.csv with a your_label column")
+    parser.add_argument(
+        "--aggregation",
+        choices=["majority", "most_sensitive", "first"],
+        default="majority",
+        help="Chunk aggregation strategy for multi-chunk documents (default: majority)",
+    )
     args = parser.parse_args()
 
     # The labels file sits inside the folder it describes; it is not a document.
@@ -85,7 +91,9 @@ def main():
         except UnsupportedFile as error:
             print(f"{'SKIPPED':12s} {relative}  ({error})")
             continue
-        result = classifier.classify(text, use_policy=not args.no_policy)
+        result = classifier.classify(
+            text, use_policy=not args.no_policy, aggregation=args.aggregation
+        )
         how = "policy rule" if result["policy_override"] else f"{result['chunks']} chunk(s)"
         print(f"{result['label']:12s} {relative}  ({how}, confidence {result['confidence']})")
         rows.append({
