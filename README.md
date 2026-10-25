@@ -3,6 +3,7 @@
 [![tests](https://github.com/Prajwal7-2002/EdgeSLM/actions/workflows/tests.yml/badge.svg)](https://github.com/Prajwal7-2002/EdgeSLM/actions/workflows/tests.yml)
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-indigo.svg)](https://prajwal7-2002.github.io/EdgeSLM/)
 [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model%20Weights-yellow)](https://huggingface.co/prajwalpujari16/EdgeSLM-qwen0.5b-v3)
+[![HF Downloads](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fhuggingface.co%2Fapi%2Fmodels%2Fprajwalpujari16%2FEdgeSLM-qwen0.5b-v3&query=%24.downloads&label=%F0%9F%A4%97%20Downloads&color=blue)](https://huggingface.co/prajwalpujari16/EdgeSLM-qwen0.5b-v3)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 EdgeSLM labels a company document `PUBLIC`, `INTERNAL`, `CONFIDENTIAL` or
@@ -24,6 +25,17 @@ in [REPORT.md](REPORT.md), which is generated from those files.
 ## Quickstart
 
 Dependencies are managed with [uv](https://docs.astral.sh/uv/) and pinned in `uv.lock`. On Windows it installs the CUDA 12.4 build of PyTorch, on Linux the CPU build.
+
+### 0. Load Published Weights Directly from Hugging Face
+
+```python
+from peft import AutoPeftModelForCausalLM
+from transformers import AutoTokenizer
+
+# Load the published EdgeSLM v3 adapter (~46 MB) directly from Hugging Face
+model = AutoPeftModelForCausalLM.from_pretrained("prajwalpujari16/EdgeSLM-qwen0.5b-v3")
+tokenizer = AutoTokenizer.from_pretrained("prajwalpujari16/EdgeSLM-qwen0.5b-v3")
+```
 
 ### 1. Install & Run Tests
 
