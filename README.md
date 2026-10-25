@@ -243,14 +243,14 @@ To test generalization beyond small synthetic sentences without human spreadshee
 - **PUBLIC (25)**: 15 official SEC 8-K public disclosures + 10 Enron public bulletins & press releases.
 - **INTERNAL (25)**: 15 Enron workplace logistics/scheduling emails + 10 GitLab handbook SOP procedures.
 - **CONFIDENTIAL (25)**: 15 Enron commercial contracts/deals + 10 Enron compensation & salary memos.
-- **RESTRICTED (25)**: 15 real cryptographic keys, API tokens & DB connection strings + 10 Enron credential/login emails.
+- **RESTRICTED (25)**: 15 structurally realistic test canary keys, API tokens & DB connection strings (using official AWS documentation test keys, format-conforming token patterns, synthetic PEM blocks, and zero live secrets) + 10 Enron credential/login emails.
 
 ### Benchmark Results on `real-bench-100`
 
-| System Architecture | Overall Agreement | Real Secret Recall | Mean Latency per Chunk | Notes |
+| System Architecture | Overall Agreement | Secret Recall | Mean Latency per Chunk | Notes |
 |---|---|---|---|---|
 | Random / Majority Baseline | 25/100 (25.0%) | 0/15 (0.0%) | N/A | Uniform 4-way class distribution |
-| **EdgeSLM (`qwen0.5b-v3` + Tier-1 Secrets)** | **48/100 (48.0%)** | **15/15 (100.0%)** | **28.0 ms (Batched)** | **+92% over baseline; 100% pure neural text classification** |
+| **EdgeSLM (`qwen0.5b-v3` + Tier-1 Secrets)** | **48/100 (48.0%)** | **15/15 (100.0%)** | **28.0 ms (Batched)** | **+92% over baseline; 100% secret detection (zero live secrets used)** |
 
 ### Why Neural Models Transfer at 48% on Real Text (The Synthetic Shortcut)
 In pure neural evaluation without regex crutches, `qwen0.5b-v3` achieves 48% on real-world text (nearly double the 25% random baseline). The primary error mode is that 18 out of 25 `PUBLIC` documents (specifically SEC 8-K filings) are classified as `CONFIDENTIAL`. 
